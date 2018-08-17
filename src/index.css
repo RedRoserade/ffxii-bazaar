@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --heading-bg-color: indianred;
+  --heading-text-color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+dd {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+}
+
+.SubHeading {
+  margin: 10px 0;
+}
+
+.SubHeading:not(:first-child) {
+  margin-top: 20px;
+}
+
+.Page {
+  padding: 0 15px;
+  padding-bottom: 15px;
+}
+
+.FullWidth {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.PageHeader {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 15px;
+
+  padding: 15px;
+  padding-top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--heading-bg-color);
+
+  color: var(--heading-text-color);
+
+  position: sticky;
+  top: 0;
+}
+
+.PageHeader > h1,
+.PageHeader > h2 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.MainNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  background-color: var(--heading-bg-color);
+}
+
+.MainNav > a {
+  padding: 10px;
+  padding-bottom: 5px;
+  color: var(--heading-text-color);
+}
+
+.MainNav > a.active {
+  border-bottom: 3px solid var(--heading-text-color);
+}
+
+.CustomList {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style-type: none;
+}
+
+.CustomList:not(:empty) {
+  border-bottom: 1px solid #cecece;
+}
+
+.CustomListItem {
+  padding: 10px 15px;
+  border-top: 1px solid #cecece;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #fff;
+}
+
+.CustomListItem,
+.CustomListItem a {
+  color: black;
+}
+
+.CustomListItem:hover {
+  background-color: #efefef;
+}
+
+.CustomListItem.CustomListItemWithInput > :first-child {
+  flex: 1;
+}
+
+.CustomListItem.CustomListItem.CustomListItemWithInput > label {
+  padding: 2px 0 2px 5px;
+}
+
+.CustomListItemBadge {
+  font-size: 0.85em;
+  padding: 2px 8px;
+  border-radius: 16px;
+
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-left: auto;
+}
+
+.HeadingSearchInput {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 2px;
+
+  border: none;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.HeadingSearchFeedback {
+  margin-top: 5px;
+}
+
+input,
+button,
+textarea {
+  font-family: "Open Sans", sans-serif;
+}
+
+.NoResultsFeedback {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
