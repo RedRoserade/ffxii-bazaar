@@ -7,6 +7,7 @@ import { Items } from "./Items";
 
 import { RecipeDetails } from "./RecipeDetails";
 import { Recipes } from "./Recipes";
+import { About } from "./About";
 
 class App extends React.Component {
   public render() {
@@ -14,12 +15,9 @@ class App extends React.Component {
       <HashRouter>
         <>
           <nav className="MainNav">
-            <NavLink exact={true} to="/recipes">
-              Recipes
-            </NavLink>
-            <NavLink exact={true} to="/items">
-              Items
-            </NavLink>
+            <NavLink to="/recipes">Recipes</NavLink>
+            <NavLink to="/items">Items</NavLink>
+            <NavLink to="/about">About</NavLink>
           </nav>
           <Switch>
             <Route path="/recipes/:id" component={RecipeDetails} />
@@ -27,6 +25,8 @@ class App extends React.Component {
 
             <Route path="/items/:id" component={ItemDetails} />
             <Route path="/items" component={Items} />
+
+            <Route path="/about" component={About} />
 
             <Redirect from="/" to="/recipes" />
           </Switch>

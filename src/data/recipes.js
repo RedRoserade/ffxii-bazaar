@@ -1056,8 +1056,8 @@ export default [
         "cost": 1480
     },
     {
-        "id": "magickShard",
-        "name": "Magick Shard",
+        "id": "magickShardHolyMote",
+        "name": "Magick Shard [Holy Mote]",
         "result": [
             {
                 "item": {
@@ -1098,8 +1098,8 @@ export default [
         "cost": 99
     },
     {
-        "id": "magickShard",
-        "name": "Magick Shard",
+        "id": "magickShardScatheMote",
+        "name": "Magick Shard [Scathe Mote]",
         "result": [
             {
                 "item": {
