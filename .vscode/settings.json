@@ -7,5 +7,6 @@
     "**/.DS_Store": true,
     "**/node_modules": true,
     "**/venv": true
-  }
+  },
+  "python.pythonPath": "${workspaceFolder}\\venv\\Scripts\\python.exe"
 }
