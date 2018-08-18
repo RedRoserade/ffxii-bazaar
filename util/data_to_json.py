@@ -93,13 +93,16 @@ def main(args):
         for raw in raw_recipes:
             name, result, item, quantity, price, difference = raw
 
+            item = parse_items(item)
+            item[0]['quantity'] = int(quantity)
+
             name_without_star = name.replace('*', '')
             recipe = {
                 'id': make_id(name_without_star),
                 'name': name_without_star or None,
                 'result': parse_items(result),
                 'repeatable': name.endswith('*'),
-                'items': parse_items(item),
+                'items': item,
                 'cost': parse_price(price)
             }
 

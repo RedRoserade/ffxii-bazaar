@@ -20,7 +20,7 @@ export default [
                     "name": "Quality Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 999
@@ -46,7 +46,7 @@ export default [
                     "name": "Tyrant Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 240
@@ -98,7 +98,7 @@ export default [
                     "name": "Drab Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 100
@@ -124,7 +124,7 @@ export default [
                     "name": "Demon Eyeball",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 100
@@ -166,7 +166,7 @@ export default [
                     "name": "Malboro Fruit",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 1500
@@ -192,7 +192,7 @@ export default [
                     "name": "Cactus Fruit",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 70
@@ -234,7 +234,7 @@ export default [
                     "name": "Succulent Fruit",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 700
@@ -294,7 +294,7 @@ export default [
                     "name": "Malboro Vine",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 540
@@ -362,7 +362,7 @@ export default [
                     "name": "Screamroot",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 7480
@@ -388,7 +388,7 @@ export default [
                     "name": "Unpurified Ether",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -396,7 +396,7 @@ export default [
                     "name": "Caramel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 4000
@@ -422,7 +422,7 @@ export default [
                     "name": "Unpurified Ether",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -430,7 +430,7 @@ export default [
                     "name": "Foul Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -464,7 +464,7 @@ export default [
                     "name": "Small Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 400
@@ -498,7 +498,7 @@ export default [
                     "name": "Large Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 450
@@ -532,7 +532,7 @@ export default [
                     "name": "Chocobo Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 1280
@@ -592,7 +592,7 @@ export default [
                     "name": "Giant Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 2980
@@ -618,7 +618,7 @@ export default [
                     "name": "Bundle of Feathers",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 5980
@@ -644,7 +644,7 @@ export default [
                     "name": "Windslicer Pinion",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 8750
@@ -704,7 +704,7 @@ export default [
                     "name": "Malboro Flower",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 1980
@@ -730,7 +730,7 @@ export default [
                     "name": "Arcana",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 10
             },
             {
                 "item": {
@@ -780,7 +780,7 @@ export default [
                     "name": "Ambrosia",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -788,7 +788,7 @@ export default [
                     "name": "Demon Drink",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 36000
@@ -814,7 +814,7 @@ export default [
                     "name": "High Arcana",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -822,7 +822,7 @@ export default [
                     "name": "Onion",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -830,7 +830,7 @@ export default [
                     "name": "Rat Tail",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 108000
@@ -864,7 +864,7 @@ export default [
                     "name": "Snake Skin",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -872,7 +872,7 @@ export default [
                     "name": "Serpent Eye",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 19998
@@ -914,7 +914,7 @@ export default [
                     "name": "Wargod's Band",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 29997
@@ -948,7 +948,7 @@ export default [
                     "name": "Damascus Steel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -956,7 +956,7 @@ export default [
                     "name": "Hell-Gate's Flame",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 29997
@@ -982,7 +982,7 @@ export default [
                     "name": "Serpentarius",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -990,7 +990,7 @@ export default [
                     "name": "Empyreal Soul",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -998,7 +998,7 @@ export default [
                     "name": "Gemsteel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 600000
@@ -1050,7 +1050,7 @@ export default [
                     "name": "Festering Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 1480
@@ -1076,7 +1076,7 @@ export default [
                     "name": "Glass Jewel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -1084,7 +1084,7 @@ export default [
                     "name": "Sky Jewel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -1118,7 +1118,7 @@ export default [
                     "name": "Book of Orgain",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -1126,7 +1126,7 @@ export default [
                     "name": "Book of Orgain-Cent",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -1134,7 +1134,7 @@ export default [
                     "name": "Book of Orgain-Mille",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             }
         ],
         "cost": 499
@@ -1168,7 +1168,7 @@ export default [
                     "name": "Grimoire Aidhed",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1176,7 +1176,7 @@ export default [
                     "name": "Grimoire Togail",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 14999
@@ -1202,7 +1202,7 @@ export default [
                     "name": "Book of Orgain",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1210,7 +1210,7 @@ export default [
                     "name": "Putrid Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1218,7 +1218,7 @@ export default [
                     "name": "Water Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 10
             }
         ],
         "cost": 2640
@@ -1252,7 +1252,7 @@ export default [
                     "name": "Bomb Shell",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -1260,7 +1260,7 @@ export default [
                     "name": "Book of Orgain-Cent",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1268,7 +1268,7 @@ export default [
                     "name": "Fire Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 3800
@@ -1310,7 +1310,7 @@ export default [
                     "name": "Fire Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 3280
@@ -1344,7 +1344,7 @@ export default [
                     "name": "Bomb Ashes",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1352,7 +1352,7 @@ export default [
                     "name": "Book of Orgain",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1360,7 +1360,7 @@ export default [
                     "name": "Fire Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 10625
@@ -1386,7 +1386,7 @@ export default [
                     "name": "Mirror Scale",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1394,7 +1394,7 @@ export default [
                     "name": "Tyrant Bone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1402,7 +1402,7 @@ export default [
                     "name": "Libra Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 1480
@@ -1436,7 +1436,7 @@ export default [
                     "name": "Fish Scale",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1444,7 +1444,7 @@ export default [
                     "name": "Green Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1452,7 +1452,7 @@ export default [
                     "name": "Dark Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 550
@@ -1494,7 +1494,7 @@ export default [
                     "name": "Green Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1502,7 +1502,7 @@ export default [
                     "name": "Water Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 800
@@ -1536,7 +1536,7 @@ export default [
                     "name": "Ichthon Scale",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -1544,7 +1544,7 @@ export default [
                     "name": "Silver Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -1552,7 +1552,7 @@ export default [
                     "name": "Wind Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 8900
@@ -1586,7 +1586,7 @@ export default [
                     "name": "Emperor Scale",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1594,7 +1594,7 @@ export default [
                     "name": "Silver Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1602,7 +1602,7 @@ export default [
                     "name": "Earth Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             }
         ],
         "cost": 120000
@@ -1644,7 +1644,7 @@ export default [
                     "name": "Rat Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1652,7 +1652,7 @@ export default [
                     "name": "Dark Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 400
@@ -1686,7 +1686,7 @@ export default [
                     "name": "Crooked Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1694,7 +1694,7 @@ export default [
                     "name": "Fire Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 2800
@@ -1728,7 +1728,7 @@ export default [
                     "name": "Bat Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -1744,7 +1744,7 @@ export default [
                     "name": "Water Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 3980
@@ -1770,7 +1770,7 @@ export default [
                     "name": "Great Serpent's Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1778,7 +1778,7 @@ export default [
                     "name": "Dorsal Fin",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1786,7 +1786,7 @@ export default [
                     "name": "Gemini Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 1280
@@ -1812,7 +1812,7 @@ export default [
                     "name": "Solid Horn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -1820,7 +1820,7 @@ export default [
                     "name": "Moondust",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1862,7 +1862,7 @@ export default [
                     "name": "Spiral Incisor",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -1870,7 +1870,7 @@ export default [
                     "name": "Antarctic Wind",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -1878,7 +1878,7 @@ export default [
                     "name": "Ice Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 17200
@@ -1904,7 +1904,7 @@ export default [
                     "name": "Beastlord Horn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1912,7 +1912,7 @@ export default [
                     "name": "Moon Ring",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -1920,7 +1920,7 @@ export default [
                     "name": "Sagittarius Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 100000
@@ -1954,7 +1954,7 @@ export default [
                     "name": "Crooked Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -1962,7 +1962,7 @@ export default [
                     "name": "Yellow Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2012,7 +2012,7 @@ export default [
                     "name": "Festering Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2020,7 +2020,7 @@ export default [
                     "name": "Ice Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 3500
@@ -2054,7 +2054,7 @@ export default [
                     "name": "Wyvern Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -2062,7 +2062,7 @@ export default [
                     "name": "Ancient Bone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2070,7 +2070,7 @@ export default [
                     "name": "Holy Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             }
         ],
         "cost": 6400
@@ -2104,7 +2104,7 @@ export default [
                     "name": "Spiral Incisor",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2112,7 +2112,7 @@ export default [
                     "name": "Silver Liquid",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2120,7 +2120,7 @@ export default [
                     "name": "Dark Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 11220
@@ -2146,7 +2146,7 @@ export default [
                     "name": "Wrath of the Gods",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2154,7 +2154,7 @@ export default [
                     "name": "Ring Wyrm Liver",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2162,7 +2162,7 @@ export default [
                     "name": "Capricorn Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 1680
@@ -2188,7 +2188,7 @@ export default [
                     "name": "Bone Fragment",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -2196,7 +2196,7 @@ export default [
                     "name": "Succulent Fruit",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2204,7 +2204,7 @@ export default [
                     "name": "Earth Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 480
@@ -2230,7 +2230,7 @@ export default [
                     "name": "Sturdy Bone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -2238,7 +2238,7 @@ export default [
                     "name": "Demon Eyeball",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2246,7 +2246,7 @@ export default [
                     "name": "Fire Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 2115
@@ -2272,7 +2272,7 @@ export default [
                     "name": "Blood-darkened Bone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -2280,7 +2280,7 @@ export default [
                     "name": "Demon Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             },
             {
                 "item": {
@@ -2288,7 +2288,7 @@ export default [
                     "name": "Wind Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 7980
@@ -2314,7 +2314,7 @@ export default [
                     "name": "Molting",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2322,7 +2322,7 @@ export default [
                     "name": "Fire Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 250
@@ -2364,7 +2364,7 @@ export default [
                     "name": "Iron Carapace",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2372,7 +2372,7 @@ export default [
                     "name": "Tanned Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2380,7 +2380,7 @@ export default [
                     "name": "Dark Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 3980
@@ -2422,7 +2422,7 @@ export default [
                     "name": "Wyrm Carapace",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2430,7 +2430,7 @@ export default [
                     "name": "Quality Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2438,7 +2438,7 @@ export default [
                     "name": "Earth Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 4850
@@ -2480,7 +2480,7 @@ export default [
                     "name": "Insect Husk",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2488,7 +2488,7 @@ export default [
                     "name": "Tanned Giantskin",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -2496,7 +2496,7 @@ export default [
                     "name": "Storm Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             }
         ],
         "cost": 9800
@@ -2522,7 +2522,7 @@ export default [
                     "name": "Ancient Turtle Shell",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2530,7 +2530,7 @@ export default [
                     "name": "Ring Wyrm Liver",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2564,7 +2564,7 @@ export default [
                     "name": "Aged Turtle Shell",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2572,7 +2572,7 @@ export default [
                     "name": "Destrier Barding",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -2606,7 +2606,7 @@ export default [
                     "name": "Wolf Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2648,7 +2648,7 @@ export default [
                     "name": "Wolf Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2664,7 +2664,7 @@ export default [
                     "name": "Dark Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 300
@@ -2690,7 +2690,7 @@ export default [
                     "name": "Horn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2698,7 +2698,7 @@ export default [
                     "name": "Foul Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2706,7 +2706,7 @@ export default [
                     "name": "Wind Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 310
@@ -2732,7 +2732,7 @@ export default [
                     "name": "Iron Scraps",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2740,7 +2740,7 @@ export default [
                     "name": "Foul Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2748,7 +2748,7 @@ export default [
                     "name": "Earth Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 650
@@ -2782,7 +2782,7 @@ export default [
                     "name": "Braid Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2790,7 +2790,7 @@ export default [
                     "name": "Tanned Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2798,7 +2798,7 @@ export default [
                     "name": "Water Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 1890
@@ -2832,7 +2832,7 @@ export default [
                     "name": "Coeurl Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2840,7 +2840,7 @@ export default [
                     "name": "Quality Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2848,7 +2848,7 @@ export default [
                     "name": "Dark Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 2480
@@ -2874,7 +2874,7 @@ export default [
                     "name": "Lumber",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2882,7 +2882,7 @@ export default [
                     "name": "Malboro Vine",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2890,7 +2890,7 @@ export default [
                     "name": "Fire Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             }
         ],
         "cost": 2025
@@ -2924,7 +2924,7 @@ export default [
                     "name": "Fine Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -2940,7 +2940,7 @@ export default [
                     "name": "Ice Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 3180
@@ -2974,7 +2974,7 @@ export default [
                     "name": "Coeurl Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -2982,7 +2982,7 @@ export default [
                     "name": "Tyrant Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -2990,7 +2990,7 @@ export default [
                     "name": "Ice Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 3180
@@ -3024,7 +3024,7 @@ export default [
                     "name": "Fine Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3032,7 +3032,7 @@ export default [
                     "name": "Tanned Tyrant Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3040,7 +3040,7 @@ export default [
                     "name": "Fire Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 4800
@@ -3066,7 +3066,7 @@ export default [
                     "name": "Giant Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -3074,7 +3074,7 @@ export default [
                     "name": "Festering Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3082,7 +3082,7 @@ export default [
                     "name": "Dark Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             }
         ],
         "cost": 3800
@@ -3116,7 +3116,7 @@ export default [
                     "name": "Quality Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             },
             {
                 "item": {
@@ -3124,7 +3124,7 @@ export default [
                     "name": "Tanned Giantskin",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3132,7 +3132,7 @@ export default [
                     "name": "Fire Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 7980
@@ -3158,7 +3158,7 @@ export default [
                     "name": "Pointed Horn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3166,7 +3166,7 @@ export default [
                     "name": "Malboro Fruit",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3174,7 +3174,7 @@ export default [
                     "name": "Wind Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             }
         ],
         "cost": 4680
@@ -3200,7 +3200,7 @@ export default [
                     "name": "Bundle of Feathers",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             },
             {
                 "item": {
@@ -3208,7 +3208,7 @@ export default [
                     "name": "Maggoty Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3216,7 +3216,7 @@ export default [
                     "name": "Fire Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             }
         ],
         "cost": 5650
@@ -3242,7 +3242,7 @@ export default [
                     "name": "Pointed Horn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3250,7 +3250,7 @@ export default [
                     "name": "Maggoty Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -3258,7 +3258,7 @@ export default [
                     "name": "Wind Magicite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             }
         ],
         "cost": 6450
@@ -3292,7 +3292,7 @@ export default [
                     "name": "Prime Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             },
             {
                 "item": {
@@ -3300,7 +3300,7 @@ export default [
                     "name": "Prime Tanned Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3308,7 +3308,7 @@ export default [
                     "name": "Dark Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 17800
@@ -3334,7 +3334,7 @@ export default [
                     "name": "Quality Lumber",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3342,7 +3342,7 @@ export default [
                     "name": "Demon Feather",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 6
             },
             {
                 "item": {
@@ -3350,7 +3350,7 @@ export default [
                     "name": "Storm Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 3600
@@ -3384,7 +3384,7 @@ export default [
                     "name": "Blood Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             },
             {
                 "item": {
@@ -3392,7 +3392,7 @@ export default [
                     "name": "Prime Tanned Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3400,7 +3400,7 @@ export default [
                     "name": "Dark Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             }
         ],
         "cost": 12800
@@ -3434,7 +3434,7 @@ export default [
                     "name": "Blood Wool",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             },
             {
                 "item": {
@@ -3442,7 +3442,7 @@ export default [
                     "name": "Beastlord Hide",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3450,7 +3450,7 @@ export default [
                     "name": "Holy Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             }
         ],
         "cost": 12800
@@ -3484,7 +3484,7 @@ export default [
                     "name": "Prime Pelt",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             },
             {
                 "item": {
@@ -3492,7 +3492,7 @@ export default [
                     "name": "Forbidden Flesh",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3500,7 +3500,7 @@ export default [
                     "name": "Fire Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 8
             }
         ],
         "cost": 13800
@@ -3526,7 +3526,7 @@ export default [
                     "name": "Charger Barding",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3534,7 +3534,7 @@ export default [
                     "name": "Split Armor",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3542,7 +3542,7 @@ export default [
                     "name": "Pisces Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 8000
@@ -3568,7 +3568,7 @@ export default [
                     "name": "Charger Barding",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -3576,7 +3576,7 @@ export default [
                     "name": "Chimera Head",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3610,7 +3610,7 @@ export default [
                     "name": "Iron Ore",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -3618,7 +3618,7 @@ export default [
                     "name": "Screamroot",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3626,7 +3626,7 @@ export default [
                     "name": "Water Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             }
         ],
         "cost": 8400
@@ -3652,7 +3652,7 @@ export default [
                     "name": "Windslicer Pinion",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 5
             },
             {
                 "item": {
@@ -3660,7 +3660,7 @@ export default [
                     "name": "Malboro Flower",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3668,7 +3668,7 @@ export default [
                     "name": "Wind Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 9
             }
         ],
         "cost": 7500
@@ -3694,7 +3694,7 @@ export default [
                     "name": "Broken Sword",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -3702,7 +3702,7 @@ export default [
                     "name": "Demon Tail",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3710,7 +3710,7 @@ export default [
                     "name": "Dark Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 10
             }
         ],
         "cost": 8800
@@ -3736,7 +3736,7 @@ export default [
                     "name": "Quality Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -3744,7 +3744,7 @@ export default [
                     "name": "Sky Jewel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             },
             {
                 "item": {
@@ -3752,7 +3752,7 @@ export default [
                     "name": "Holy Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 10
             }
         ],
         "cost": 9200
@@ -3778,7 +3778,7 @@ export default [
                     "name": "Bomb Fragment",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -3786,7 +3786,7 @@ export default [
                     "name": "Frog Oil",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3794,7 +3794,7 @@ export default [
                     "name": "Aries Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 12000
@@ -3820,7 +3820,7 @@ export default [
                     "name": "Orichalcum",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3828,7 +3828,7 @@ export default [
                     "name": "Chimera Head",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3836,7 +3836,7 @@ export default [
                     "name": "Taurus Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 17800
@@ -3862,7 +3862,7 @@ export default [
                     "name": "Wyvern Wing",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3870,7 +3870,7 @@ export default [
                     "name": "Yensa Fin",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3904,7 +3904,7 @@ export default [
                     "name": "Adamantite",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3912,7 +3912,7 @@ export default [
                     "name": "Death Powder",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3946,7 +3946,7 @@ export default [
                     "name": "Ketu Board",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3954,7 +3954,7 @@ export default [
                     "name": "Broken Spear",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3962,7 +3962,7 @@ export default [
                     "name": "Mystletainn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 9025
@@ -3988,7 +3988,7 @@ export default [
                     "name": "Electrum",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -3996,7 +3996,7 @@ export default [
                     "name": "Broken Greataxe",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4030,7 +4030,7 @@ export default [
                     "name": "Solid Stone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4038,7 +4038,7 @@ export default [
                     "name": "Vampyr Fang",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4046,7 +4046,7 @@ export default [
                     "name": "Dark Crystal",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 15
             }
         ],
         "cost": 4444
@@ -4072,7 +4072,7 @@ export default [
                     "name": "Mythril",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4080,7 +4080,7 @@ export default [
                     "name": "Corpse Fly",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4088,7 +4088,7 @@ export default [
                     "name": "Aquarius Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 60000
@@ -4156,7 +4156,7 @@ export default [
                     "name": "Charged Gizzard",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4164,7 +4164,7 @@ export default [
                     "name": "Wyrm Bone",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4172,7 +4172,7 @@ export default [
                     "name": "Scorpio Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             }
         ],
         "cost": 70000
@@ -4198,7 +4198,7 @@ export default [
                     "name": "Lifewick",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4206,7 +4206,7 @@ export default [
                     "name": "Ring Wyrm Scale",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 4
             },
             {
                 "item": {
@@ -4240,7 +4240,7 @@ export default [
                     "name": "Coeurl Whisker",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4248,7 +4248,7 @@ export default [
                     "name": "Sickle-Blade",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4256,7 +4256,7 @@ export default [
                     "name": "Cancer Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 90000
@@ -4282,7 +4282,7 @@ export default [
                     "name": "Gemsteel",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4290,7 +4290,7 @@ export default [
                     "name": "Orichalcum",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4298,7 +4298,7 @@ export default [
                     "name": "Mallet",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 350000
@@ -4324,7 +4324,7 @@ export default [
                     "name": "Slaven Harness",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 400
@@ -4350,7 +4350,7 @@ export default [
                     "name": "Gimble Stalk",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 3000
@@ -4384,7 +4384,7 @@ export default [
                     "name": "Tomato Stalk",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4478,7 +4478,7 @@ export default [
                     "name": "Bent Staff",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 2000
@@ -4504,7 +4504,7 @@ export default [
                     "name": "Stardust",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 2000
@@ -4582,7 +4582,7 @@ export default [
                     "name": "Bomb Shell",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4590,7 +4590,7 @@ export default [
                     "name": "Four-leaf Clover",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 6000
@@ -4616,7 +4616,7 @@ export default [
                     "name": "Frogspawn",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             }
         ],
         "cost": 7800
@@ -4642,7 +4642,7 @@ export default [
                     "name": "Gysahl Greens",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 33
             },
             {
                 "item": {
@@ -4650,7 +4650,7 @@ export default [
                     "name": "Arcana",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 15
             }
         ],
         "cost": 18000
@@ -4676,7 +4676,7 @@ export default [
                     "name": "Battlewyrm Carapace",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4710,7 +4710,7 @@ export default [
                     "name": "White Incense",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4718,7 +4718,7 @@ export default [
                     "name": "Einherjarium",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4726,7 +4726,7 @@ export default [
                     "name": "Virgo Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 7
             }
         ],
         "cost": 25000
@@ -4752,7 +4752,7 @@ export default [
                     "name": "Blood-stained Necklace",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             },
             {
                 "item": {
@@ -4760,7 +4760,7 @@ export default [
                     "name": "Death's-Head",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 2
             },
             {
                 "item": {
@@ -4768,7 +4768,7 @@ export default [
                     "name": "Leo Gem",
                     "type": "loot"
                 },
-                "quantity": 1
+                "quantity": 3
             }
         ],
         "cost": 28000
