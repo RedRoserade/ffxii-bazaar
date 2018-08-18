@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { recipeMap } from "./data";
+import { IRecipe, getRecipe } from "./data";
 
 import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
@@ -16,9 +16,40 @@ interface IRecipeDetailsProps extends RouteComponentProps<IParams> {
   recipeId: string;
 }
 
-class RecipeDetails extends React.Component<IRecipeDetailsProps> {
+interface IRecipeDetailsState {
+  recipe: IRecipe | null;
+}
+
+class RecipeDetails extends React.Component<
+  IRecipeDetailsProps,
+  IRecipeDetailsState
+> {
+  public state: IRecipeDetailsState = {
+    recipe: null
+  };
+
+  public async componentDidMount() {
+    await this.getRecipe(this.props.match.params.id);
+  }
+
+  public async getRecipe(id: string) {
+    const recipe = await getRecipe(id);
+
+    this.setState({ recipe });
+  }
+
+  public async componentDidUpdate(prevProps: IRecipeDetailsProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      await this.getRecipe(this.props.match.params.id);
+    }
+  }
+
   public render() {
-    const recipe = recipeMap[this.props.match.params.id];
+    const { recipe } = this.state;
+
+    if (recipe == null) {
+      return null;
+    }
 
     return (
       <div className="Page">

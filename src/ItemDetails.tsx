@@ -48,11 +48,11 @@ class ItemDetails extends React.Component<
     const item = itemMap[this.props.match.params.id];
 
     const usedInRecipes = recipes.filter(r =>
-      r.items.some(i => i.item.id === item.id)
+      r.items.some(i => i.item._id === item._id)
     );
 
     const obtainedInRecipes = recipes.filter(r =>
-      r.result.some(i => i.item.id === item.id)
+      r.result.some(i => i.item._id === item._id)
     );
 
     return (
@@ -77,12 +77,12 @@ class ItemDetails extends React.Component<
               <div className="CustomList FullWidth">
                 {usedInRecipes.map(r => (
                   <div
-                    key={r.id}
+                    key={r._id}
                     className="CustomListItem CustomListItemWithInput"
                   >
-                    <Link to={`/recipes/${r.id}`}>
+                    <Link to={`/recipes/${r._id}`}>
                       {r.name} (
-                      {r.items.find(i => i.item.id === item.id)!.quantity} x)
+                      {r.items.find(i => i.item._id === item._id)!.quantity} x)
                       for <GilLabel gil={r.cost} />
                     </Link>
                     <label>
@@ -121,12 +121,12 @@ class ItemDetails extends React.Component<
             <div className="CustomList FullWidth">
               {obtainedInRecipes.map(r => (
                 <Link
-                  to={`/recipes/${r.id}`}
-                  key={r.id}
+                  to={`/recipes/${r._id}`}
+                  key={r._id}
                   className="CustomListItem"
                 >
                   {r.name} (
-                  {r.result.find(i => i.item.id === item.id)!.quantity} x) for{" "}
+                  {r.result.find(i => i.item._id === item._id)!.quantity} x) for{" "}
                   <GilLabel gil={r.cost} />
                 </Link>
               ))}

@@ -49,7 +49,7 @@ def parse_items(result: str):
         item_name = item.strip()
         return {
             'item': {
-                'id': make_id(item_name),
+                '_id': make_id(item_name),
                 'name': item_name,
                 'type': 'loot'
             },
@@ -98,7 +98,7 @@ def main(args):
 
             name_without_star = name.replace('*', '')
             recipe = {
-                'id': make_id(name_without_star),
+                '_id': make_id(name_without_star),
                 'name': name_without_star or None,
                 'result': parse_items(result),
                 'repeatable': name.endswith('*'),
@@ -110,7 +110,7 @@ def main(args):
                 if i is None:
                     continue
 
-                items.setdefault(i['item']['id'], i['item'])
+                items.setdefault(i['item']['_id'], i['item'])
 
             if recipe['name'] is None:
                 # 'Continuation' of previous recipe. Append items.
@@ -120,13 +120,25 @@ def main(args):
                 # End of recipe.
                 recipes.append(recipe)
 
-        with open(path.join(args.output_file, 'recipes.js'), 'w') as json_out:
-            json_out.write('export default ')
-            json.dump(recipes, json_out, ensure_ascii=False, indent=4)
+        with open(path.join(args.output_file, 'recipes.json'), 'w') as json_out:
+            # json_out.write('export default ')
 
-        with open(path.join(args.output_file, 'items.js'), 'w') as json_out:
-            json_out.write('export default ')
-            json.dump(list(items.values()), json_out, ensure_ascii=False, indent=4)
+            data = {
+                'version': 1,
+                'data': recipes
+            }
+
+            json.dump(data, json_out, ensure_ascii=False, indent=4)
+
+        with open(path.join(args.output_file, 'items.json'), 'w') as json_out:
+            # json_out.write('export default ')
+
+            data = {
+                'version': 1,
+                'data': list(items.values())
+            }
+
+            json.dump(data, json_out, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':

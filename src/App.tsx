@@ -8,8 +8,14 @@ import { Items } from "./Items";
 import { RecipeDetails } from "./RecipeDetails";
 import { Recipes } from "./Recipes";
 import { About } from "./About";
+import { syncItems, syncRecipes } from "src/db";
 
 class App extends React.Component {
+  public async componentDidMount() {
+    await syncItems();
+    await syncRecipes();
+  }
+
   public render() {
     return (
       <HashRouter>

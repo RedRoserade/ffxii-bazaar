@@ -1,25 +1,37 @@
 import * as React from "react";
 
 import { Link } from "react-router-dom";
-
-import { recipes } from "./data";
+import { getRecipes, IRecipe } from "./data";
 
 interface IRecipeState {
   searchTerm: string;
+  recipes: IRecipe[];
 }
 
 class Recipes extends React.Component<{}, IRecipeState> {
   public state: IRecipeState = {
-    searchTerm: ""
+    searchTerm: "",
+    recipes: []
   };
 
+  public async componentDidMount() {
+    await this.getRecipes("");
+  }
+
+  public async getRecipes(query = "") {
+    const recipes = await getRecipes({ query });
+
+    this.setState({ recipes });
+  }
+
+  public async componentDidUpdate(prevProps: {}, prevState: IRecipeState) {
+    if (prevState.searchTerm !== this.state.searchTerm) {
+      await this.getRecipes(this.state.searchTerm);
+    }
+  }
+
   public render() {
-    const displayedRecipes =
-      this.state.searchTerm.length === 0
-        ? recipes
-        : recipes.filter(r =>
-            r.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-          );
+    const displayedRecipes = this.state.recipes;
 
     return (
       <div className="Page">
@@ -45,8 +57,8 @@ class Recipes extends React.Component<{}, IRecipeState> {
           <div className="CustomList FullWidth">
             {displayedRecipes.map(r => (
               <Link
-                to={`/recipes/${r.id}`}
-                key={r.id}
+                to={`/recipes/${r._id}`}
+                key={r._id}
                 className="CustomListItem"
               >
                 {r.name}

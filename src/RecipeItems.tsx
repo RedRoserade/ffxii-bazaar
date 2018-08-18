@@ -12,11 +12,13 @@ export function RecipeItems({ items }: { items: IRecipeItem[] }) {
     <div className="CustomList">
       {items.map(i => (
         <Link
-          key={i.item.id}
+          key={i.item._id}
           className="CustomListItem RecipeItem"
-          to={`/items/${i.item.id}`}
+          to={`/items/${i.item._id}`}
         >
-          <ItemIcon item={i.item} />&nbsp;<span>{i.item.name}</span>
+          <ItemIcon item={i.item} />
+          &nbsp;
+          <span>{i.item.name}</span>
           <span className="CustomListItemBadge">{i.quantity}x</span>
         </Link>
       ))}
