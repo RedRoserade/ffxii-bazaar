@@ -12,6 +12,7 @@ import {
 import { RecipeItems } from "src/RecipeItems";
 import { GilLabel } from "src/Recipes";
 import { SubHeading } from "src/SubHeading";
+import { BackButton } from "src/BackButton";
 
 interface IParams {
   id: string;
@@ -56,8 +57,11 @@ class ItemDetails extends React.Component<
     return (
       <div className="Page">
         <header className="PageHeader">
-          <h2>{item.type}</h2>
-          <h1>{item.name}</h1>
+          {/* <h2>{item.type}</h2> */}
+          <div className="HeaderAndBackButton">
+            <BackButton />
+            <h1>{item.name}</h1>
+          </div>
         </header>
 
         <div>

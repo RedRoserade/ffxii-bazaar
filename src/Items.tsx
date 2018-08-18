@@ -40,7 +40,7 @@ class Items extends React.Component {
           <div className="CustomList FullWidth">
             {displayedItems.map(i => (
               <Link to={`/items/${i.id}`} key={i.id} className="CustomListItem">
-                <ItemIcon item={i} /> {i.name}
+                <ItemIcon item={i} />&nbsp;{i.name}
               </Link>
             ))}
           </div>

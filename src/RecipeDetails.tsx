@@ -6,6 +6,7 @@ import { recipeMap } from "./data";
 import { SubHeading } from "src/SubHeading";
 import { RecipeItems } from "./RecipeItems";
 import { GilLabel } from "./Recipes";
+import { BackButton } from "./BackButton";
 
 interface IParams {
   id: string;
@@ -23,7 +24,10 @@ class RecipeDetails extends React.Component<IRecipeDetailsProps> {
       <div className="Page">
         <header className="PageHeader">
           <h2>{recipe.repeatable && "Repeatable"} Recipe</h2>
-          <h1>{recipe.name}</h1>
+          <div className="HeaderAndBackButton">
+            <BackButton />
+            <h1>{recipe.name}</h1>
+          </div>
         </header>
 
         <div>

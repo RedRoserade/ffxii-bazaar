@@ -16,7 +16,7 @@ export function RecipeItems({ items }: { items: IRecipeItem[] }) {
           className="CustomListItem RecipeItem"
           to={`/items/${i.item.id}`}
         >
-          <ItemIcon item={i.item} /> <span>{i.item.name}</span>
+          <ItemIcon item={i.item} />&nbsp;<span>{i.item.name}</span>
           <span className="CustomListItemBadge">{i.quantity}x</span>
         </Link>
       ))}

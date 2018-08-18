@@ -14,22 +14,24 @@ class App extends React.Component {
     return (
       <HashRouter>
         <>
+          <main className="MainContents">
+            <Switch>
+              <Route path="/recipes/:id" component={RecipeDetails} />
+              <Route path="/recipes" component={Recipes} />
+
+              <Route path="/items/:id" component={ItemDetails} />
+              <Route path="/items" component={Items} />
+
+              <Route path="/about" component={About} />
+
+              <Redirect from="/" to="/recipes" />
+            </Switch>
+          </main>
           <nav className="MainNav">
             <NavLink to="/recipes">Recipes</NavLink>
             <NavLink to="/items">Items</NavLink>
             <NavLink to="/about">About</NavLink>
           </nav>
-          <Switch>
-            <Route path="/recipes/:id" component={RecipeDetails} />
-            <Route path="/recipes" component={Recipes} />
-
-            <Route path="/items/:id" component={ItemDetails} />
-            <Route path="/items" component={Items} />
-
-            <Route path="/about" component={About} />
-
-            <Redirect from="/" to="/recipes" />
-          </Switch>
         </>
       </HashRouter>
     );
