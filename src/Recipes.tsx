@@ -4,15 +4,6 @@ import { Link } from "react-router-dom";
 
 import { recipes } from "./data";
 
-const nf = new Intl.NumberFormat([...navigator.languages], {
-  maximumFractionDigits: 0,
-  useGrouping: false
-});
-
-export function GilLabel({ gil }: { gil: number }) {
-  return <>{nf.format(gil)} gil</>;
-}
-
 interface IRecipeState {
   searchTerm: string;
 }

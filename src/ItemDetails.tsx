@@ -10,10 +10,10 @@ import {
 } from "./data";
 
 import { RecipeItems } from "./RecipeItems";
-import { GilLabel } from "./Recipes";
 import { SubHeading } from "./SubHeading";
 import { BackButton } from "./BackButton";
 import { ItemTypeLabel } from "src/ItemTypeLabel";
+import { GilLabel } from "src/GilLabel";
 
 interface IParams {
   id: string;
@@ -81,10 +81,9 @@ class ItemDetails extends React.Component<
                     className="CustomListItem CustomListItemWithInput"
                   >
                     <Link to={`/recipes/${r.id}`}>
-                      {r.name} ({
-                        r.items.find(i => i.item.id === item.id)!.quantity
-                      }{" "}
-                      x) for <GilLabel gil={r.cost} />
+                      {r.name} (
+                      {r.items.find(i => i.item.id === item.id)!.quantity} x)
+                      for <GilLabel gil={r.cost} />
                     </Link>
                     <label>
                       <input
@@ -126,10 +125,9 @@ class ItemDetails extends React.Component<
                   key={r.id}
                   className="CustomListItem"
                 >
-                  {r.name} ({
-                    r.result.find(i => i.item.id === item.id)!.quantity
-                  }{" "}
-                  x) for <GilLabel gil={r.cost} />
+                  {r.name} (
+                  {r.result.find(i => i.item.id === item.id)!.quantity} x) for{" "}
+                  <GilLabel gil={r.cost} />
                 </Link>
               ))}
             </div>

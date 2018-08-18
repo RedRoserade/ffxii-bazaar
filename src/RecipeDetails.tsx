@@ -5,7 +5,7 @@ import { recipeMap } from "./data";
 
 import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
-import { GilLabel } from "./Recipes";
+import { GilLabel } from "./GilLabel";
 import { BackButton } from "./BackButton";
 
 interface IParams {
