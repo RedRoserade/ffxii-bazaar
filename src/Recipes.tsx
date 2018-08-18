@@ -33,7 +33,11 @@ class Recipes extends React.Component<{}, IRecipeState> {
     return (
       <div className="Page">
         <header className="PageHeader">
+          <label className="HiddenLabel" htmlFor="ffxii-RecipesSearchInput">
+            Search for recipes
+          </label>
           <input
+            id="ffxii-RecipesSearchInput"
             className="HeadingSearchInput"
             placeholder="eg: 'Assorted Leathers'"
             type="search"

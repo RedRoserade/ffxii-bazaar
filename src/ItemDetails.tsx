@@ -7,12 +7,13 @@ import {
   itemMap,
   minimumSetOfItemsForManyRecipes,
   recipes
-} from "src/data";
+} from "./data";
 
-import { RecipeItems } from "src/RecipeItems";
-import { GilLabel } from "src/Recipes";
-import { SubHeading } from "src/SubHeading";
-import { BackButton } from "src/BackButton";
+import { RecipeItems } from "./RecipeItems";
+import { GilLabel } from "./Recipes";
+import { SubHeading } from "./SubHeading";
+import { BackButton } from "./BackButton";
+import { ItemTypeLabel } from "src/ItemTypeLabel";
 
 interface IParams {
   id: string;
@@ -57,7 +58,9 @@ class ItemDetails extends React.Component<
     return (
       <div className="Page">
         <header className="PageHeader">
-          {/* <h2>{item.type}</h2> */}
+          <h2>
+            <ItemTypeLabel item={item} />
+          </h2>
           <div className="HeaderAndBackButton">
             <BackButton />
             <h1>{item.name}</h1>

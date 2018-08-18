@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router";
 
 import { recipeMap } from "./data";
 
-import { SubHeading } from "src/SubHeading";
+import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
 import { GilLabel } from "./Recipes";
 import { BackButton } from "./BackButton";

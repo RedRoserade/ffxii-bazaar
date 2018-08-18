@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Link } from "react-router-dom";
 import { items } from "./data";
-import { ItemIcon } from "src/ItemIcon";
+import { ItemIcon } from "./ItemTypeIcon";
 
 interface IItemsState {
   searchTerm: string;
@@ -24,7 +24,11 @@ class Items extends React.Component {
     return (
       <div className="Page">
         <header className="PageHeader">
+          <label className="HiddenLabel" htmlFor="ffxii-ItemsSearchInput">
+            Search for items
+          </label>
           <input
+            id="ffxii-ItemsSearchInput"
             className="HeadingSearchInput"
             placeholder="eg: 'Wolf Pelt'"
             type="text"

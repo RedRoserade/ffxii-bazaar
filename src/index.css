@@ -87,7 +87,6 @@ h6 {
 
 .HeaderAndBackButton > h1 {
   flex: 1;
-  margin: 0;
 }
 
 #root {
@@ -96,9 +95,12 @@ h6 {
   height: 100%;
 }
 
-.PageHeader > h1,
-.PageHeader > h2 {
+.PageHeader h1,
+.PageHeader h2 {
   margin: 0;
+}
+
+.PageHeader h2 + h1 {
   margin-top: 10px;
 }
 
@@ -184,7 +186,7 @@ h6 {
 }
 
 .HeadingSearchFeedback {
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 input,
@@ -207,4 +209,16 @@ textarea {
   border: none;
   font-size: inherit;
   font-family: inherit;
+}
+
+/* Taken from Bootstrap's sr-only */
+.HiddenLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

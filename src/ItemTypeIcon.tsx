@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ItemType, IItem } from "src/data";
+import { ItemType, IItem } from "./data";
 
 const typeIcons: Record<ItemType, React.ReactElement<any>> = {
   armour: <span>🛡️</span>,

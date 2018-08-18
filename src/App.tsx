@@ -28,9 +28,15 @@ class App extends React.Component {
             </Switch>
           </main>
           <nav className="MainNav">
-            <NavLink to="/recipes">Recipes</NavLink>
-            <NavLink to="/items">Items</NavLink>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/recipes" replace={true}>
+              Recipes
+            </NavLink>
+            <NavLink to="/items" replace={true}>
+              Items
+            </NavLink>
+            <NavLink to="/about" replace={true}>
+              About
+            </NavLink>
           </nav>
         </>
       </HashRouter>
