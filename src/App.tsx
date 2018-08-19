@@ -10,10 +10,10 @@ import { Recipes } from "./Recipes";
 import { About } from "./About";
 // import { syncItems, syncRecipes } from "src/db";
 
-import SyncWorker from "worker-loader!./sync.worker.js";
+import SyncWorker from "worker-loader!./sync.worker";
 
 class App extends React.Component {
-  private _worker: SyncWorker | null;
+  private worker: SyncWorker | null;
 
   public async componentDidMount() {
     const worker = new SyncWorker();
@@ -23,12 +23,12 @@ class App extends React.Component {
 
     worker.postMessage({ action: "sync" });
 
-    this._worker = worker;
+    this.worker = worker;
   }
 
   public componentWillUnmount() {
-    if (this._worker != null) {
-      this._worker.terminate();
+    if (this.worker != null) {
+      this.worker.terminate();
     }
   }
 
