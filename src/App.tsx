@@ -11,15 +11,32 @@ import { About } from "./About";
 // import { syncItems, syncRecipes } from "src/db";
 
 import SyncWorker from "worker-loader!./sync.worker";
+import { DataLoading } from "./DataLoading";
 
-class App extends React.Component {
+interface IAppState {
+  syncState: "done" | "syncing" | "error";
+}
+
+class App extends React.Component<{}, IAppState> {
   private worker: SyncWorker | null;
+
+  public state: IAppState = {
+    syncState: "syncing"
+  };
+
+  private handleSyncWorkerMessage(evt: MessageEvent) {
+    if (evt.data.syncStatus === "success") {
+      this.setState({ syncState: "done" });
+    } else {
+      this.setState({ syncState: "error" });
+    }
+  }
 
   public async componentDidMount() {
     const worker = new SyncWorker();
 
     worker.onerror = err => console.error(err);
-    worker.onmessage = evt => console.log("[Sync]", evt.data);
+    worker.onmessage = evt => this.handleSyncWorkerMessage(evt);
 
     worker.postMessage({ action: "sync" });
 
@@ -33,6 +50,14 @@ class App extends React.Component {
   }
 
   public render() {
+    if (this.state.syncState !== "done") {
+      return (
+        <main className="MainContents">
+          <DataLoading />
+        </main>
+      );
+    }
+
     return (
       <HashRouter>
         <>

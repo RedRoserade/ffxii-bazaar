@@ -8,13 +8,15 @@ async function sync() {
 addEventListener("message", async evt => {
   const data = evt.data || {};
 
+  const worker: Worker = self as any;
+
   if (typeof data === "object" && data.action === "sync") {
     try {
       await sync();
-      postMessage({ syncStatus: "success" });
+      worker.postMessage({ syncStatus: "success" });
     } catch (e) {
       console.error("Failed to sync", e);
-      postMessage({ syncStatus: "error" });
+      worker.postMessage({ syncStatus: "error" });
     }
   } else {
     console.warn("Unknown payload", data);
