@@ -8,12 +8,28 @@ import { Items } from "./Items";
 import { RecipeDetails } from "./RecipeDetails";
 import { Recipes } from "./Recipes";
 import { About } from "./About";
-import { syncItems, syncRecipes } from "src/db";
+// import { syncItems, syncRecipes } from "src/db";
+
+import SyncWorker from "worker-loader!./sync.worker.js";
 
 class App extends React.Component {
+  private _worker: SyncWorker | null;
+
   public async componentDidMount() {
-    await syncItems();
-    await syncRecipes();
+    const worker = new SyncWorker();
+
+    worker.onerror = err => console.error(err);
+    worker.onmessage = evt => console.log("[Sync]", evt.data);
+
+    worker.postMessage({ action: "sync" });
+
+    this._worker = worker;
+  }
+
+  public componentWillUnmount() {
+    if (this._worker != null) {
+      this._worker.terminate();
+    }
   }
 
   public render() {
