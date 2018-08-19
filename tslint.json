@@ -3,6 +3,7 @@
   "linterOptions": {
     "exclude": ["config/**/*.js", "node_modules/**/*.ts", "src/data/**/*.js"]
   },
+  "defaultSeverity": "warning",
   "rules": {
     "jsx-no-lambda": false,
     "no-console": false,

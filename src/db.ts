@@ -89,6 +89,8 @@ export async function syncRecipes() {
       }
 
       await recipesDb.createIndex({ index: { fields: ["name"] } });
+      await recipesDb.createIndex({ index: { fields: ["items"] } });
+      await recipesDb.createIndex({ index: { fields: ["result"] } });
 
       for (const recipe of data.data) {
         // console.debug("Processing recipe", recipe._id);

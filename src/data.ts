@@ -1,26 +1,24 @@
-import recipeData from "./data/recipes.js";
-import itemData from "./data/items.js";
-import { recipesDb } from "./db";
+import { recipesDb, itemsDb } from "./db";
 
 export function minimumSetOfItemsForManyRecipes(
   recipeList: IRecipe[]
 ): IRecipeItem[] {
-  const itemQuantities = new Map<string, number>();
+  const itemQuantities = new Map<string, [IItem, number]>();
 
   for (const recipe of recipeList) {
     for (const item of recipe.items) {
       const itemId = item.item._id;
 
       if (!itemQuantities.has(itemId)) {
-        itemQuantities.set(itemId, item.quantity);
-      } else if (item.quantity > itemQuantities.get(itemId)!) {
-        itemQuantities.set(itemId, item.quantity);
+        itemQuantities.set(itemId, [item.item, item.quantity]);
+      } else if (item.quantity > itemQuantities.get(itemId)![1]) {
+        itemQuantities.set(itemId, [item.item, item.quantity]);
       }
     }
   }
 
-  return Array.from(itemQuantities.entries()).map(([itemId, qty]) => ({
-    item: itemMap[itemId],
+  return Array.from(itemQuantities.values()).map(([item, qty]) => ({
+    item,
     quantity: qty
   }));
 }
@@ -51,28 +49,17 @@ export interface IRecipe {
   cost: number;
   result: IRecipeItem[];
   repeatable: boolean;
+  done: boolean;
 }
-
-const recipes: IRecipe[] = recipeData as any;
-const items: IItem[] = itemData as any;
-
-export { recipes, items };
-
-export const itemMap: { [id: string]: IItem } = itemData.reduce(
-  (map, item) => ({ ...map, [item._id]: item }),
-  {}
-);
-
-export const recipeMap: { [id: string]: IRecipe } = recipeData.reduce(
-  (map, item) => ({ ...map, [item._id]: item }),
-  {}
-);
 
 export async function getRecipes(options: { query?: string } = {}) {
   if (!options.query) {
     const all = await recipesDb.allDocs({ include_docs: true });
 
-    return all.rows.filter(x => x.doc != null).map(x => x.doc!);
+    // Prevent design documents.
+    return all.rows
+      .filter(x => x.doc != null && !x.id.startsWith("_design"))
+      .map(x => x.doc!);
   } else {
     const queryResult = await recipesDb.find({
       selector: { name: { $regex: new RegExp(options.query, "i") } }
@@ -94,4 +81,71 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
 
     throw e;
   }
+}
+
+export async function getItems(options: { query?: string } = {}) {
+  if (!options.query) {
+    const all = await itemsDb.allDocs({ include_docs: true });
+
+    // Prevent design documents.
+    return all.rows
+      .filter(x => x.doc != null && !x.id.startsWith("_design"))
+      .map(x => x.doc!);
+  } else {
+    const queryResult = await itemsDb.find({
+      selector: { name: { $regex: new RegExp(options.query, "i") } }
+    });
+
+    return queryResult.docs;
+  }
+}
+
+export async function getItem(id: string): Promise<IItem | null> {
+  try {
+    const item = await itemsDb.get(id);
+
+    return item;
+  } catch (e) {
+    if (e.name === "not_found") {
+      return null;
+    }
+
+    throw e;
+  }
+}
+
+export async function getRelatedRecipes(
+  item: IItem
+): Promise<{ usedIn: IRecipe[]; obtainedFrom: IRecipe[] }> {
+  const usedInRecipesQuery = recipesDb.find({
+    selector: { items: { $elemMatch: { "item._id": { $eq: item._id } } } }
+  });
+
+  const obtainedFromRecipesQuery = recipesDb.find({
+    selector: { result: { $elemMatch: { "item._id": { $eq: item._id } } } }
+  });
+
+  const [usedInRecipes, obtainedFromRecipes] = await Promise.all([
+    usedInRecipesQuery,
+    obtainedFromRecipesQuery
+  ]);
+
+  return {
+    usedIn: usedInRecipes.docs,
+    obtainedFrom: obtainedFromRecipes.docs
+  };
+}
+
+export async function toggleRecipeDone(recipe: IRecipe) {
+  const existing = await getRecipe(recipe._id);
+
+  if (existing == null) {
+    throw new Error("Recipe not found.");
+  }
+
+  existing.done = !existing.done;
+
+  await recipesDb.put(existing);
+
+  return existing;
 }

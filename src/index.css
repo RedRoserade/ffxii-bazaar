@@ -19,6 +19,11 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+input,
+button {
+  font-family: inherit;
+}
+
 dd {
   margin: 0;
 }
@@ -45,19 +50,61 @@ h6 {
   margin-top: 20px;
 }
 
-.Page {
-  padding: 0 15px;
-  padding-bottom: 15px;
-}
-
 .FullWidth {
   margin-left: -15px;
   margin-right: -15px;
 }
 
+.Page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.PageContents {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 15px;
+  padding-bottom: 15px;
+}
+
+.PageFooter {
+  flex-shrink: 0;
+  padding: 5px 15px 15px 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Button {
+  padding: 5px 10px;
+  background: var(--heading-bg-color);
+  color: white;
+  border: 1px inset rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  text-transform: uppercase;
+
+  transition: opacity 0.1s;
+  opacity: 1;
+  font-size: 1em;
+}
+
+.Button.ButtonSmall {
+  padding: 4px 8px;
+  font-size: 0.8em;
+  border-radius: 2px;
+}
+
+.Button:active {
+  opacity: 0.9;
+}
+
+.Button.Active {
+  background: seagreen;
+}
+
 .PageHeader {
-  margin-left: -15px;
-  margin-right: -15px;
+  flex-shrink: 0;
   margin-bottom: 15px;
 
   padding: 15px;
@@ -160,12 +207,21 @@ h6 {
   background-color: #efefef;
 }
 
-.CustomListItem.CustomListItemWithInput > :first-child {
-  flex: 1;
+.CustomListItem.Multiline {
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.CustomListItem.CustomListItem.CustomListItemWithInput > label {
-  padding: 2px 0 2px 5px;
+.CustomListItemActions {
+  margin-left: auto;
+}
+
+.CustomListItem.Multiline > .CustomListItemRow {
+  display: flex;
+}
+
+.CustomListItemRow + .CustomListItemRow {
+  margin-top: 10px;
 }
 
 .CustomListItemBadge {
@@ -175,6 +231,10 @@ h6 {
 
   background-color: rgba(0, 0, 0, 0.25);
   margin-left: auto;
+}
+
+.TextLineThrough {
+  text-decoration: line-through;
 }
 
 .HeadingSearchInput {
@@ -187,12 +247,6 @@ h6 {
 
 .HeadingSearchFeedback {
   margin-top: 15px;
-}
-
-input,
-button,
-textarea {
-  font-family: "Open Sans", sans-serif;
 }
 
 .NoResultsFeedback {

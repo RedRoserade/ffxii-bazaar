@@ -4,9 +4,10 @@ import { Link, RouteComponentProps } from "react-router-dom";
 
 import {
   IRecipe,
-  itemMap,
   minimumSetOfItemsForManyRecipes,
-  recipes
+  getItem,
+  IItem,
+  getRelatedRecipes
 } from "./data";
 
 import { RecipeItems } from "./RecipeItems";
@@ -25,6 +26,9 @@ interface IItemDetailsProps extends RouteComponentProps<IParams> {
 
 interface IItemDetailsState {
   selectedRecipes: IRecipe[];
+  item: IItem | null;
+  usedInRecipes: IRecipe[];
+  obtainedFromRecipes: IRecipe[];
 }
 
 class ItemDetails extends React.Component<
@@ -32,28 +36,49 @@ class ItemDetails extends React.Component<
   IItemDetailsState
 > {
   public state: IItemDetailsState = {
-    selectedRecipes: []
+    selectedRecipes: [],
+    item: null,
+    usedInRecipes: [],
+    obtainedFromRecipes: []
   };
 
-  public componentDidUpdate(
+  public async componentDidMount() {
+    await this.getItem(this.props.match.params.id);
+  }
+
+  public async getItem(id: string) {
+    const item = await getItem(id);
+
+    if (item == null) {
+      this.setState({ item: null });
+      return;
+    }
+
+    const { usedIn, obtainedFrom } = await getRelatedRecipes(item);
+
+    this.setState({
+      item,
+      usedInRecipes: usedIn,
+      obtainedFromRecipes: obtainedFrom
+    });
+  }
+
+  public async componentDidUpdate(
     prevProps: IItemDetailsProps,
     prevState: IItemDetailsState
   ) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.setState({ selectedRecipes: [] });
+      await this.getItem(this.props.match.params.id);
     }
   }
 
   public render() {
-    const item = itemMap[this.props.match.params.id];
+    const { item, usedInRecipes, obtainedFromRecipes } = this.state;
 
-    const usedInRecipes = recipes.filter(r =>
-      r.items.some(i => i.item._id === item._id)
-    );
-
-    const obtainedInRecipes = recipes.filter(r =>
-      r.result.some(i => i.item._id === item._id)
-    );
+    if (item == null) {
+      return null;
+    }
 
     return (
       <div className="Page">
@@ -67,7 +92,7 @@ class ItemDetails extends React.Component<
           </div>
         </header>
 
-        <div>
+        <div className="PageContents">
           <SubHeading>Used in:</SubHeading>
 
           {usedInRecipes.length === 0 ? (
@@ -76,23 +101,33 @@ class ItemDetails extends React.Component<
             <>
               <div className="CustomList FullWidth">
                 {usedInRecipes.map(r => (
-                  <div
+                  <Link
                     key={r._id}
-                    className="CustomListItem CustomListItemWithInput"
+                    className="CustomListItem Multiline"
+                    to={`/recipes/${r._id}`}
                   >
-                    <Link to={`/recipes/${r._id}`}>
+                    <div className="CustomListItemRow">
                       {r.name} (
                       {r.items.find(i => i.item._id === item._id)!.quantity} x)
                       for <GilLabel gil={r.cost} />
-                    </Link>
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={this.state.selectedRecipes.indexOf(r) !== -1}
-                        onChange={e => this.handleRecipeSelected(e, r)}
-                      />
-                    </label>
-                  </div>
+                      {(r.repeatable || r.done) && (
+                        <span className="CustomListItemBadge">
+                          {r.repeatable && "♻️"}
+                          {r.done && "✔️"}
+                        </span>
+                      )}
+                    </div>
+                    <div className="CustomListItemRow">
+                      <div className="CustomListItemActions">
+                        <RecipeSelectToggle
+                          selected={
+                            this.state.selectedRecipes.indexOf(r) !== -1
+                          }
+                          onClick={e => this.handleRecipeSelected(e, r)}
+                        />
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
               <SubHeading>Required items for the selected recipes:</SubHeading>
@@ -115,11 +150,11 @@ class ItemDetails extends React.Component<
 
           <SubHeading>Obtained from:</SubHeading>
 
-          {obtainedInRecipes.length === 0 ? (
+          {obtainedFromRecipes.length === 0 ? (
             "None"
           ) : (
             <div className="CustomList FullWidth">
-              {obtainedInRecipes.map(r => (
+              {obtainedFromRecipes.map(r => (
                 <Link
                   to={`/recipes/${r._id}`}
                   key={r._id}
@@ -137,11 +172,13 @@ class ItemDetails extends React.Component<
     );
   }
 
-  private handleRecipeSelected(
-    e: React.SyntheticEvent<HTMLInputElement>,
-    r: IRecipe
-  ) {
-    if (e.currentTarget.checked) {
+  private handleRecipeSelected(e: React.SyntheticEvent, r: IRecipe) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isSelected = this.state.selectedRecipes.some(x => r === x);
+
+    if (!isSelected) {
       this.setState(state => {
         return {
           selectedRecipes: [...state.selectedRecipes, r]
@@ -158,3 +195,18 @@ class ItemDetails extends React.Component<
 }
 
 export { ItemDetails };
+
+function RecipeSelectToggle(props: {
+  selected: boolean;
+  onClick(e: React.SyntheticEvent<HTMLButtonElement>): void;
+}) {
+  return (
+    <button
+      type="button"
+      className={`Button ButtonSmall ${props.selected ? "Active" : ""}`}
+      onClick={e => props.onClick(e)}
+    >
+      {props.selected ? "Remove" : "Add"}
+    </button>
+  );
+}

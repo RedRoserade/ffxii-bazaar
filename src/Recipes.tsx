@@ -53,24 +53,29 @@ class Recipes extends React.Component<{}, IRecipeState> {
           </span>
         </header>
 
-        {displayedRecipes.length > 0 ? (
-          <div className="CustomList FullWidth">
-            {displayedRecipes.map(r => (
-              <Link
-                to={`/recipes/${r._id}`}
-                key={r._id}
-                className="CustomListItem"
-              >
-                {r.name}
-                {r.repeatable && (
-                  <span className="CustomListItemBadge">♻️</span>
-                )}
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="NoResultsFeedback">Nothing.</div>
-        )}
+        <div className="PageContents">
+          {displayedRecipes.length > 0 ? (
+            <div className="CustomList FullWidth">
+              {displayedRecipes.map(r => (
+                <Link
+                  to={`/recipes/${r._id}`}
+                  key={r._id}
+                  className="CustomListItem"
+                >
+                  <span className={"CustomListItemLabel"}>{r.name}</span>
+                  {(r.repeatable || r.done) && (
+                    <span className="CustomListItemBadge">
+                      {r.repeatable && "♻️"}
+                      {r.done && "✔️"}
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="NoResultsFeedback">Nothing.</div>
+          )}
+        </div>
       </div>
     );
   }

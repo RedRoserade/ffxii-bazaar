@@ -1,25 +1,38 @@
 import * as React from "react";
 
 import { Link } from "react-router-dom";
-import { items } from "./data";
+import { IItem, getItems } from "./data";
 import { ItemIcon } from "./ItemTypeIcon";
 
 interface IItemsState {
   searchTerm: string;
+  items: IItem[];
 }
 
 class Items extends React.Component {
   public state: IItemsState = {
-    searchTerm: ""
+    searchTerm: "",
+    items: []
   };
 
+  public async componentDidMount() {
+    await this.getItems("");
+  }
+
+  public async getItems(query = "") {
+    const items = await getItems({ query });
+
+    this.setState({ items });
+  }
+
+  public async componentDidUpdate(prevProps: {}, prevState: IItemsState) {
+    if (prevState.searchTerm !== this.state.searchTerm) {
+      await this.getItems(this.state.searchTerm);
+    }
+  }
+
   public render() {
-    const displayedItems =
-      this.state.searchTerm.length === 0
-        ? items
-        : items.filter(i =>
-            i.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-          );
+    const displayedItems = this.state.items;
 
     return (
       <div className="Page">
@@ -39,24 +52,25 @@ class Items extends React.Component {
             Found {displayedItems.length} items.
           </span>
         </header>
-
-        {displayedItems.length > 0 ? (
-          <div className="CustomList FullWidth">
-            {displayedItems.map(i => (
-              <Link
-                to={`/items/${i._id}`}
-                key={i._id}
-                className="CustomListItem"
-              >
-                <ItemIcon item={i} />
-                &nbsp;
-                {i.name}
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="NoResultsFeedback">Nothing.</div>
-        )}
+        <div className="PageContents">
+          {displayedItems.length > 0 ? (
+            <div className="CustomList FullWidth">
+              {displayedItems.map(i => (
+                <Link
+                  to={`/items/${i._id}`}
+                  key={i._id}
+                  className="CustomListItem"
+                >
+                  <ItemIcon item={i} />
+                  &nbsp;
+                  {i.name}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="NoResultsFeedback">Nothing.</div>
+          )}
+        </div>
       </div>
     );
   }

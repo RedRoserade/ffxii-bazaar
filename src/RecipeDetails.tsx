@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { IRecipe, getRecipe } from "./data";
+import { IRecipe, getRecipe, toggleRecipeDone } from "./data";
 
 import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
@@ -44,6 +44,24 @@ class RecipeDetails extends React.Component<
     }
   }
 
+  public toggleRecipeDone = async () => {
+    if (this.state.recipe == null) {
+      return;
+    }
+
+    this.setState(state => {
+      if (state.recipe == null) {
+        return null;
+      }
+
+      return {
+        recipe: { ...state.recipe, done: !state.recipe.done }
+      };
+    });
+
+    await toggleRecipeDone(this.state.recipe);
+  };
+
   public render() {
     const { recipe } = this.state;
 
@@ -61,7 +79,7 @@ class RecipeDetails extends React.Component<
           </div>
         </header>
 
-        <div>
+        <div className="PageContents">
           <SubHeading>Cost:</SubHeading>
           <p>
             <GilLabel gil={recipe.cost} />
@@ -76,6 +94,16 @@ class RecipeDetails extends React.Component<
           <div className="FullWidth">
             <RecipeItems items={recipe.result} />
           </div>
+        </div>
+
+        <div className="PageFooter">
+          <button
+            type="button"
+            className={`Button ${recipe.done ? "Active" : ""}`}
+            onClick={this.toggleRecipeDone}
+          >
+            {recipe.done ? "Not Done" : "Done"}
+          </button>
         </div>
       </div>
     );
