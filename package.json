@@ -59,6 +59,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-router": "^4.0.29",
     "@types/react-router-dom": "^4.3.0",
+    "preload-webpack-plugin": "^2.3.0",
     "typescript": "^2.9.2",
     "worker-loader": "^2.0.0"
   },

@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import App from "./App";
 
 import "./index.css";
-import { unregister } from "./registerServiceWorker";
+import registerServiceWorker /*, { unregister }*/ from "./registerServiceWorker";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronLeft, faDatabase } from "@fortawesome/free-solid-svg-icons";
@@ -11,5 +11,5 @@ import { faChevronLeft, faDatabase } from "@fortawesome/free-solid-svg-icons";
 library.add(faChevronLeft, faDatabase);
 
 ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
-// registerServiceWorker();
-unregister();
+registerServiceWorker();
+// unregister();
