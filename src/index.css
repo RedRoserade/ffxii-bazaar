@@ -218,6 +218,7 @@ h6 {
 
 .CustomListItem.Multiline > .CustomListItemRow {
   display: flex;
+  align-items: flex-start;
 }
 
 .CustomListItemRow + .CustomListItemRow {
