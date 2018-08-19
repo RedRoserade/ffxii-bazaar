@@ -1,7 +1,13 @@
 import PouchDB from "pouchdb-browser";
+import localForage from "localforage";
 import find from "pouchdb-find";
 
 import { IItem, IRecipe } from "./data";
+
+localForage.config({
+  name: "ffxii_bazaar",
+  version: 1
+});
 
 PouchDB.plugin(find);
 
@@ -32,7 +38,7 @@ export async function syncItems() {
       const data: IJsonData<IItem[]> = await response.json();
 
       if (
-        data.version === parseInt(localStorage.getItem("items_version")!, 10)
+        data.version === (await localForage.getItem<number>("items_version"))
       ) {
         console.log("Data is up-to date.");
         return;
@@ -64,7 +70,7 @@ export async function syncItems() {
         }
       }
 
-      localStorage.setItem("items_version", "" + data.version);
+      await localForage.setItem("items_version", data.version);
     } else {
       // TODO Handle error.
     }
@@ -81,9 +87,7 @@ export async function syncRecipes() {
     if (response.ok) {
       const data: IJsonData<IRecipe[]> = await response.json();
 
-      if (
-        data.version === parseInt(localStorage.getItem("recipes_version")!, 10)
-      ) {
+      if (data.version === (await localForage.getItem("recipes_version"))) {
         console.log("Data is up-to date.");
         return;
       }
@@ -116,7 +120,7 @@ export async function syncRecipes() {
         }
       }
 
-      localStorage.setItem("recipes_version", "" + data.version);
+      await localForage.setItem("recipes_version", data.version);
     } else {
       // TODO Handle error.
     }
