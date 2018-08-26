@@ -5,6 +5,11 @@ import { getRecipes, IRecipe } from "./data/api";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
+import {
+  getRecipeSearchTerm,
+  clearRecipeSearchTerm,
+  persistRecipeSearchTerm
+} from "./data/search-term-persistence";
 
 interface IRecipeState {
   searchTerm: string;
@@ -18,7 +23,14 @@ class Recipes extends React.Component<{}, IRecipeState> {
   };
 
   public async componentDidMount() {
-    await this.getRecipes("");
+    const persistedSearchTerm = getRecipeSearchTerm();
+
+    if (persistedSearchTerm != null) {
+      this.setState({ searchTerm: persistedSearchTerm });
+      clearRecipeSearchTerm();
+    } else {
+      await this.getRecipes("");
+    }
   }
 
   public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
@@ -30,6 +42,12 @@ class Recipes extends React.Component<{}, IRecipeState> {
   public async componentDidUpdate(prevProps: {}, prevState: IRecipeState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       await this.getRecipes(this.state.searchTerm);
+
+      if (this.state.searchTerm) {
+        persistRecipeSearchTerm(this.state.searchTerm);
+      } else {
+        clearRecipeSearchTerm();
+      }
     }
   }
 
@@ -49,6 +67,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
             type="search"
             value={this.state.searchTerm}
             onChange={this.handleSearchTermChange}
+            onFocus={e => e.currentTarget.select()}
           />
 
           {/* <span className="HeadingSearchFeedback">

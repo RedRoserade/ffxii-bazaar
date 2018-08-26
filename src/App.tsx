@@ -8,6 +8,10 @@ import { Items } from "./Items";
 import { RecipeDetails } from "./RecipeDetails";
 import { Recipes } from "./Recipes";
 import { About } from "./About";
+import {
+  clearRecipeSearchTerm,
+  clearItemSearchTerm
+} from "./data/search-term-persistence";
 
 class App extends React.Component {
   public render() {
@@ -28,10 +32,18 @@ class App extends React.Component {
             </Switch>
           </main>
           <nav className="MainNav">
-            <NavLink to="/recipes" replace={true}>
+            <NavLink
+              to="/recipes"
+              replace={true}
+              onClick={() => clearRecipeSearchTerm()}
+            >
               Recipes
             </NavLink>
-            <NavLink to="/items" replace={true}>
+            <NavLink
+              to="/items"
+              replace={true}
+              onClick={() => clearItemSearchTerm()}
+            >
               Items
             </NavLink>
             <NavLink to="/about" replace={true}>

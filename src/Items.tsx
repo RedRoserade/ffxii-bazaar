@@ -5,6 +5,11 @@ import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
+import {
+  persistItemSearchTerm,
+  clearItemSearchTerm,
+  getItemSearchTerm
+} from "src/data/search-term-persistence";
 
 interface IItemsState {
   searchTerm: string;
@@ -18,7 +23,14 @@ class Items extends React.Component<{}, IItemsState> {
   };
 
   public async componentDidMount() {
-    await this.getItems("");
+    const persistedSearchTerm = getItemSearchTerm();
+
+    if (persistedSearchTerm != null) {
+      this.setState({ searchTerm: persistedSearchTerm });
+      clearItemSearchTerm();
+    } else {
+      await this.getItems("");
+    }
   }
 
   public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
@@ -30,6 +42,12 @@ class Items extends React.Component<{}, IItemsState> {
   public async componentDidUpdate(prevProps: {}, prevState: IItemsState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       await this.getItems(this.state.searchTerm);
+
+      if (this.state.searchTerm) {
+        persistItemSearchTerm(this.state.searchTerm);
+      } else {
+        clearItemSearchTerm();
+      }
     }
   }
 
@@ -49,6 +67,7 @@ class Items extends React.Component<{}, IItemsState> {
             type="text"
             value={this.state.searchTerm}
             onChange={this.handleSearchTermChange}
+            onFocus={e => e.currentTarget.select()}
           />
           {/* <span className="HeadingSearchFeedback">
             Found {displayedItems.length} items.
