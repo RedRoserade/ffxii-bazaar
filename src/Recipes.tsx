@@ -10,6 +10,9 @@ import {
   clearRecipeSearchTerm,
   persistRecipeSearchTerm
 } from "./data/search-term-persistence";
+import { localForage } from "./config/localforage";
+import { recipeSync$ } from "src/data/sync";
+import { first } from "rxjs/operators";
 
 interface IRecipeState {
   searchTerm: string;
@@ -23,6 +26,16 @@ class Recipes extends React.Component<{}, IRecipeState> {
   };
 
   public async componentDidMount() {
+    await localForage.ready();
+
+    const recipeVersion = await localForage.getItem("recipes_version");
+
+    if (recipeVersion == null) {
+      console.log("Waiting...");
+      await recipeSync$.pipe(first(x => x === "success")).toPromise();
+      console.log("Done.");
+    }
+
     const persistedSearchTerm = getRecipeSearchTerm();
 
     if (persistedSearchTerm != null) {

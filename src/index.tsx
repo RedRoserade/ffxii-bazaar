@@ -2,6 +2,8 @@ import "src/index.css";
 import "react-virtualized/styles.css";
 import "src/config/font-awesome";
 
+import "src/config/localforage";
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 

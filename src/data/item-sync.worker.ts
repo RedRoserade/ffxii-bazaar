@@ -1,9 +1,7 @@
 import { syncItems } from "src/data/items-db";
-import { syncRecipes } from "src/data/recipes-db";
 
 async function sync() {
   await syncItems();
-  await syncRecipes();
 }
 
 addEventListener("message", async evt => {

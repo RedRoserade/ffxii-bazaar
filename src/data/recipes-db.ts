@@ -1,9 +1,9 @@
 import "src/config/db-config";
 
 import PouchDB from "pouchdb-browser";
-import localForage from "localforage";
 
 import { IRecipe } from "./api";
+import { localForage } from "src/config/localforage";
 
 export const recipesDb = new PouchDB<IRecipe>("ffxii_bazaar_recipes", {
   adapter: "idb",
@@ -23,6 +23,8 @@ export async function syncRecipes() {
 
     if (response.ok) {
       const data: IJsonData<IRecipe[]> = await response.json();
+
+      await localForage.ready();
 
       if (data.version === (await localForage.getItem("recipes_version"))) {
         console.log("Data is up-to date.");

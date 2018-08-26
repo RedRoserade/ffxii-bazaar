@@ -10,6 +10,9 @@ import {
   clearItemSearchTerm,
   getItemSearchTerm
 } from "src/data/search-term-persistence";
+import { localForage } from "src/config/localforage";
+import { itemSync$ } from "./data/sync";
+import { first } from "rxjs/operators";
 
 interface IItemsState {
   searchTerm: string;
@@ -23,6 +26,14 @@ class Items extends React.Component<{}, IItemsState> {
   };
 
   public async componentDidMount() {
+    const recipeVersion = await localForage.getItem("items_version");
+
+    if (recipeVersion == null) {
+      console.log("Waiting...");
+      await itemSync$.pipe(first(x => x === "success")).toPromise();
+      console.log("Done.");
+    }
+
     const persistedSearchTerm = getItemSearchTerm();
 
     if (persistedSearchTerm != null) {

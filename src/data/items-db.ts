@@ -1,9 +1,9 @@
 import "src/config/db-config";
 
 import PouchDB from "pouchdb-browser";
-import localForage from "localforage";
 
 import { IItem } from "./api";
+import { localForage } from "src/config/localforage";
 
 const baseUrl = process.env.PUBLIC_URL!;
 
@@ -23,6 +23,8 @@ export async function syncItems() {
 
     if (response.ok) {
       const data: IJsonData<IItem[]> = await response.json();
+
+      await localForage.ready();
 
       if (
         data.version === (await localForage.getItem<number>("items_version"))

@@ -12,6 +12,7 @@ import {
   clearRecipeSearchTerm,
   clearItemSearchTerm
 } from "./data/search-term-persistence";
+import { localForage } from "./config/localforage";
 
 class App extends React.Component {
   public render() {
