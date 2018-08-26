@@ -72,6 +72,10 @@ h6 {
   padding: 15px;
 }
 
+.PageContents.WithVirtualizedScrollList {
+  padding: 0;
+}
+
 .PageContents.HasFloatingFooter::after {
   content: "";
   display: block;

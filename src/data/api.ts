@@ -53,8 +53,14 @@ export interface IRecipe {
   done: boolean;
 }
 
-export async function getRecipes(options: { query?: string } = {}) {
-  const request: PouchDB.Find.FindRequest<IRecipe> = { selector: {} };
+export async function getRecipes(
+  options: { query?: string; skip?: number; limit?: number } = {}
+) {
+  const request: PouchDB.Find.FindRequest<IRecipe> = {
+    selector: {},
+    skip: options.skip,
+    limit: options.limit
+  };
 
   if (options.query) {
     request.selector.name = { $regex: new RegExp(options.query, "i") };
@@ -79,8 +85,14 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
   }
 }
 
-export async function getItems(options: { query?: string } = {}) {
-  const request: PouchDB.Find.FindRequest<IItem> = { selector: {} };
+export async function getItems(
+  options: { query?: string; skip?: number; limit?: number } = {}
+) {
+  const request: PouchDB.Find.FindRequest<IItem> = {
+    selector: {},
+    skip: options.skip,
+    limit: options.limit
+  };
 
   if (options.query) {
     request.selector.name = { $regex: new RegExp(options.query, "i") };

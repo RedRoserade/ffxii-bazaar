@@ -1,4 +1,5 @@
 import "src/index.css";
+import "react-virtualized/styles.css";
 import "src/config/font-awesome";
 
 import * as React from "react";

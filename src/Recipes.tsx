@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getRecipes, IRecipe } from "./data/api";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
+import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 
 interface IRecipeState {
   searchTerm: string;
@@ -20,8 +21,8 @@ class Recipes extends React.Component<{}, IRecipeState> {
     await this.getRecipes("");
   }
 
-  public getRecipes = debounce(async (query = "") => {
-    const recipes = await getRecipes({ query });
+  public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
+    const recipes = await getRecipes({ query, skip, limit });
 
     this.setState({ recipes });
   }, 100);
@@ -33,7 +34,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
   }
 
   public render() {
-    const displayedRecipes = this.state.recipes;
+    // const displayedRecipes = this.state.recipes;
 
     return (
       <div className="Page">
@@ -50,32 +51,33 @@ class Recipes extends React.Component<{}, IRecipeState> {
             onChange={this.handleSearchTermChange}
           />
 
-          <span className="HeadingSearchFeedback">
+          {/* <span className="HeadingSearchFeedback">
             Found {displayedRecipes.length} recipes.
-          </span>
+          </span> */}
         </header>
 
-        <div className="PageContents">
-          {displayedRecipes.length > 0 ? (
-            <div className="CustomList FullWidth">
-              {displayedRecipes.map(r => (
-                <Link
-                  to={`/recipes/${r._id}`}
-                  key={r._id}
-                  className="CustomListItem"
-                >
-                  <span className={"CustomListItemLabel"}>{r.name}</span>
-                  {(r.repeatable || r.done) && (
-                    <span className="CustomListItemBadge">
-                      <RecipeStatus recipe={r} />
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="NoResultsFeedback">Nothing.</div>
-          )}
+        <div className="PageContents WithVirtualizedScrollList">
+          <InfiniteLoader
+            isRowLoaded={this.isRowLoaded}
+            loadMoreRows={this.loadMoreRows}
+            rowCount={Infinity}
+          >
+            {({ onRowsRendered, registerChild }) => (
+              <AutoSizer>
+                {({ width, height }) => (
+                  <List
+                    ref={registerChild}
+                    height={height}
+                    onRowsRendered={onRowsRendered}
+                    rowCount={this.state.recipes.length}
+                    rowHeight={43}
+                    rowRenderer={this.renderRow}
+                    width={width}
+                  />
+                )}
+              </AutoSizer>
+            )}
+          </InfiniteLoader>
         </div>
       </div>
     );
@@ -87,6 +89,42 @@ class Recipes extends React.Component<{}, IRecipeState> {
     this.setState({
       searchTerm: e.currentTarget.value
     });
+
+  private isRowLoaded = (options: { index: number }) =>
+    this.state.recipes.length > options.index;
+
+  private loadMoreRows = async (options: {
+    startIndex: number;
+    stopIndex: number;
+  }) => {
+    const result = await getRecipes({
+      query: this.state.searchTerm,
+      skip: options.startIndex,
+      limit: options.stopIndex - options.startIndex + 1
+    });
+
+    this.setState(state => ({ recipes: state.recipes.concat(result) }));
+  };
+
+  private renderRow = (options: { index: number; key: any; style: any }) => {
+    const r = this.state.recipes[options.index];
+
+    return (
+      <Link
+        to={`/recipes/${r._id}`}
+        key={options.key}
+        className="CustomListItem"
+        style={options.style}
+      >
+        <span className={"CustomListItemLabel"}>{r.name}</span>
+        {(r.repeatable || r.done) && (
+          <span className="CustomListItemBadge">
+            <RecipeStatus recipe={r} />
+          </span>
+        )}
+      </Link>
+    );
+  };
 }
 
 export { Recipes };
