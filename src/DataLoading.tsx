@@ -9,7 +9,7 @@ export function DataLoading() {
       </p>
 
       <h1>Please wait.</h1>
-      <h2>Loading data for recipes and items...</h2>
+      <h2>Loading data...</h2>
     </div>
   );
 }

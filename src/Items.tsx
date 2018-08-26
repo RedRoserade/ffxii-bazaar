@@ -13,25 +13,28 @@ import {
 import { localForage } from "src/config/localforage";
 import { itemSync$ } from "./data/sync";
 import { first } from "rxjs/operators";
+import { DataLoading } from "src/DataLoading";
+import { LoadState } from "src/util";
 
 interface IItemsState {
   searchTerm: string;
   items: IItem[];
+  loadState: LoadState;
 }
 
 class Items extends React.Component<{}, IItemsState> {
   public state: IItemsState = {
     searchTerm: "",
-    items: []
+    items: [],
+    loadState: "loading"
   };
 
   public async componentDidMount() {
     const recipeVersion = await localForage.getItem("items_version");
 
     if (recipeVersion == null) {
-      console.log("Waiting...");
+      this.setState({ loadState: "firsttimeload" });
       await itemSync$.pipe(first(x => x === "success")).toPromise();
-      console.log("Done.");
     }
 
     const persistedSearchTerm = getItemSearchTerm();
@@ -47,7 +50,7 @@ class Items extends React.Component<{}, IItemsState> {
   public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
     const items = await getItems({ query, skip, limit });
 
-    this.setState({ items });
+    this.setState({ items, loadState: "success" });
   }, 100);
 
   public async componentDidUpdate(prevProps: {}, prevState: IItemsState) {
@@ -64,6 +67,14 @@ class Items extends React.Component<{}, IItemsState> {
 
   public render() {
     // const displayedItems = this.state.items;
+
+    if (this.state.loadState === "firsttimeload") {
+      return (
+        <div className="Page">
+          <DataLoading />
+        </div>
+      );
+    }
 
     return (
       <div className="Page">
@@ -131,7 +142,10 @@ class Items extends React.Component<{}, IItemsState> {
       limit: options.stopIndex - options.startIndex + 1
     });
 
-    this.setState(state => ({ items: state.items.concat(result) }));
+    this.setState(state => ({
+      items: state.items.concat(result),
+      loadState: "success"
+    }));
   };
 
   private renderRow = (options: { index: number; key: any; style: any }) => {

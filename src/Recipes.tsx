@@ -13,16 +13,20 @@ import {
 import { localForage } from "./config/localforage";
 import { recipeSync$ } from "src/data/sync";
 import { first } from "rxjs/operators";
+import { DataLoading } from "./DataLoading";
+import { LoadState } from "src/util";
 
 interface IRecipeState {
   searchTerm: string;
   recipes: IRecipe[];
+  loadState: LoadState;
 }
 
 class Recipes extends React.Component<{}, IRecipeState> {
   public state: IRecipeState = {
     searchTerm: "",
-    recipes: []
+    recipes: [],
+    loadState: "loading"
   };
 
   public async componentDidMount() {
@@ -31,9 +35,8 @@ class Recipes extends React.Component<{}, IRecipeState> {
     const recipeVersion = await localForage.getItem("recipes_version");
 
     if (recipeVersion == null) {
-      console.log("Waiting...");
+      this.setState({ loadState: "firsttimeload" });
       await recipeSync$.pipe(first(x => x === "success")).toPromise();
-      console.log("Done.");
     }
 
     const persistedSearchTerm = getRecipeSearchTerm();
@@ -49,7 +52,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
   public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
     const recipes = await getRecipes({ query, skip, limit });
 
-    this.setState({ recipes });
+    this.setState({ recipes, loadState: "success" });
   }, 100);
 
   public async componentDidUpdate(prevProps: {}, prevState: IRecipeState) {
@@ -67,26 +70,20 @@ class Recipes extends React.Component<{}, IRecipeState> {
   public render() {
     // const displayedRecipes = this.state.recipes;
 
+    if (this.state.loadState === "firsttimeload") {
+      return (
+        <div className="Page">
+          <DataLoading />
+        </div>
+      );
+    }
+
     return (
       <div className="Page">
-        <header className="PageHeader">
-          <label className="HiddenLabel" htmlFor="ffxii-RecipesSearchInput">
-            Search for recipes
-          </label>
-          <input
-            id="ffxii-RecipesSearchInput"
-            className="HeadingSearchInput"
-            placeholder="eg: 'Assorted Leathers'"
-            type="search"
-            value={this.state.searchTerm}
-            onChange={this.handleSearchTermChange}
-            onFocus={e => e.currentTarget.select()}
-          />
-
-          {/* <span className="HeadingSearchFeedback">
-            Found {displayedRecipes.length} recipes.
-          </span> */}
-        </header>
+        <SearchHeader
+          searchTerm={this.state.searchTerm}
+          onSearchTermChange={this.handleSearchTermChange}
+        />
 
         <div className="PageContents WithVirtualizedScrollList">
           <InfiniteLoader
@@ -135,7 +132,10 @@ class Recipes extends React.Component<{}, IRecipeState> {
       limit: options.stopIndex - options.startIndex + 1
     });
 
-    this.setState(state => ({ recipes: state.recipes.concat(result) }));
+    this.setState(state => ({
+      recipes: state.recipes.concat(result),
+      loadState: "success"
+    }));
   };
 
   private renderRow = (options: { index: number; key: any; style: any }) => {
@@ -160,3 +160,29 @@ class Recipes extends React.Component<{}, IRecipeState> {
 }
 
 export { Recipes };
+
+function SearchHeader(props: {
+  searchTerm: string;
+  onSearchTermChange(e: React.SyntheticEvent): void;
+}) {
+  return (
+    <header className="PageHeader">
+      <label className="HiddenLabel" htmlFor="ffxii-RecipesSearchInput">
+        Search for recipes
+      </label>
+      <input
+        id="ffxii-RecipesSearchInput"
+        className="HeadingSearchInput"
+        placeholder="eg: 'Assorted Leathers'"
+        type="search"
+        value={props.searchTerm}
+        onChange={props.onSearchTermChange}
+        onFocus={e => e.currentTarget.select()}
+      />
+
+      {/* <span className="HeadingSearchFeedback">
+            Found {displayedRecipes.length} recipes.
+          </span> */}
+    </header>
+  );
+}
