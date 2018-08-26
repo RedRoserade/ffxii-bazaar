@@ -264,6 +264,7 @@ h6 {
   border: none;
   font-size: inherit;
   font-family: inherit;
+  cursor: pointer;
 }
 
 /* Taken from Bootstrap's sr-only */

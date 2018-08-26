@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Link } from "react-router-dom";
-import { IItem, getItems } from "./data";
+import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 
 interface IItemsState {

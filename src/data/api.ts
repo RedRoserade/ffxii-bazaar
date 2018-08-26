@@ -1,4 +1,5 @@
-import { recipesDb, itemsDb } from "./db";
+import { recipesDb } from "src/data/recipes-db";
+import { itemsDb } from "src/data/items-db";
 
 export function minimumSetOfItemsForManyRecipes(
   recipeList: IRecipe[]
@@ -53,20 +54,15 @@ export interface IRecipe {
 }
 
 export async function getRecipes(options: { query?: string } = {}) {
-  if (!options.query) {
-    const all = await recipesDb.allDocs({ include_docs: true });
+  const request: PouchDB.Find.FindRequest<IRecipe> = { selector: {} };
 
-    // Prevent design documents.
-    return all.rows
-      .filter(x => x.doc != null && !x.id.startsWith("_design"))
-      .map(x => x.doc!);
-  } else {
-    const queryResult = await recipesDb.find({
-      selector: { name: { $regex: new RegExp(options.query, "i") } }
-    });
-
-    return queryResult.docs;
+  if (options.query) {
+    request.selector.name = { $regex: new RegExp(options.query, "i") };
   }
+
+  const all = await recipesDb.find(request);
+
+  return all.docs;
 }
 
 export async function getRecipe(id: string): Promise<IRecipe | null> {
@@ -84,20 +80,15 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
 }
 
 export async function getItems(options: { query?: string } = {}) {
-  if (!options.query) {
-    const all = await itemsDb.allDocs({ include_docs: true });
+  const request: PouchDB.Find.FindRequest<IItem> = { selector: {} };
 
-    // Prevent design documents.
-    return all.rows
-      .filter(x => x.doc != null && !x.id.startsWith("_design"))
-      .map(x => x.doc!);
-  } else {
-    const queryResult = await itemsDb.find({
-      selector: { name: { $regex: new RegExp(options.query, "i") } }
-    });
-
-    return queryResult.docs;
+  if (options.query) {
+    request.selector.name = { $regex: new RegExp(options.query, "i") };
   }
+
+  const all = await itemsDb.find(request);
+
+  return all.docs;
 }
 
 export async function getItem(id: string): Promise<IItem | null> {

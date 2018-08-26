@@ -8,7 +8,7 @@ import {
   getItem,
   IItem,
   getRelatedRecipes
-} from "./data";
+} from "./data/api";
 
 import { RecipeItems } from "./RecipeItems";
 import { SubHeading } from "./SubHeading";

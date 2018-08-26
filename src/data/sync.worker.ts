@@ -1,4 +1,5 @@
-import { syncItems, syncRecipes } from "./db";
+import { syncItems } from "src/data/items-db";
+import { syncRecipes } from "src/data/recipes-db";
 
 async function sync() {
   await syncItems();

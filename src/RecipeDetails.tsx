@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { IRecipe, getRecipe, toggleRecipeDone } from "./data";
+import { IRecipe, getRecipe, toggleRecipeDone } from "./data/api";
 
 import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
