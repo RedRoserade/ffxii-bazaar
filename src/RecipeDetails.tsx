@@ -79,7 +79,7 @@ class RecipeDetails extends React.Component<
           </div>
         </header>
 
-        <div className="PageContents">
+        <div className="PageContents HasFloatingFooter">
           <SubHeading>Cost:</SubHeading>
           <p>
             <GilLabel gil={recipe.cost} />
@@ -96,7 +96,7 @@ class RecipeDetails extends React.Component<
           </div>
         </div>
 
-        <div className="PageFooter">
+        <div className="FloatingPageFooter">
           <button
             type="button"
             className={`Button ${recipe.done ? "Active" : ""}`}
