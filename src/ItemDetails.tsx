@@ -15,6 +15,7 @@ import { SubHeading } from "./SubHeading";
 import { BackButton } from "./BackButton";
 import { ItemTypeLabel } from "src/ItemTypeLabel";
 import { GilLabel } from "src/GilLabel";
+import { RecipeStatus } from "src/RecipeStatus";
 
 interface IParams {
   id: string;
@@ -112,8 +113,7 @@ class ItemDetails extends React.Component<
                       for <GilLabel gil={r.cost} />
                       {(r.repeatable || r.done) && (
                         <span className="CustomListItemBadge">
-                          {r.repeatable && "♻️"}
-                          {r.done && "✔️"}
+                          <RecipeStatus recipe={r} />
                         </span>
                       )}
                     </div>

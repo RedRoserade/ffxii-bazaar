@@ -1,4 +1,4 @@
-import "src/data/db-config";
+import "src/config/db-config";
 
 import PouchDB from "pouchdb-browser";
 import localForage from "localforage";

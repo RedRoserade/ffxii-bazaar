@@ -1,6 +1,7 @@
 import PouchDB from "pouchdb-browser";
-import localForage from "localforage";
 import find from "pouchdb-find";
+
+import localForage from "localforage";
 
 localForage.config({
   name: "ffxii_bazaar",

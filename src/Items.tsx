@@ -3,6 +3,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
+import { debounce } from "lodash-es";
 
 interface IItemsState {
   searchTerm: string;
@@ -19,11 +20,11 @@ class Items extends React.Component {
     await this.getItems("");
   }
 
-  public async getItems(query = "") {
+  public getItems = debounce(async (query = "") => {
     const items = await getItems({ query });
 
     this.setState({ items });
-  }
+  }, 100);
 
   public async componentDidUpdate(prevProps: {}, prevState: IItemsState) {
     if (prevState.searchTerm !== this.state.searchTerm) {

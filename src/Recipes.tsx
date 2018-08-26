@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Link } from "react-router-dom";
 import { getRecipes, IRecipe } from "./data/api";
+import { debounce } from "lodash-es";
+import { RecipeStatus } from "./RecipeStatus";
 
 interface IRecipeState {
   searchTerm: string;
@@ -18,11 +20,11 @@ class Recipes extends React.Component<{}, IRecipeState> {
     await this.getRecipes("");
   }
 
-  public async getRecipes(query = "") {
+  public getRecipes = debounce(async (query = "") => {
     const recipes = await getRecipes({ query });
 
     this.setState({ recipes });
-  }
+  }, 100);
 
   public async componentDidUpdate(prevProps: {}, prevState: IRecipeState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
@@ -65,8 +67,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
                   <span className={"CustomListItemLabel"}>{r.name}</span>
                   {(r.repeatable || r.done) && (
                     <span className="CustomListItemBadge">
-                      {r.repeatable && "♻️"}
-                      {r.done && "✔️"}
+                      <RecipeStatus recipe={r} />
                     </span>
                   )}
                 </Link>
