@@ -14,7 +14,6 @@ const paths = require("./paths");
 const getClientEnvironment = require("./env");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const PreloadWebpackPlugin = require("preload-webpack-plugin");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -270,7 +269,6 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new PreloadWebpackPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
