@@ -1,15 +1,10 @@
 import * as React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { getRecipes, IRecipe } from "./data/api";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import {
-  getRecipeSearchTerm,
-  clearRecipeSearchTerm,
-  persistRecipeSearchTerm
-} from "./data/search-term-persistence";
 import { localForage } from "./config/localforage";
 import { recipeSync$ } from "src/data/sync";
 import { first } from "rxjs/operators";
@@ -17,17 +12,33 @@ import { DataLoading } from "./DataLoading";
 import { LoadState } from "src/util";
 
 interface IRecipeState {
-  searchTerm: string;
+  // searchTerm: string;
   recipes: IRecipe[];
   loadState: LoadState;
 }
 
-class Recipes extends React.Component<{}, IRecipeState> {
-  public state: IRecipeState = {
-    searchTerm: "",
-    recipes: [],
-    loadState: "loading"
-  };
+class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
+  constructor(props: RouteComponentProps<{}>) {
+    super(props);
+
+    const params = new URLSearchParams(this.props.location.search.substr(1));
+
+    const searchTerm = params.get("search") || "";
+
+    this.state = {
+      // searchTerm,
+      recipes: [],
+      loadState: "loading"
+    };
+  }
+
+  private getSearchTerm(): string {
+    const params = new URLSearchParams(this.props.location.search.substr(1));
+
+    const searchTerm = params.get("search") || "";
+
+    return searchTerm;
+  }
 
   public async componentDidMount() {
     await localForage.ready();
@@ -39,14 +50,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
       await recipeSync$.pipe(first(x => x === "success")).toPromise();
     }
 
-    const persistedSearchTerm = getRecipeSearchTerm();
-
-    if (persistedSearchTerm != null) {
-      this.setState({ searchTerm: persistedSearchTerm });
-      clearRecipeSearchTerm();
-    } else {
-      await this.getRecipes("");
-    }
+    await this.getRecipes(this.getSearchTerm());
   }
 
   public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
@@ -55,21 +59,13 @@ class Recipes extends React.Component<{}, IRecipeState> {
     this.setState({ recipes, loadState: "success" });
   }, 100);
 
-  public async componentDidUpdate(prevProps: {}, prevState: IRecipeState) {
-    if (prevState.searchTerm !== this.state.searchTerm) {
-      await this.getRecipes(this.state.searchTerm);
-
-      if (this.state.searchTerm) {
-        persistRecipeSearchTerm(this.state.searchTerm);
-      } else {
-        clearRecipeSearchTerm();
-      }
+  public async componentDidUpdate(prevProps: RouteComponentProps<{}>) {
+    if (prevProps.location.search !== this.props.location.search) {
+      await this.getRecipes(this.getSearchTerm());
     }
   }
 
   public render() {
-    // const displayedRecipes = this.state.recipes;
-
     if (this.state.loadState === "firsttimeload") {
       return (
         <div className="Page">
@@ -81,7 +77,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
     return (
       <div className="Page">
         <SearchHeader
-          searchTerm={this.state.searchTerm}
+          searchTerm={this.getSearchTerm()}
           onSearchTermChange={this.handleSearchTermChange}
         />
 
@@ -114,10 +110,17 @@ class Recipes extends React.Component<{}, IRecipeState> {
 
   private handleSearchTermChange = (
     e: React.SyntheticEvent<HTMLInputElement>
-  ) =>
-    this.setState({
-      searchTerm: e.currentTarget.value
-    });
+  ) => {
+    const query = e.currentTarget.value;
+
+    if (query) {
+      this.props.history.replace(
+        `${this.props.match.path}?search=${encodeURIComponent(query)}`
+      );
+    } else {
+      this.props.history.replace(this.props.match.path);
+    }
+  };
 
   private isRowLoaded = (options: { index: number }) =>
     this.state.recipes.length > options.index;
@@ -127,7 +130,7 @@ class Recipes extends React.Component<{}, IRecipeState> {
     stopIndex: number;
   }) => {
     const result = await getRecipes({
-      query: this.state.searchTerm,
+      query: this.getSearchTerm(),
       skip: options.startIndex,
       limit: options.stopIndex - options.startIndex + 1
     });

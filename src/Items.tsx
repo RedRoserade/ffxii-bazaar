@@ -1,15 +1,10 @@
 import * as React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import {
-  persistItemSearchTerm,
-  clearItemSearchTerm,
-  getItemSearchTerm
-} from "src/data/search-term-persistence";
 import { localForage } from "src/config/localforage";
 import { itemSync$ } from "./data/sync";
 import { first } from "rxjs/operators";
@@ -17,17 +12,25 @@ import { DataLoading } from "src/DataLoading";
 import { LoadState } from "src/util";
 
 interface IItemsState {
-  searchTerm: string;
+  // searchTerm: string;
   items: IItem[];
   loadState: LoadState;
 }
 
-class Items extends React.Component<{}, IItemsState> {
+class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public state: IItemsState = {
-    searchTerm: "",
+    // searchTerm: "",
     items: [],
     loadState: "loading"
   };
+
+  private getSearchTerm(): string {
+    const params = new URLSearchParams(this.props.location.search.substr(1));
+
+    const searchTerm = params.get("search") || "";
+
+    return searchTerm;
+  }
 
   public async componentDidMount() {
     const recipeVersion = await localForage.getItem("items_version");
@@ -36,15 +39,7 @@ class Items extends React.Component<{}, IItemsState> {
       this.setState({ loadState: "firsttimeload" });
       await itemSync$.pipe(first(x => x === "success")).toPromise();
     }
-
-    const persistedSearchTerm = getItemSearchTerm();
-
-    if (persistedSearchTerm != null) {
-      this.setState({ searchTerm: persistedSearchTerm });
-      clearItemSearchTerm();
-    } else {
-      await this.getItems("");
-    }
+    await this.getItems(this.getSearchTerm());
   }
 
   public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
@@ -53,15 +48,9 @@ class Items extends React.Component<{}, IItemsState> {
     this.setState({ items, loadState: "success" });
   }, 100);
 
-  public async componentDidUpdate(prevProps: {}, prevState: IItemsState) {
-    if (prevState.searchTerm !== this.state.searchTerm) {
-      await this.getItems(this.state.searchTerm);
-
-      if (this.state.searchTerm) {
-        persistItemSearchTerm(this.state.searchTerm);
-      } else {
-        clearItemSearchTerm();
-      }
+  public async componentDidUpdate(prevProps: RouteComponentProps<{}>) {
+    if (prevProps.location.search !== this.props.location.search) {
+      await this.getItems(this.getSearchTerm());
     }
   }
 
@@ -87,7 +76,7 @@ class Items extends React.Component<{}, IItemsState> {
             className="HeadingSearchInput"
             placeholder="eg: 'Wolf Pelt'"
             type="text"
-            value={this.state.searchTerm}
+            value={this.getSearchTerm()}
             onChange={this.handleSearchTermChange}
             onFocus={e => e.currentTarget.select()}
           />
@@ -124,10 +113,17 @@ class Items extends React.Component<{}, IItemsState> {
 
   private handleSearchTermChange = (
     e: React.SyntheticEvent<HTMLInputElement>
-  ) =>
-    this.setState({
-      searchTerm: e.currentTarget.value
-    });
+  ) => {
+    const query = e.currentTarget.value;
+
+    if (query) {
+      this.props.history.replace(
+        `${this.props.match.path}?search=${encodeURIComponent(query)}`
+      );
+    } else {
+      this.props.history.replace(this.props.match.path);
+    }
+  };
 
   private isRowLoaded = (options: { index: number }) =>
     this.state.items.length > options.index;
@@ -137,7 +133,7 @@ class Items extends React.Component<{}, IItemsState> {
     stopIndex: number;
   }) => {
     const result = await getItems({
-      query: this.state.searchTerm,
+      query: this.getSearchTerm(),
       skip: options.startIndex,
       limit: options.stopIndex - options.startIndex + 1
     });
