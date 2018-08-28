@@ -5,21 +5,16 @@ import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { localForage } from "src/config/localforage";
-import { itemSync$ } from "./data/sync";
-import { first } from "rxjs/operators";
 import { DataLoading } from "src/DataLoading";
 import { LoadState } from "src/util";
 
 interface IItemsState {
-  // searchTerm: string;
   items: IItem[];
   loadState: LoadState;
 }
 
 class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public state: IItemsState = {
-    // searchTerm: "",
     items: [],
     loadState: "loading"
   };
@@ -33,12 +28,6 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   }
 
   public async componentDidMount() {
-    const recipeVersion = await localForage.getItem("items_version");
-
-    if (recipeVersion == null) {
-      this.setState({ loadState: "firsttimeload" });
-      await itemSync$.pipe(first(x => x === "success")).toPromise();
-    }
     await this.getItems(this.getSearchTerm());
   }
 

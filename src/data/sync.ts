@@ -1,62 +1,66 @@
-import RecipeSyncWorker from "worker-loader!src/data/recipe-sync.worker";
-import ItemSyncWorker from "worker-loader!src/data/item-sync.worker";
+import SyncWorker from "worker-loader!src/data/sync.worker";
 import { Subject } from "rxjs";
+import { first } from "rxjs/operators";
+import { localForage } from "src/config/localforage";
 
 type SyncStatus = "pending" | "syncing" | "success" | "error";
 
 export const itemSync$ = new Subject<SyncStatus>();
 export const recipeSync$ = new Subject<SyncStatus>();
 
-function syncRecipes() {
+function doSync(action: string, subject$: Subject<SyncStatus>) {
   return new Promise((resolve, reject) => {
     function handleSyncWorkerMessage(evt: MessageEvent) {
       if (evt.data.syncStatus === "success") {
-        console.log("[Recipes] Sync success");
+        console.log(`[${action}] Sync success`);
         resolve();
-        recipeSync$.next("success");
+        subject$.next("success");
       } else {
-        console.error("[Recipes] Sync error");
+        console.error(`[${action}] Sync error`);
         reject();
-        recipeSync$.next("error");
+        subject$.next("error");
       }
     }
 
-    const worker = new RecipeSyncWorker();
+    const worker = new SyncWorker();
 
     worker.onerror = err => console.error(err);
     worker.onmessage = evt => handleSyncWorkerMessage(evt);
 
-    worker.postMessage({ action: "sync" });
+    worker.postMessage({ action });
 
-    recipeSync$.next("syncing");
+    subject$.next("syncing");
   });
 }
 
+function syncRecipes() {
+  return doSync("syncRecipes", recipeSync$);
+}
+
 function syncItems() {
-  return new Promise((resolve, reject) => {
-    function handleSyncWorkerMessage(evt: MessageEvent) {
-      if (evt.data.syncStatus === "success") {
-        console.log("[Items] Sync success");
-        resolve();
-        itemSync$.next("success");
-      } else {
-        console.error("[Items] Sync error");
-        reject();
-        itemSync$.next("error");
-      }
-    }
-
-    const worker = new ItemSyncWorker();
-
-    worker.onerror = err => console.error(err);
-    worker.onmessage = evt => handleSyncWorkerMessage(evt);
-
-    worker.postMessage({ action: "sync" });
-
-    itemSync$.next("syncing");
-  });
+  return doSync("syncItems", itemSync$);
 }
 
 export function runSync() {
   return Promise.all([syncRecipes(), syncItems()]);
+}
+
+export async function waitForRecipeData() {
+  await localForage.ready();
+
+  const recipeVersion = await localForage.getItem("recipes_version");
+
+  if (recipeVersion == null) {
+    await recipeSync$.pipe(first(x => x === "success")).toPromise();
+  }
+}
+
+export async function waitForItemData() {
+  await localForage.ready();
+
+  const itemVersion = await localForage.getItem("items_version");
+
+  if (itemVersion == null) {
+    await itemSync$.pipe(first(x => x === "success")).toPromise();
+  }
 }

@@ -1,5 +1,6 @@
 import { recipesDb } from "src/data/recipes-db";
 import { itemsDb } from "src/data/items-db";
+import { waitForRecipeData, waitForItemData } from "src/data/sync";
 
 export function minimumSetOfItemsForManyRecipes(
   recipeList: IRecipe[]
@@ -56,6 +57,8 @@ export interface IRecipe {
 export async function getRecipes(
   options: { query?: string; skip?: number; limit?: number } = {}
 ) {
+  await waitForRecipeData();
+
   const request: PouchDB.Find.FindRequest<IRecipe> = {
     selector: {},
     skip: options.skip,
@@ -73,6 +76,8 @@ export async function getRecipes(
 
 export async function getRecipe(id: string): Promise<IRecipe | null> {
   try {
+    await waitForRecipeData();
+
     const recipe = await recipesDb.get(id);
 
     return recipe;
@@ -88,6 +93,8 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
 export async function getItems(
   options: { query?: string; skip?: number; limit?: number } = {}
 ) {
+  await waitForItemData();
+
   const request: PouchDB.Find.FindRequest<IItem> = {
     selector: {},
     skip: options.skip,
@@ -105,6 +112,8 @@ export async function getItems(
 
 export async function getItem(id: string): Promise<IItem | null> {
   try {
+    await waitForItemData();
+
     const item = await itemsDb.get(id);
 
     return item;
@@ -120,6 +129,8 @@ export async function getItem(id: string): Promise<IItem | null> {
 export async function getRelatedRecipes(
   item: IItem
 ): Promise<{ usedIn: IRecipe[]; obtainedFrom: IRecipe[] }> {
+  await waitForItemData();
+
   const usedInRecipesQuery = recipesDb.find({
     selector: { items: { $elemMatch: { "item._id": { $eq: item._id } } } }
   });
@@ -140,6 +151,8 @@ export async function getRelatedRecipes(
 }
 
 export async function toggleRecipeDone(recipe: IRecipe) {
+  await waitForItemData();
+
   const existing = await getRecipe(recipe._id);
 
   if (existing == null) {

@@ -1,17 +1,24 @@
+import { syncRecipes } from "src/data/recipes-db";
 import { syncItems } from "src/data/items-db";
-
-async function sync() {
-  await syncItems();
-}
 
 addEventListener("message", async evt => {
   const data = evt.data || {};
 
   const worker: Worker = self as any;
 
-  if (typeof data === "object" && data.action === "sync") {
+  if (typeof data === "object") {
     try {
-      await sync();
+      switch (data.action) {
+        case "syncRecipes":
+          await syncRecipes();
+          break;
+        case "syncItems":
+          await syncItems();
+          break;
+        default:
+          console.warn("Unknown action", data.action);
+          return;
+      }
       worker.postMessage({ syncStatus: "success" });
     } catch (e) {
       console.error("Failed to sync", e);

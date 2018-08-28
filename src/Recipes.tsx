@@ -5,14 +5,10 @@ import { getRecipes, IRecipe } from "./data/api";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { localForage } from "./config/localforage";
-import { recipeSync$ } from "src/data/sync";
-import { first } from "rxjs/operators";
 import { DataLoading } from "./DataLoading";
 import { LoadState } from "src/util";
 
 interface IRecipeState {
-  // searchTerm: string;
   recipes: IRecipe[];
   loadState: LoadState;
 }
@@ -23,10 +19,7 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
 
     const params = new URLSearchParams(this.props.location.search.substr(1));
 
-    const searchTerm = params.get("search") || "";
-
     this.state = {
-      // searchTerm,
       recipes: [],
       loadState: "loading"
     };
@@ -41,15 +34,6 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
   }
 
   public async componentDidMount() {
-    await localForage.ready();
-
-    const recipeVersion = await localForage.getItem("recipes_version");
-
-    if (recipeVersion == null) {
-      this.setState({ loadState: "firsttimeload" });
-      await recipeSync$.pipe(first(x => x === "success")).toPromise();
-    }
-
     await this.getRecipes(this.getSearchTerm());
   }
 
