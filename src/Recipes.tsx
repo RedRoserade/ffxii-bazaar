@@ -6,7 +6,10 @@ import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "src/util";
-import { LoadingPlaceholder } from "src/LoadingPlaceholder";
+import {
+  LoadingPlaceholder,
+  LoadingPlaceholderSpinner
+} from "src/LoadingPlaceholder";
 
 interface IRecipeState {
   recipes: IRecipe[];
@@ -61,7 +64,7 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
 
         {this.state.loadState === "loading" &&
         this.state.recipes.length === 0 ? (
-          <LoadingPlaceholder timeout={300} />
+          <LoadingPlaceholderSpinner timeout={300} />
         ) : (
           <div className="PageContents WithVirtualizedScrollList">
             <InfiniteLoader
@@ -112,6 +115,10 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
     startIndex: number;
     stopIndex: number;
   }) => {
+    if (this.state.loadState === "loading") {
+      return;
+    }
+
     this.setState({ loadState: "loading" });
 
     const result = await getRecipes({

@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ILoadingPlaceholderProps {
   timeout?: number;
+  children(
+    state: ILoadingPlaceholderState
+  ): React.ReactElement<any> | null | undefined;
 }
 
 interface ILoadingPlaceholderState {
@@ -31,15 +34,36 @@ export class LoadingPlaceholder extends React.Component<
     }
   }
 
-  public render() {
-    if (!this.state.show) {
-      return null;
+  public componentWillUnmount() {
+    if (this.timeoutId != null) {
+      window.clearTimeout(this.timeoutId);
+      this.timeoutId = undefined;
     }
-
-    return (
-      <div className="LoadingPlaceholder">
-        <FontAwesomeIcon icon="spinner" spin={true} />
-      </div>
-    );
   }
+
+  public render() {
+    return this.props.children(this.state);
+  }
+}
+
+interface ILoadingPlaceholderSpinnerProps {
+  timeout?: number;
+}
+
+export function LoadingPlaceholderSpinner(
+  props: ILoadingPlaceholderSpinnerProps
+) {
+  return (
+    <LoadingPlaceholder {...props}>
+      {({ show }) => (show ? <LoadingSpinner /> : null)}
+    </LoadingPlaceholder>
+  );
+}
+
+export function LoadingSpinner() {
+  return (
+    <div className="LoadingSpinner">
+      <FontAwesomeIcon icon="spinner" spin={true} />
+    </div>
+  );
 }

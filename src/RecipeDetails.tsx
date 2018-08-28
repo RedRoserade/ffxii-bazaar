@@ -8,7 +8,11 @@ import { RecipeItems } from "./RecipeItems";
 import { GilLabel } from "./GilLabel";
 import { BackButton } from "./BackButton";
 import { LoadState } from "./util";
-import { LoadingPlaceholder } from "./LoadingPlaceholder";
+import {
+  LoadingPlaceholder,
+  LoadingPlaceholderSpinner,
+  LoadingSpinner
+} from "./LoadingPlaceholder";
 
 interface IParams {
   id: string;
@@ -72,7 +76,21 @@ class RecipeDetails extends React.Component<
     if (this.state.loadState === "loading") {
       return (
         <div className="Page">
-          <LoadingPlaceholder timeout={300} />
+          <LoadingPlaceholder timeout={300}>
+            {({ show }) =>
+              !show ? null : (
+                <>
+                  <header className="PageHeader">
+                    <div className="HeaderAndBackButton">
+                      <BackButton />
+                      <h1>Loading recipe...</h1>
+                    </div>
+                  </header>
+                  <LoadingSpinner />
+                </>
+              )
+            }
+          </LoadingPlaceholder>
         </div>
       );
     }

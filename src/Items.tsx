@@ -6,7 +6,10 @@ import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "src/util";
-import { LoadingPlaceholder } from "src/LoadingPlaceholder";
+import {
+  LoadingPlaceholder,
+  LoadingPlaceholderSpinner
+} from "src/LoadingPlaceholder";
 
 interface IItemsState {
   items: IItem[];
@@ -66,7 +69,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
           </span> */}
         </header>
         {this.state.loadState === "loading" && this.state.items.length === 0 ? (
-          <LoadingPlaceholder timeout={300} />
+          <LoadingPlaceholderSpinner timeout={300} />
         ) : (
           <div className="PageContents WithVirtualizedScrollList">
             <InfiniteLoader
