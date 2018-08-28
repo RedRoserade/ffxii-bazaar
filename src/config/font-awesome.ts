@@ -3,7 +3,8 @@ import {
   faChevronLeft,
   faDatabase,
   faRecycle,
-  faCheck
+  faCheck,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronLeft, faDatabase, faRecycle, faCheck);
+library.add(faChevronLeft, faDatabase, faRecycle, faCheck, faSpinner);

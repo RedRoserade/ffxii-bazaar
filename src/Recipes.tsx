@@ -5,8 +5,8 @@ import { getRecipes, IRecipe } from "./data/api";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { DataLoading } from "./DataLoading";
 import { LoadState } from "src/util";
+import { LoadingPlaceholder } from "src/LoadingPlaceholder";
 
 interface IRecipeState {
   recipes: IRecipe[];
@@ -38,6 +38,8 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
   }
 
   public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
+    this.setState({ loadState: "loading" });
+
     const recipes = await getRecipes({ query, skip, limit });
 
     this.setState({ recipes, loadState: "success" });
@@ -50,14 +52,6 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
   }
 
   public render() {
-    if (this.state.loadState === "firsttimeload") {
-      return (
-        <div className="Page">
-          <DataLoading />
-        </div>
-      );
-    }
-
     return (
       <div className="Page">
         <SearchHeader
@@ -65,29 +59,34 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
           onSearchTermChange={this.handleSearchTermChange}
         />
 
-        <div className="PageContents WithVirtualizedScrollList">
-          <InfiniteLoader
-            isRowLoaded={this.isRowLoaded}
-            loadMoreRows={this.loadMoreRows}
-            rowCount={Infinity}
-          >
-            {({ onRowsRendered, registerChild }) => (
-              <AutoSizer>
-                {({ width, height }) => (
-                  <List
-                    ref={registerChild}
-                    height={height}
-                    onRowsRendered={onRowsRendered}
-                    rowCount={this.state.recipes.length}
-                    rowHeight={43}
-                    rowRenderer={this.renderRow}
-                    width={width}
-                  />
-                )}
-              </AutoSizer>
-            )}
-          </InfiniteLoader>
-        </div>
+        {this.state.loadState === "loading" &&
+        this.state.recipes.length === 0 ? (
+          <LoadingPlaceholder timeout={300} />
+        ) : (
+          <div className="PageContents WithVirtualizedScrollList">
+            <InfiniteLoader
+              isRowLoaded={this.isRowLoaded}
+              loadMoreRows={this.loadMoreRows}
+              rowCount={Infinity}
+            >
+              {({ onRowsRendered, registerChild }) => (
+                <AutoSizer>
+                  {({ width, height }) => (
+                    <List
+                      ref={registerChild}
+                      height={height}
+                      onRowsRendered={onRowsRendered}
+                      rowCount={this.state.recipes.length}
+                      rowHeight={43}
+                      rowRenderer={this.renderRow}
+                      width={width}
+                    />
+                  )}
+                </AutoSizer>
+              )}
+            </InfiniteLoader>
+          </div>
+        )}
       </div>
     );
   }
@@ -113,6 +112,8 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
     startIndex: number;
     stopIndex: number;
   }) => {
+    this.setState({ loadState: "loading" });
+
     const result = await getRecipes({
       query: this.getSearchTerm(),
       skip: options.startIndex,

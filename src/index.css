@@ -323,3 +323,15 @@ h6 {
   margin-top: 0;
   margin-bottom: 15px;
 }
+
+.Page > .LoadingPlaceholder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Page > .LoadingPlaceholder > svg {
+  font-size: 48px;
+  color: var(--heading-bg-color);
+}

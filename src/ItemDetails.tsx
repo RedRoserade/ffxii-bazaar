@@ -16,6 +16,8 @@ import { BackButton } from "./BackButton";
 import { ItemTypeLabel } from "src/ItemTypeLabel";
 import { GilLabel } from "src/GilLabel";
 import { RecipeStatus } from "src/RecipeStatus";
+import { LoadState } from "./util";
+import { LoadingPlaceholder } from "src/LoadingPlaceholder";
 
 interface IParams {
   id: string;
@@ -30,6 +32,7 @@ interface IItemDetailsState {
   item: IItem | null;
   usedInRecipes: IRecipe[];
   obtainedFromRecipes: IRecipe[];
+  loadState: LoadState;
 }
 
 class ItemDetails extends React.Component<
@@ -40,7 +43,8 @@ class ItemDetails extends React.Component<
     selectedRecipes: [],
     item: null,
     usedInRecipes: [],
-    obtainedFromRecipes: []
+    obtainedFromRecipes: [],
+    loadState: "loading"
   };
 
   public async componentDidMount() {
@@ -48,10 +52,11 @@ class ItemDetails extends React.Component<
   }
 
   public async getItem(id: string) {
+    this.setState({ loadState: "loading" });
     const item = await getItem(id);
 
     if (item == null) {
-      this.setState({ item: null });
+      this.setState({ item: null, loadState: "error" });
       return;
     }
 
@@ -60,7 +65,8 @@ class ItemDetails extends React.Component<
     this.setState({
       item,
       usedInRecipes: usedIn,
-      obtainedFromRecipes: obtainedFrom
+      obtainedFromRecipes: obtainedFrom,
+      loadState: "success"
     });
   }
 
@@ -75,6 +81,14 @@ class ItemDetails extends React.Component<
   }
 
   public render() {
+    if (this.state.loadState === "loading") {
+      return (
+        <div className="Page">
+          <LoadingPlaceholder timeout={300} />
+        </div>
+      );
+    }
+
     const { item, usedInRecipes, obtainedFromRecipes } = this.state;
 
     if (item == null) {

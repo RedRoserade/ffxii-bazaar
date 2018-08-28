@@ -5,8 +5,8 @@ import { IItem, getItems } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { DataLoading } from "src/DataLoading";
 import { LoadState } from "src/util";
+import { LoadingPlaceholder } from "src/LoadingPlaceholder";
 
 interface IItemsState {
   items: IItem[];
@@ -32,6 +32,8 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   }
 
   public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
+    this.setState({ loadState: "loading" });
+
     const items = await getItems({ query, skip, limit });
 
     this.setState({ items, loadState: "success" });
@@ -44,16 +46,6 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   }
 
   public render() {
-    // const displayedItems = this.state.items;
-
-    if (this.state.loadState === "firsttimeload") {
-      return (
-        <div className="Page">
-          <DataLoading />
-        </div>
-      );
-    }
-
     return (
       <div className="Page">
         <header className="PageHeader">
@@ -73,29 +65,33 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
             Found {displayedItems.length} items.
           </span> */}
         </header>
-        <div className="PageContents WithVirtualizedScrollList">
-          <InfiniteLoader
-            isRowLoaded={this.isRowLoaded}
-            loadMoreRows={this.loadMoreRows}
-            rowCount={Infinity}
-          >
-            {({ onRowsRendered, registerChild }) => (
-              <AutoSizer>
-                {({ width, height }) => (
-                  <List
-                    ref={registerChild}
-                    height={height}
-                    onRowsRendered={onRowsRendered}
-                    rowCount={this.state.items.length}
-                    rowHeight={43}
-                    rowRenderer={this.renderRow}
-                    width={width}
-                  />
-                )}
-              </AutoSizer>
-            )}
-          </InfiniteLoader>
-        </div>
+        {this.state.loadState === "loading" && this.state.items.length === 0 ? (
+          <LoadingPlaceholder timeout={300} />
+        ) : (
+          <div className="PageContents WithVirtualizedScrollList">
+            <InfiniteLoader
+              isRowLoaded={this.isRowLoaded}
+              loadMoreRows={this.loadMoreRows}
+              rowCount={Infinity}
+            >
+              {({ onRowsRendered, registerChild }) => (
+                <AutoSizer>
+                  {({ width, height }) => (
+                    <List
+                      ref={registerChild}
+                      height={height}
+                      onRowsRendered={onRowsRendered}
+                      rowCount={this.state.items.length}
+                      rowHeight={43}
+                      rowRenderer={this.renderRow}
+                      width={width}
+                    />
+                  )}
+                </AutoSizer>
+              )}
+            </InfiniteLoader>
+          </div>
+        )}
       </div>
     );
   }
@@ -121,6 +117,12 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     startIndex: number;
     stopIndex: number;
   }) => {
+    if (this.state.loadState === "loading") {
+      return;
+    }
+
+    this.setState({ loadState: "loading" });
+
     const result = await getItems({
       query: this.getSearchTerm(),
       skip: options.startIndex,
@@ -134,6 +136,10 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   };
 
   private renderRow = (options: { index: number; key: any; style: any }) => {
+    // if (!this.isRowLoaded(options)) {
+    //   console.log("loading cell here");
+    // }
+
     const i = this.state.items[options.index];
 
     return (

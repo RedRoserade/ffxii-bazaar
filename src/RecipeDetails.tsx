@@ -7,6 +7,8 @@ import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
 import { GilLabel } from "./GilLabel";
 import { BackButton } from "./BackButton";
+import { LoadState } from "./util";
+import { LoadingPlaceholder } from "./LoadingPlaceholder";
 
 interface IParams {
   id: string;
@@ -18,6 +20,7 @@ interface IRecipeDetailsProps extends RouteComponentProps<IParams> {
 
 interface IRecipeDetailsState {
   recipe: IRecipe | null;
+  loadState: LoadState;
 }
 
 class RecipeDetails extends React.Component<
@@ -25,7 +28,8 @@ class RecipeDetails extends React.Component<
   IRecipeDetailsState
 > {
   public state: IRecipeDetailsState = {
-    recipe: null
+    recipe: null,
+    loadState: "loading"
   };
 
   public async componentDidMount() {
@@ -33,9 +37,11 @@ class RecipeDetails extends React.Component<
   }
 
   public async getRecipe(id: string) {
+    this.setState({ loadState: "loading" });
+
     const recipe = await getRecipe(id);
 
-    this.setState({ recipe });
+    this.setState({ recipe, loadState: recipe != null ? "success" : "error" });
   }
 
   public async componentDidUpdate(prevProps: IRecipeDetailsProps) {
@@ -63,6 +69,14 @@ class RecipeDetails extends React.Component<
   };
 
   public render() {
+    if (this.state.loadState === "loading") {
+      return (
+        <div className="Page">
+          <LoadingPlaceholder timeout={300} />
+        </div>
+      );
+    }
+
     const { recipe } = this.state;
 
     if (recipe == null) {

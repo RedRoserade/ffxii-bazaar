@@ -1,1 +1,1 @@
-export type LoadState = "firsttimeload" | "loading" | "success" | "error";
+export type LoadState = "idle" | "loading" | "success" | "error";
