@@ -95,11 +95,11 @@ REM call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   echo Installing packages.
-  call :ExecuteCmd !NPM_CMD! install
+  call :ExecuteCmd npm install
   IF !ERRORLEVEL! NEQ 0 goto error
 
   echo Building.
-  call :ExecuteCmd !NPM_CMD! run build
+  call :ExecuteCmd npm run build
   IF !ERRORLEVEL! NEQ 0 goto error
 
   popd
