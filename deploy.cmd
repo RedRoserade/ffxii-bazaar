@@ -89,7 +89,7 @@ goto :EOF
 echo Handling node.js deployment.
 
 :: 1. Select node version
-call :SelectNodeVersion
+REM call :SelectNodeVersion
 
 :: 2. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
