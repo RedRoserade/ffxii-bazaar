@@ -15,6 +15,8 @@ export function BackButton() {
             type="button"
             className={"BackButton"}
             onClick={() => history.goBack()}
+            aria-label="Go Back"
+            title="Go Back"
           >
             <FontAwesomeIcon icon="chevron-left" size="lg" />
           </button>

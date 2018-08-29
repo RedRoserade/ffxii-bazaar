@@ -6,7 +6,11 @@ module.exports = function addWorkerPreloadScripts() {
 
   const preloadTags = workerScripts
     .map(
-      s => `<link rel="prefetch" href="${s.replace(/^build/, "")}" as="script">`
+      s =>
+        `<link rel="preload" href="${s.replace(
+          /^build/,
+          ""
+        )}" as="worker" type="application/javascript">`
     )
     .join("");
 

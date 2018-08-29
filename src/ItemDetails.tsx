@@ -89,19 +89,18 @@ class ItemDetails extends React.Component<
       return (
         <div className="Page">
           <LoadingPlaceholder timeout={300}>
-            {({ show }) =>
-              !show ? null : (
-                <>
-                  <header className="PageHeader">
-                    <div className="HeaderAndBackButton">
-                      <BackButton />
-                      <h1>Loading item...</h1>
-                    </div>
-                  </header>
-                  <LoadingSpinner />
-                </>
-              )
-            }
+            {({ show }) => (
+              <>
+                <header className="PageHeader">
+                  <h2>Item</h2>
+                  <div className="HeaderAndBackButton">
+                    <BackButton />
+                    {show && <h1>Loading item...</h1>}
+                  </div>
+                </header>
+                {show && <LoadingSpinner />}
+              </>
+            )}
           </LoadingPlaceholder>
         </div>
       );

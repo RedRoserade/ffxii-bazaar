@@ -1,0 +1,2 @@
+[config]
+command = npm run build && xcopy %DEPLOYMENT_SOURCE%/build/ %DEPLOYMENT_TARGET%
