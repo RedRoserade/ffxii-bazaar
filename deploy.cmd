@@ -97,6 +97,11 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   echo Installing packages.
   call :ExecuteCmd !NPM_CMD! install
   IF !ERRORLEVEL! NEQ 0 goto error
+
+  echo Building.
+  call :ExecuteCmd !NPM_CMD! run build
+  IF !ERRORLEVEL! NEQ 0 goto error
+
   popd
 )
 
