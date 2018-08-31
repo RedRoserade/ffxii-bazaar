@@ -81,9 +81,6 @@ class RecipeDetails extends React.Component<
               <>
                 <header className="PageHeader">
                   <div className="PageHeaderRow">
-                    <h2>Recipe</h2>
-                  </div>
-                  <div className="PageHeaderRow">
                     <div className="HeaderAndBackButton">
                       <BackButton />
                       {show && <h1>Loading recipe...</h1>}
@@ -107,9 +104,6 @@ class RecipeDetails extends React.Component<
     return (
       <div className="Page">
         <header className="PageHeader">
-          <div className="PageHeaderRow">
-            <h2>{recipe.repeatable && "Repeatable"} Recipe</h2>
-          </div>
           <div className="PageHeaderRow">
             <div className="HeaderAndBackButton">
               <BackButton />

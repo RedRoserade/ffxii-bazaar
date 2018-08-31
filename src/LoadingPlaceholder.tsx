@@ -67,3 +67,19 @@ export function LoadingSpinner() {
     </div>
   );
 }
+
+export function LoadingPlaceholderOverlaySpinner(
+  props: ILoadingPlaceholderSpinnerProps
+) {
+  return (
+    <LoadingPlaceholder {...props}>
+      {({ show }) =>
+        show ? (
+          <div className="PageContentsOverlay">
+            <LoadingSpinner />
+          </div>
+        ) : null
+      }
+    </LoadingPlaceholder>
+  );
+}

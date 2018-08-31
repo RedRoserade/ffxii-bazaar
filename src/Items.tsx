@@ -8,7 +8,8 @@ import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "src/util";
 import {
   LoadingPlaceholder,
-  LoadingPlaceholderSpinner
+  LoadingPlaceholderSpinner,
+  LoadingPlaceholderOverlaySpinner
 } from "src/LoadingPlaceholder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -180,6 +181,10 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
                 </AutoSizer>
               )}
             </InfiniteLoader>
+
+            {this.state.loadState === "loading" && (
+              <LoadingPlaceholderOverlaySpinner timeout={500} />
+            )}
           </div>
         )}
       </div>

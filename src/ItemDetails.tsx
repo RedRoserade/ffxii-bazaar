@@ -93,9 +93,6 @@ class ItemDetails extends React.Component<
               <>
                 <header className="PageHeader">
                   <div className="PageHeaderRow">
-                    <h2>Item</h2>
-                  </div>
-                  <div className="PageHeaderRow">
                     <div className="HeaderAndBackButton">
                       <BackButton />
                       {show && <h1>Loading item...</h1>}
@@ -119,11 +116,6 @@ class ItemDetails extends React.Component<
     return (
       <div className="Page">
         <header className="PageHeader">
-          <div className="PageHeaderRow">
-            <h2>
-              <ItemTypeLabel item={item} />
-            </h2>
-          </div>
           <div className="PageHeaderRow">
             <div className="HeaderAndBackButton">
               <BackButton />
