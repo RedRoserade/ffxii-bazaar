@@ -6,7 +6,9 @@ export class About extends React.Component {
     return (
       <div className="Page">
         <header className="PageHeader">
-          <h1>About</h1>
+          <div className="PageHeaderRow">
+            <h1>About</h1>
+          </div>
         </header>
 
         <div className="PageContents">

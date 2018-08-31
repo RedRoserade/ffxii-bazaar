@@ -162,22 +162,24 @@ function SearchHeader(props: {
 }) {
   return (
     <header className="PageHeader">
-      <label className="HiddenLabel" htmlFor="ffxii-RecipesSearchInput">
-        Search for recipes
-      </label>
-      <input
-        id="ffxii-RecipesSearchInput"
-        className="HeadingSearchInput"
-        placeholder="eg: 'Assorted Leathers'"
-        type="search"
-        value={props.searchTerm}
-        onChange={props.onSearchTermChange}
-        onFocus={e => e.currentTarget.select()}
-      />
+      <div className="PageHeaderRow">
+        <label className="HiddenLabel" htmlFor="ffxii-RecipesSearchInput">
+          Search for recipes
+        </label>
+        <input
+          id="ffxii-RecipesSearchInput"
+          className="HeadingSearchInput"
+          placeholder="eg: 'Assorted Leathers'"
+          type="search"
+          value={props.searchTerm}
+          onChange={props.onSearchTermChange}
+          onFocus={e => e.currentTarget.select()}
+        />
 
-      {/* <span className="HeadingSearchFeedback">
+        {/* <span className="HeadingSearchFeedback">
             Found {displayedRecipes.length} recipes.
           </span> */}
+      </div>
     </header>
   );
 }

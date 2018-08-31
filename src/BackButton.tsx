@@ -13,7 +13,7 @@ export function BackButton() {
         return (
           <button
             type="button"
-            className={"BackButton"}
+            className={"PageHeaderButton"}
             onClick={() => history.goBack()}
             aria-label="Go Back"
             title="Go Back"

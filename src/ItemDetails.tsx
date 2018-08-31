@@ -92,10 +92,14 @@ class ItemDetails extends React.Component<
             {({ show }) => (
               <>
                 <header className="PageHeader">
-                  <h2>Item</h2>
-                  <div className="HeaderAndBackButton">
-                    <BackButton />
-                    {show && <h1>Loading item...</h1>}
+                  <div className="PageHeaderRow">
+                    <h2>Item</h2>
+                  </div>
+                  <div className="PageHeaderRow">
+                    <div className="HeaderAndBackButton">
+                      <BackButton />
+                      {show && <h1>Loading item...</h1>}
+                    </div>
                   </div>
                 </header>
                 {show && <LoadingSpinner />}
@@ -115,12 +119,16 @@ class ItemDetails extends React.Component<
     return (
       <div className="Page">
         <header className="PageHeader">
-          <h2>
-            <ItemTypeLabel item={item} />
-          </h2>
-          <div className="HeaderAndBackButton">
-            <BackButton />
-            <h1>{item.name}</h1>
+          <div className="PageHeaderRow">
+            <h2>
+              <ItemTypeLabel item={item} />
+            </h2>
+          </div>
+          <div className="PageHeaderRow">
+            <div className="HeaderAndBackButton">
+              <BackButton />
+              <h1>{item.name}</h1>
+            </div>
           </div>
         </header>
 

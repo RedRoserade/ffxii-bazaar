@@ -16,121 +16,144 @@ interface IItemsState {
   items: IItem[];
   loadState: LoadState;
   showOptions: boolean;
-  usageStaus: UsageStatus;
+}
+
+interface ISearchOptions {
+  query: string;
+  usageStatus: UsageStatus;
 }
 
 class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public state: IItemsState = {
     items: [],
     loadState: "loading",
-    showOptions: false,
-    usageStaus: "all"
+    showOptions: false
   };
 
-  private getSearchTerm(): string {
+  private getSearchOptions(): { query: string; usageStatus: UsageStatus } {
     const params = new URLSearchParams(this.props.location.search.substr(1));
 
-    const searchTerm = params.get("search") || "";
+    const query = params.get("query") || "";
+    const usageStatus = (params.get("usageStatus") as UsageStatus) || "all";
 
-    return searchTerm;
+    return { query, usageStatus };
   }
 
   public async componentDidMount() {
-    await this.getItems(this.getSearchTerm());
+    await this.getItems(this.getSearchOptions());
   }
 
-  public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
-    this.setState({ loadState: "loading" });
+  public getItems = debounce(
+    async (
+      searchOptions: Partial<ISearchOptions> = {},
+      skip = 0,
+      limit = 30
+    ) => {
+      this.setState({ loadState: "loading" });
 
-    const items = await getItems({
-      query,
-      skip,
-      limit,
-      usageStatus: this.state.usageStaus
-    });
+      const items = await getItems({
+        ...searchOptions,
+        skip,
+        limit
+      });
 
-    this.setState({ items, loadState: "success" });
-  }, 100);
+      this.setState({ items, loadState: "success" });
+    },
+    100
+  );
 
-  public async componentDidUpdate(
-    prevProps: RouteComponentProps<{}>,
-    prevState: IItemsState
-  ) {
-    if (
-      prevProps.location.search !== this.props.location.search ||
-      prevState.usageStaus !== this.state.usageStaus
-    ) {
-      await this.getItems(this.getSearchTerm());
+  public async componentDidUpdate(prevProps: RouteComponentProps<{}>) {
+    if (prevProps.location.search !== this.props.location.search) {
+      await this.getItems(this.getSearchOptions());
     }
   }
 
   public toggleShowOptions = () =>
     this.setState(state => ({ showOptions: !state.showOptions }));
 
-  public setUsageStatus = (e: React.SyntheticEvent<HTMLInputElement>) =>
-    this.setState({ usageStaus: e.currentTarget.value as UsageStatus });
+  public makeQuery(options: ISearchOptions): URLSearchParams {
+    const params = new URLSearchParams();
+
+    for (const [key, value] of Object.entries(options)) {
+      if (!key || !value) {
+        continue;
+      }
+
+      params.set(key, value);
+    }
+
+    return params;
+  }
+
+  public setUsageStatus = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const search = this.makeQuery({
+      ...this.getSearchOptions(),
+      usageStatus: e.currentTarget.value as UsageStatus
+    });
+
+    this.props.history.replace(`${this.props.match.path}?${search}`);
+  };
 
   public render() {
+    const { query, usageStatus } = this.getSearchOptions();
+
     return (
       <div className="Page">
         <header className="PageHeader">
-          <label className="HiddenLabel" htmlFor="ffxii-ItemsSearchInput">
-            Search for items
-          </label>
-          <input
-            id="ffxii-ItemsSearchInput"
-            className="HeadingSearchInput"
-            placeholder="eg: 'Wolf Pelt'"
-            type="text"
-            value={this.getSearchTerm()}
-            onChange={this.handleSearchTermChange}
-            onFocus={e => e.currentTarget.select()}
-          />
+          <div className="PageHeaderRow">
+            <label className="HiddenLabel" htmlFor="ffxii-ItemsSearchInput">
+              Search for items
+            </label>
+            <input
+              id="ffxii-ItemsSearchInput"
+              className="HeadingSearchInput"
+              placeholder="eg: 'Wolf Pelt'"
+              type="text"
+              value={query}
+              onChange={this.handleSearchTermChange}
+              onFocus={e => e.currentTarget.select()}
+            />
+          </div>
           {/* <span className="HeadingSearchFeedback">
             Found {displayedItems.length} items.
           </span> */}
-          <div>
-            <button type="button" onClick={this.toggleShowOptions}>
-              <FontAwesomeIcon icon="sliders-h" />
+          <div className="PageHeaderRow ReverseRow">
+            <button
+              type="button"
+              className="PageHeaderButton"
+              onClick={this.toggleShowOptions}
+              aria-label="Open or close search options"
+            >
+              <FontAwesomeIcon icon="sliders-h" size="lg" />
             </button>
           </div>
-          <div
-            style={{
-              display: this.state.showOptions ? "flex" : "none",
-              flexDirection: "column"
-            }}
-          >
-            <label>
-              <input
-                type="radio"
-                name="usageStatus"
-                value="all"
-                onChange={this.setUsageStatus}
-                checked={this.state.usageStaus === "all"}
-              />{" "}
-              Show all items
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="usageStatus"
-                value="withPendingRecipes"
-                onChange={this.setUsageStatus}
-                checked={this.state.usageStaus === "withPendingRecipes"}
-              />{" "}
-              Only show items that are still useful for pending recipes
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="usageStatus"
-                value="withoutPendingRecipes"
-                onChange={this.setUsageStatus}
-                checked={this.state.usageStaus === "withoutPendingRecipes"}
-              />{" "}
-              Only show items that no longer have an use in any recipe
-            </label>
-          </div>
+          {this.state.showOptions && (
+            <div className="PageHeaderRow Secondary">
+              <PageHeaderOptions>
+                <PageHeaderOption
+                  name="usageStatus"
+                  onChange={this.setUsageStatus}
+                  isSelected={usageStatus === "all"}
+                  optionValue="all"
+                  label="Show all items"
+                />
+                <PageHeaderOption
+                  name="usageStatus"
+                  onChange={this.setUsageStatus}
+                  isSelected={usageStatus === "withPendingRecipes"}
+                  optionValue="withPendingRecipes"
+                  label="Only show items that are still useful for pending recipes"
+                />
+                <PageHeaderOption
+                  name="usageStatus"
+                  onChange={this.setUsageStatus}
+                  isSelected={usageStatus === "withoutPendingRecipes"}
+                  optionValue="withoutPendingRecipes"
+                  label="Only show items that no longer have an use in any recipe"
+                />
+              </PageHeaderOptions>
+            </div>
+          )}
         </header>
         {this.state.loadState === "loading" && this.state.items.length === 0 ? (
           <LoadingPlaceholderSpinner timeout={300} />
@@ -168,13 +191,12 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   ) => {
     const query = e.currentTarget.value;
 
-    if (query) {
-      this.props.history.replace(
-        `${this.props.match.path}?search=${encodeURIComponent(query)}`
-      );
-    } else {
-      this.props.history.replace(this.props.match.path);
-    }
+    const search = this.makeQuery({
+      ...this.getSearchOptions(),
+      query
+    });
+
+    this.props.history.replace(`${this.props.match.path}?${search}`);
   };
 
   private isRowLoaded = (options: { index: number }) =>
@@ -191,10 +213,9 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     this.setState({ loadState: "loading" });
 
     const result = await getItems({
-      query: this.getSearchTerm(),
+      ...this.getSearchOptions(),
       skip: options.startIndex,
-      limit: options.stopIndex - options.startIndex + 1,
-      usageStatus: this.state.usageStaus
+      limit: options.stopIndex - options.startIndex + 1
     });
 
     this.setState(state => ({
@@ -226,3 +247,30 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
 }
 
 export { Items };
+
+function PageHeaderOption(props: {
+  label: React.ReactNode;
+  onChange(e: React.SyntheticEvent<HTMLInputElement>): void;
+  optionValue: string;
+  isSelected: boolean;
+  name: string;
+}) {
+  const id = `${props.name}_${props.optionValue}`;
+  return (
+    <div className="PageHeaderOption">
+      <input
+        type="radio"
+        name={props.name}
+        value={props.optionValue}
+        onChange={props.onChange}
+        checked={props.isSelected}
+        id={id}
+      />
+      <label htmlFor={id}>{props.label}</label>
+    </div>
+  );
+}
+
+function PageHeaderOptions(props: { children: React.ReactNode }) {
+  return <div className="PageHeaderOptions">{props.children}</div>;
+}

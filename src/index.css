@@ -4,6 +4,7 @@
 
 :root {
   --heading-bg-color: #cd5c5c;
+  --heading-bg-color-secondary: hsl(0, 43%, 48%);
   --heading-text-color: white;
 }
 
@@ -133,8 +134,6 @@ h6 {
 .PageHeader {
   flex-shrink: 0;
 
-  padding: 15px;
-
   display: flex;
   flex-direction: column;
 
@@ -146,16 +145,30 @@ h6 {
   top: 0;
 }
 
+.PageHeaderRow {
+  padding: 15px;
+
+  display: flex;
+}
+
+.PageHeaderRow + .PageHeaderRow {
+  margin-top: -15px;
+}
+
+.PageHeaderRow.Secondary {
+  margin-top: 0;
+  background-color: var(--heading-bg-color-secondary);
+}
+
 .HeaderAndBackButton {
   display: flex;
   align-items: center;
 }
 
-.HeaderAndBackButton > .BackButton {
+.HeaderAndBackButton > .PageHeaderButton {
   flex-shrink: 0;
 
-  padding: 0;
-  padding-right: 15px;
+  padding: 5px 15px 5px 0;
 }
 
 .HeaderAndBackButton > h1 {
@@ -177,8 +190,12 @@ h6 {
   margin: 0;
 }
 
-.PageHeader h2 + h1 {
-  margin-top: 10px;
+.PageHeader h2 {
+  font-size: 20px;
+}
+
+.PageHeader h1 {
+  font-size: 24px;
 }
 
 .MainContents {
@@ -273,6 +290,7 @@ h6 {
 
   border: none;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+  flex: 1;
 }
 
 .HeadingSearchFeedback {
@@ -287,12 +305,13 @@ h6 {
   flex-direction: column;
 }
 
-.BackButton {
+.PageHeaderButton {
   background: transparent;
   color: inherit;
   border: none;
   font-size: inherit;
   font-family: inherit;
+  padding: 0;
 }
 
 /* Taken from Bootstrap's sr-only */
@@ -334,4 +353,22 @@ h6 {
 .Page > .LoadingSpinner > svg {
   font-size: 48px;
   color: var(--heading-bg-color);
+}
+
+.ReverseRow {
+  flex-direction: row-reverse;
+}
+
+.PageHeaderOptions {
+  display: flex;
+  flex-direction: column;
+}
+
+.PageHeaderOption {
+  display: flex;
+  align-items: baseline;
+}
+
+.PageHeaderOption > input {
+  margin: 0 10px 0 0;
 }
