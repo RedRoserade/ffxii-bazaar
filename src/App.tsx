@@ -2,13 +2,40 @@ import * as React from "react";
 
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 
-import { ItemDetails } from "./ItemDetails";
-import { Items } from "./Items";
-
-import { RecipeDetails } from "./RecipeDetails";
-import { Recipes } from "./Recipes";
-import { About } from "./About";
 import { UpdateToastDisplay } from "src/UpdateToastDisplay";
+
+import Loadable from "react-loadable";
+import { PageLoading } from "./PageLoading";
+
+const RecipeDetails = Loadable({
+  loader: () => import("src/RecipeDetails").then(x => x.RecipeDetails),
+  loading: PageLoading,
+  timeout: 300
+});
+
+const Recipes = Loadable({
+  loader: () => import("src/Recipes").then(x => x.Recipes),
+  loading: PageLoading,
+  timeout: 300
+});
+
+const About = Loadable({
+  loader: () => import("src/About").then(x => x.About),
+  loading: PageLoading,
+  timeout: 300
+});
+
+const ItemDetails = Loadable({
+  loader: () => import("src/ItemDetails").then(x => x.ItemDetails),
+  loading: PageLoading,
+  timeout: 300
+});
+
+const Items = Loadable({
+  loader: () => import("src/Items").then(x => x.Items),
+  loading: PageLoading,
+  timeout: 300
+});
 
 class App extends React.Component {
   public render() {

@@ -351,6 +351,7 @@ h6 {
   align-items: center;
 }
 
+/* TODO I should get rid of this. */
 .Page > .LoadingSpinner > svg,
 .PageContentsOverlay > .LoadingSpinner > svg {
   font-size: 48px;
