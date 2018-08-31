@@ -1,5 +1,6 @@
 import { syncRecipes } from "src/data/recipes-db";
 import { syncItems } from "src/data/items-db";
+import { syncRecipeItems } from "src/data/recipe-items-db";
 
 addEventListener("message", async evt => {
   const data = evt.data || {};
@@ -14,6 +15,9 @@ addEventListener("message", async evt => {
           break;
         case "syncItems":
           await syncItems();
+          break;
+        case "syncRecipeItems":
+          await syncRecipeItems();
           break;
         default:
           console.warn("Unknown action", data.action);

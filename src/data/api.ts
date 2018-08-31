@@ -1,4 +1,5 @@
 import { recipesDb } from "src/data/recipes-db";
+import { recipeItemsDb } from "src/data/recipe-items-db";
 import { itemsDb } from "src/data/items-db";
 import { waitForRecipeData, waitForItemData } from "src/data/sync";
 
@@ -19,6 +20,14 @@ export interface IItem {
 export interface IRecipeItem {
   item: IItem;
   quantity: number;
+}
+
+export interface IRecipeItemUsage {
+  _id: string;
+  recipe_id: string;
+  item_id: string;
+  quantity: number;
+  role: "input" | "output";
 }
 
 export interface IRecipe {
@@ -117,63 +126,79 @@ export async function getItems(options: IGetItemsOptions = {}) {
   };
 
   if (options.usageStatus != null && options.usageStatus !== "all") {
-    let recipesInDesiredState: IRecipe[] = [];
-
     const itemIds = new Set<string>();
 
     switch (options.usageStatus) {
-      case "withoutPendingRecipes":
-        recipesInDesiredState = await getRecipes({
-          done: true,
-          repeatable: false
+      case "withoutPendingRecipes": {
+        // This is trickier than I'd like.
+        // The problem is that one item can be used in many recipes,
+        // and not all of them may be done.
+        // So, I need to get all the recipes, and have auxiliary structures
+        // that store the recipe states.
+        // I can only consider items that no longer have an use in any recipe.
+        // i.e., all the recipes that it's used on are not repeatable, and are done.
+        const recipesInDesiredState = await getRecipes({ repeatable: false });
+
+        const recipeStates = new Map<string, boolean>(
+          recipesInDesiredState.map<[string, boolean]>(r => [
+            r._id,
+            r.done || false
+          ])
+        );
+
+        // Possible optimization: I can probably remove this query.
+        const itemIdsToConsider = await recipeItemsDb.find({
+          selector: {
+            $and: [
+              {
+                role: "input",
+                recipe_id: { $in: recipesInDesiredState.map(r => r._id) },
+                item_id: { $gt: null } // So that I can use 'sort'
+              }
+            ]
+          },
+          sort: [{ item_id: "asc" }]
         });
-        break;
-      case "withPendingRecipes":
-        recipesInDesiredState = await getRecipes({
-          done: false
-        });
-        break;
-    }
 
-    for (const r of recipesInDesiredState) {
-      for (const item of r.items) {
-        itemIds.add(item.item._id);
-      }
-    }
+        const recipesPerItemId = new Map<string, string[]>();
 
-    // Second pass, to catch items which may still be in one or more recipes...
-    if (options.usageStatus === "withoutPendingRecipes") {
-      console.debug(
-        "Need to do a second pass to remove items that might still be needed..."
-      );
-      const itemsThatAreStillInUse = await Promise.all(
-        Array.from(itemIds).map(async id => {
-          const usedInRecipes = await recipesDb.find({
-            selector: {
-              $and: [
-                { items: { $elemMatch: { "item._id": { $eq: id } } } },
-                {
-                  $or: [
-                    { done: { $exists: false } }, // Because I was an idiot and forgot to add the field.
-                    { done: { $eq: false } }
-                  ]
-                }
-              ]
-            }
-          });
-
-          if (usedInRecipes.docs.length > 0) {
-            return id;
+        for (const entry of itemIdsToConsider.docs) {
+          if (!recipesPerItemId.has(entry.item_id)) {
+            recipesPerItemId.set(entry.item_id, []);
           }
 
-          return null;
-        })
-      );
-
-      for (const id of itemsThatAreStillInUse) {
-        if (id != null) {
-          itemIds.delete(id);
+          recipesPerItemId.get(entry.item_id)!.push(entry.recipe_id);
         }
+
+        for (const [itemId, recipeIds] of recipesPerItemId) {
+          if (recipeIds.every(r => recipeStates.get(r) === true)) {
+            itemIds.add(itemId);
+          }
+        }
+
+        break;
+      }
+      case "withPendingRecipes": {
+        const recipesInDesiredState = await getRecipes({
+          done: false
+        });
+
+        const itemIdsToConsider = await recipeItemsDb.find({
+          selector: {
+            $and: [
+              {
+                role: "input",
+                recipe_id: { $in: recipesInDesiredState.map(r => r._id) }
+              }
+            ]
+          }
+        });
+
+        for (const entry of itemIdsToConsider.docs) {
+          itemIds.add(entry.item_id);
+        }
+
+        break;
       }
     }
 

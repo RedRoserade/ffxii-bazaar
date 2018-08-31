@@ -7,6 +7,7 @@ type SyncStatus = "pending" | "syncing" | "success" | "error";
 
 export const itemSync$ = new Subject<SyncStatus>();
 export const recipeSync$ = new Subject<SyncStatus>();
+export const recipeItemSync$ = new Subject<SyncStatus>();
 
 function doSync(action: string, subject$: Subject<SyncStatus>) {
   return new Promise((resolve, reject) => {
@@ -41,8 +42,12 @@ function syncItems() {
   return doSync("syncItems", itemSync$);
 }
 
+function syncRecipeItems() {
+  return doSync("syncRecipeItems", recipeItemSync$);
+}
+
 export function runSync() {
-  return Promise.all([syncRecipes(), syncItems()]);
+  return Promise.all([syncRecipes(), syncRecipeItems(), syncItems()]);
 }
 
 export async function waitForRecipeData() {
@@ -52,6 +57,16 @@ export async function waitForRecipeData() {
 
   if (recipeVersion == null) {
     await recipeSync$.pipe(first(x => x === "success")).toPromise();
+  }
+}
+
+export async function waitForRecipeItemData() {
+  await localForage.ready();
+
+  const recipeVersion = await localForage.getItem("recipe_items_version");
+
+  if (recipeVersion == null) {
+    await recipeItemSync$.pipe(first(x => x === "success")).toPromise();
   }
 }
 

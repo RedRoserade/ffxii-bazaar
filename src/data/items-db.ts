@@ -29,7 +29,7 @@ export async function syncItems() {
       if (
         data.version === (await localForage.getItem<number>("items_version"))
       ) {
-        console.log("Data is up-to date.");
+        console.log("[items] Data is up-to date.");
         return;
       }
 
