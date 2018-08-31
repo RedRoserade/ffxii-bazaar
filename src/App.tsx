@@ -8,6 +8,7 @@ import { Items } from "./Items";
 import { RecipeDetails } from "./RecipeDetails";
 import { Recipes } from "./Recipes";
 import { About } from "./About";
+import { UpdateToastDisplay } from "src/UpdateToastDisplay";
 
 class App extends React.Component {
   public render() {
@@ -38,6 +39,7 @@ class App extends React.Component {
               About
             </NavLink>
           </nav>
+          <UpdateToastDisplay />
         </>
       </HashRouter>
     );

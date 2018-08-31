@@ -392,3 +392,31 @@ h6 {
   align-items: center;
   justify-content: center;
 }
+
+.ToastOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  padding: 50px 15px;
+
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.Toast {
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 15px;
+
+  text-align: center;
+  font-size: 0.85em;
+}

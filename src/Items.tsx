@@ -183,7 +183,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
             </InfiniteLoader>
 
             {this.state.loadState === "loading" && (
-              <LoadingPlaceholderOverlaySpinner timeout={500} />
+              <LoadingPlaceholderOverlaySpinner timeout={1000} />
             )}
           </div>
         )}

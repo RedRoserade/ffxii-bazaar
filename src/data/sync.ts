@@ -47,7 +47,7 @@ function syncRecipeItems() {
 }
 
 export function runSync() {
-  return Promise.all([syncRecipes(), syncRecipeItems(), syncItems()]);
+  return Promise.all([syncRecipes() /*, syncRecipeItems()*/, syncItems()]);
 }
 
 export async function waitForRecipeData() {
