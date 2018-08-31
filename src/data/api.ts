@@ -1,5 +1,5 @@
 import { recipesDb } from "src/data/recipes-db";
-import { recipeItemsDb } from "src/data/recipe-items-db";
+// import { recipeItemsDb } from "src/data/recipe-items-db";
 import { itemsDb } from "src/data/items-db";
 import { waitForRecipeData, waitForItemData } from "src/data/sync";
 
@@ -116,6 +116,18 @@ interface IGetItemsOptions extends IPaginationOptions {
   usageStatus?: UsageStatus;
 }
 
+function getItemIdsFromRecipes(recipeList: IRecipe[]) {
+  const ids = new Set<string>();
+
+  for (const r of recipeList) {
+    for (const item of r.items) {
+      ids.add(item.item._id);
+    }
+  }
+
+  return ids;
+}
+
 export async function getItems(options: IGetItemsOptions = {}) {
   await waitForItemData();
 
@@ -126,7 +138,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
   };
 
   if (options.usageStatus != null && options.usageStatus !== "all") {
-    const itemIds = new Set<string>();
+    let itemIds = new Set<string>();
 
     switch (options.usageStatus) {
       case "withoutPendingRecipes": {
@@ -137,43 +149,22 @@ export async function getItems(options: IGetItemsOptions = {}) {
         // that store the recipe states.
         // I can only consider items that no longer have an use in any recipe.
         // i.e., all the recipes that it's used on are not repeatable, and are done.
-        const recipesInDesiredState = await getRecipes({ repeatable: false });
-
-        const recipeStates = new Map<string, boolean>(
-          recipesInDesiredState.map<[string, boolean]>(r => [
-            r._id,
-            r.done || false
-          ])
-        );
-
-        // Possible optimization: I can probably remove this query.
-        const itemIdsToConsider = await recipeItemsDb.find({
-          selector: {
-            $and: [
-              {
-                role: "input",
-                recipe_id: { $in: recipesInDesiredState.map(r => r._id) },
-                item_id: { $gt: null } // So that I can use 'sort'
-              }
-            ]
-          },
-          sort: [{ item_id: "asc" }]
+        const notDoneNonRepeatableRecipes = await getRecipes({
+          repeatable: false,
+          done: false
         });
 
-        const recipesPerItemId = new Map<string, string[]>();
+        const doneNonRepeatableRecipes = await getRecipes({
+          repeatable: false,
+          done: true
+        });
 
-        for (const entry of itemIdsToConsider.docs) {
-          if (!recipesPerItemId.has(entry.item_id)) {
-            recipesPerItemId.set(entry.item_id, []);
-          }
+        const pendingIds = getItemIdsFromRecipes(notDoneNonRepeatableRecipes);
 
-          recipesPerItemId.get(entry.item_id)!.push(entry.recipe_id);
-        }
+        itemIds = getItemIdsFromRecipes(doneNonRepeatableRecipes);
 
-        for (const [itemId, recipeIds] of recipesPerItemId) {
-          if (recipeIds.every(r => recipeStates.get(r) === true)) {
-            itemIds.add(itemId);
-          }
+        for (const pendingId of pendingIds) {
+          itemIds.delete(pendingId);
         }
 
         break;
@@ -183,20 +174,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
           done: false
         });
 
-        const itemIdsToConsider = await recipeItemsDb.find({
-          selector: {
-            $and: [
-              {
-                role: "input",
-                recipe_id: { $in: recipesInDesiredState.map(r => r._id) }
-              }
-            ]
-          }
-        });
-
-        for (const entry of itemIdsToConsider.docs) {
-          itemIds.add(entry.item_id);
-        }
+        itemIds = getItemIdsFromRecipes(recipesInDesiredState);
 
         break;
       }
