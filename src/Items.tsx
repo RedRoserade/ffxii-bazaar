@@ -37,7 +37,11 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public getItems = debounce(async (query = "", skip = 0, limit = 30) => {
     this.setState({ loadState: "loading" });
 
-    const items = await getItems({ query, skip, limit });
+    const items = await getItems({
+      query,
+      skip,
+      limit
+    });
 
     this.setState({ items, loadState: "success" });
   }, 100);
