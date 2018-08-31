@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { IItem, getItems } from "./data/api";
+import { IItem, getItems, UsageStatus } from "./data/api";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
@@ -10,16 +10,21 @@ import {
   LoadingPlaceholder,
   LoadingPlaceholderSpinner
 } from "src/LoadingPlaceholder";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IItemsState {
   items: IItem[];
   loadState: LoadState;
+  showOptions: boolean;
+  usageStaus: UsageStatus;
 }
 
 class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public state: IItemsState = {
     items: [],
-    loadState: "loading"
+    loadState: "loading",
+    showOptions: false,
+    usageStaus: "all"
   };
 
   private getSearchTerm(): string {
@@ -40,17 +45,30 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     const items = await getItems({
       query,
       skip,
-      limit
+      limit,
+      usageStatus: this.state.usageStaus
     });
 
     this.setState({ items, loadState: "success" });
   }, 100);
 
-  public async componentDidUpdate(prevProps: RouteComponentProps<{}>) {
-    if (prevProps.location.search !== this.props.location.search) {
+  public async componentDidUpdate(
+    prevProps: RouteComponentProps<{}>,
+    prevState: IItemsState
+  ) {
+    if (
+      prevProps.location.search !== this.props.location.search ||
+      prevState.usageStaus !== this.state.usageStaus
+    ) {
       await this.getItems(this.getSearchTerm());
     }
   }
+
+  public toggleShowOptions = () =>
+    this.setState(state => ({ showOptions: !state.showOptions }));
+
+  public setUsageStatus = (e: React.SyntheticEvent<HTMLInputElement>) =>
+    this.setState({ usageStaus: e.currentTarget.value as UsageStatus });
 
   public render() {
     return (
@@ -71,6 +89,48 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
           {/* <span className="HeadingSearchFeedback">
             Found {displayedItems.length} items.
           </span> */}
+          <div>
+            <button type="button" onClick={this.toggleShowOptions}>
+              <FontAwesomeIcon icon="sliders-h" />
+            </button>
+          </div>
+          <div
+            style={{
+              display: this.state.showOptions ? "flex" : "none",
+              flexDirection: "column"
+            }}
+          >
+            <label>
+              <input
+                type="radio"
+                name="usageStatus"
+                value="all"
+                onChange={this.setUsageStatus}
+                checked={this.state.usageStaus === "all"}
+              />{" "}
+              Show all items
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="usageStatus"
+                value="withPendingRecipes"
+                onChange={this.setUsageStatus}
+                checked={this.state.usageStaus === "withPendingRecipes"}
+              />{" "}
+              Only show items that are still useful for pending recipes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="usageStatus"
+                value="withoutPendingRecipes"
+                onChange={this.setUsageStatus}
+                checked={this.state.usageStaus === "withoutPendingRecipes"}
+              />{" "}
+              Only show items that no longer have an use in any recipe
+            </label>
+          </div>
         </header>
         {this.state.loadState === "loading" && this.state.items.length === 0 ? (
           <LoadingPlaceholderSpinner timeout={300} />
@@ -133,7 +193,8 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     const result = await getItems({
       query: this.getSearchTerm(),
       skip: options.startIndex,
-      limit: options.stopIndex - options.startIndex + 1
+      limit: options.stopIndex - options.startIndex + 1,
+      usageStatus: this.state.usageStaus
     });
 
     this.setState(state => ({

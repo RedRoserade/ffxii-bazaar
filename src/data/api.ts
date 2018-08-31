@@ -97,9 +97,14 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
   }
 }
 
+export type UsageStatus =
+  | "all"
+  | "withoutPendingRecipes"
+  | "withPendingRecipes";
+
 interface IGetItemsOptions extends IPaginationOptions {
   query?: string;
-  usageStatus?: "withoutPendingRecipes" | "withPendingRecipes";
+  usageStatus?: UsageStatus;
 }
 
 export async function getItems(options: IGetItemsOptions = {}) {
@@ -111,7 +116,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
     limit: options.limit
   };
 
-  if (options.usageStatus) {
+  if (options.usageStatus != null && options.usageStatus !== "all") {
     let recipesInDesiredState: IRecipe[] = [];
 
     const itemIds = new Set<string>();

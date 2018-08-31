@@ -4,7 +4,15 @@ import {
   faDatabase,
   faRecycle,
   faCheck,
-  faSpinner
+  faSpinner,
+  faSlidersH
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronLeft, faDatabase, faRecycle, faCheck, faSpinner);
+library.add(
+  faChevronLeft,
+  faDatabase,
+  faRecycle,
+  faCheck,
+  faSpinner,
+  faSlidersH
+);
