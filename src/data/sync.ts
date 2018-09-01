@@ -49,12 +49,11 @@ async function waitFor(key: string) {
   await localForage.ready();
 
   let version = await localForage.getItem(key);
-  let time = 50;
+  const time = 100;
 
   while (version == null) {
     await delay(time);
     version = await localForage.getItem(key);
-    time *= 2;
   }
 }
 
