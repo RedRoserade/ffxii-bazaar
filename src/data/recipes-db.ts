@@ -2,7 +2,7 @@ import "src/config/db-config";
 
 import PouchDB from "pouchdb-browser";
 
-import { IRecipe } from "./api";
+import { IRecipe } from "src/data/api-types";
 import { localForage } from "src/config/localforage";
 
 export const recipesDb = new PouchDB<IRecipe>("ffxii_bazaar_recipes", {

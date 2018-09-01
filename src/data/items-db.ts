@@ -2,7 +2,7 @@ import "src/config/db-config";
 
 import PouchDB from "pouchdb-browser";
 
-import { IItem } from "./api";
+import { IItem } from "src/data/api-types";
 import { localForage } from "src/config/localforage";
 
 const baseUrl = process.env.PUBLIC_URL!;

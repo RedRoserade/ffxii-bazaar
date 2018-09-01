@@ -1,15 +1,13 @@
-import * as React from "react";
+import React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { getRecipes, IRecipe } from "./data/api";
+import { getRecipes } from "src/data/api";
+import { IRecipe } from "src/data/api-types";
 import { debounce } from "lodash-es";
-import { RecipeStatus } from "./RecipeStatus";
+import { RecipeStatus } from "src/RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "src/util";
-import {
-  LoadingPlaceholder,
-  LoadingPlaceholderSpinner
-} from "src/LoadingPlaceholder";
+import { LoadingPlaceholderSpinner } from "src/LoadingPlaceholder";
 
 interface IRecipeState {
   recipes: IRecipe[];
@@ -19,8 +17,6 @@ interface IRecipeState {
 class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
   constructor(props: RouteComponentProps<{}>) {
     super(props);
-
-    const params = new URLSearchParams(this.props.location.search.substr(1));
 
     this.state = {
       recipes: [],

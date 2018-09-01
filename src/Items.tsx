@@ -1,16 +1,17 @@
 import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { IItem, getItems, UsageStatus } from "./data/api";
-import { ItemIcon } from "./ItemTypeIcon";
+import { getItems } from "src/data/api";
+import { IItem, UsageStatus } from "src/data/api-types";
+import { ItemIcon } from "src/ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "src/util";
 import {
-  LoadingPlaceholder,
   LoadingPlaceholderSpinner,
   LoadingPlaceholderOverlaySpinner
 } from "src/LoadingPlaceholder";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IItemsState {
@@ -183,7 +184,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
             </InfiniteLoader>
 
             {this.state.loadState === "loading" && (
-              <LoadingPlaceholderOverlaySpinner timeout={1000} />
+              <LoadingPlaceholderOverlaySpinner timeout={2000} />
             )}
           </div>
         )}

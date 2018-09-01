@@ -1,55 +1,15 @@
 import { recipesDb } from "src/data/recipes-db";
-// import { recipeItemsDb } from "src/data/recipe-items-db";
 import { itemsDb } from "src/data/items-db";
+
 import { waitForRecipeData, waitForItemData } from "src/data/sync";
 
-export enum ItemType {
-  Weapon = "weapon",
-  Armour = "armour",
-  HealingItem = "healingItem",
-  Loot = "loot",
-  KeyItem = "keyItem"
-}
-
-export interface IItem {
-  name: string;
-  _id: string;
-  type: ItemType;
-}
-
-export interface IRecipeItem {
-  item: IItem;
-  quantity: number;
-}
-
-export interface IRecipeItemUsage {
-  _id: string;
-  recipe_id: string;
-  item_id: string;
-  quantity: number;
-  role: "input" | "output";
-}
-
-export interface IRecipe {
-  _id: string;
-  name: string;
-  items: IRecipeItem[];
-  cost: number;
-  result: IRecipeItem[];
-  repeatable: boolean;
-  done: boolean;
-}
-
-interface IPaginationOptions {
-  skip?: number;
-  limit?: number;
-}
-
-interface IGetRecipesOptions extends IPaginationOptions {
-  query?: string;
-  done?: boolean;
-  repeatable?: boolean;
-}
+import {
+  IGetRecipesOptions,
+  IRecipe,
+  IGetItemsOptions,
+  IItem,
+  IRecipeItem
+} from "src/data/api-types";
 
 export async function getRecipes(options: IGetRecipesOptions = {}) {
   await waitForRecipeData();
@@ -104,16 +64,6 @@ export async function getRecipe(id: string): Promise<IRecipe | null> {
 
     throw e;
   }
-}
-
-export type UsageStatus =
-  | "all"
-  | "withoutPendingRecipes"
-  | "withPendingRecipes";
-
-interface IGetItemsOptions extends IPaginationOptions {
-  query?: string;
-  usageStatus?: UsageStatus;
 }
 
 function getItemIdsFromRecipes(recipeList: IRecipe[]) {

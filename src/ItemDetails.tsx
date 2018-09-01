@@ -3,25 +3,19 @@ import * as React from "react";
 import { Link, RouteComponentProps } from "react-router-dom";
 
 import {
-  IRecipe,
   minimumSetOfItemsForManyRecipes,
   getItem,
-  IItem,
   getRelatedRecipes
-} from "./data/api";
+} from "src/data/api";
 
-import { RecipeItems } from "./RecipeItems";
-import { SubHeading } from "./SubHeading";
-import { BackButton } from "./BackButton";
-import { ItemTypeLabel } from "src/ItemTypeLabel";
+import { RecipeItems } from "src/RecipeItems";
+import { SubHeading } from "src/SubHeading";
+import { BackButton } from "src/BackButton";
 import { GilLabel } from "src/GilLabel";
 import { RecipeStatus } from "src/RecipeStatus";
-import { LoadState } from "./util";
-import {
-  LoadingPlaceholder,
-  LoadingPlaceholderSpinner,
-  LoadingSpinner
-} from "src/LoadingPlaceholder";
+import { LoadState } from "src/util";
+import { LoadingPlaceholder, LoadingSpinner } from "src/LoadingPlaceholder";
+import { IRecipe, IItem } from "src/data/api-types";
 
 interface IParams {
   id: string;
@@ -74,10 +68,7 @@ class ItemDetails extends React.Component<
     });
   }
 
-  public async componentDidUpdate(
-    prevProps: IItemDetailsProps,
-    prevState: IItemDetailsState
-  ) {
+  public async componentDidUpdate(prevProps: IItemDetailsProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.setState({ selectedRecipes: [] });
       await this.getItem(this.props.match.params.id);
@@ -95,7 +86,7 @@ class ItemDetails extends React.Component<
                   <div className="PageHeaderRow">
                     <div className="HeaderAndBackButton">
                       <BackButton />
-                      {show && <h1>Loading item...</h1>}
+                      <h1>Loading item...</h1>
                     </div>
                   </div>
                 </header>

@@ -1,5 +1,5 @@
 import React from "react";
-import { IRecipe } from "src/data/api";
+import { IRecipe } from "src/data/api-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function RecipeStatus(props: { recipe: IRecipe }) {

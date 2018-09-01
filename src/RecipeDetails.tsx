@@ -1,18 +1,15 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { IRecipe, getRecipe, toggleRecipeDone } from "./data/api";
+import { getRecipe, toggleRecipeDone } from "src/data/api";
+import { IRecipe } from "src/data/api-types";
 
-import { SubHeading } from "./SubHeading";
-import { RecipeItems } from "./RecipeItems";
-import { GilLabel } from "./GilLabel";
-import { BackButton } from "./BackButton";
-import { LoadState } from "./util";
-import {
-  LoadingPlaceholder,
-  LoadingPlaceholderSpinner,
-  LoadingSpinner
-} from "./LoadingPlaceholder";
+import { SubHeading } from "src/SubHeading";
+import { RecipeItems } from "src/RecipeItems";
+import { GilLabel } from "src/GilLabel";
+import { BackButton } from "src/BackButton";
+import { LoadState } from "src/util";
+import { LoadingPlaceholder, LoadingSpinner } from "src/LoadingPlaceholder";
 
 interface IParams {
   id: string;
@@ -83,7 +80,7 @@ class RecipeDetails extends React.Component<
                   <div className="PageHeaderRow">
                     <div className="HeaderAndBackButton">
                       <BackButton />
-                      {show && <h1>Loading recipe...</h1>}
+                      <h1>Loading recipe...</h1>
                     </div>
                   </div>
                 </header>

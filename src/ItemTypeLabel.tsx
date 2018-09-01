@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ItemType, IItem } from "./data/api";
+import { ItemType, IItem } from "src/data/api-types";
 
 const typeLabels: Record<ItemType, React.ReactElement<any>> = {
   armour: <span>Armour</span>,

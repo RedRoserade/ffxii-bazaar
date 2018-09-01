@@ -1,11 +1,9 @@
-import "src/RecipeItems.css";
-
-import * as React from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { IRecipeItem } from "./data/api";
-import { ItemIcon } from "./ItemTypeIcon";
+import { IRecipeItem } from "src/data/api-types";
+import { ItemIcon } from "src/ItemTypeIcon";
 
 export function RecipeItems({ items }: { items: IRecipeItem[] }) {
   return (
