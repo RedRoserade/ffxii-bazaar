@@ -3,6 +3,8 @@ import { localForage } from "src/config/localforage";
 
 function doSync(action: string) {
   return new Promise((resolve, reject) => {
+    const worker = new SyncWorker();
+
     function handleSyncWorkerMessage(evt: MessageEvent) {
       if (evt.data.syncStatus === "success") {
         console.log(`[${action}] Sync success`);
@@ -11,9 +13,9 @@ function doSync(action: string) {
         console.error(`[${action}] Sync error`);
         reject();
       }
-    }
 
-    const worker = new SyncWorker();
+      worker.terminate();
+    }
 
     worker.onerror = err => console.error(err);
     worker.onmessage = evt => handleSyncWorkerMessage(evt);
