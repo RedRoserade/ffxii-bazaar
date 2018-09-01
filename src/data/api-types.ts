@@ -55,3 +55,8 @@ export interface IGetItemsOptions extends IPaginationOptions {
   query?: string;
   usageStatus?: UsageStatus;
 }
+
+export interface IRelatedRecipes {
+  usedIn: IRecipe[];
+  obtainedFrom: IRecipe[];
+}

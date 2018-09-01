@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { getRecipe, toggleRecipeDone } from "src/data/api";
+import { apiWorker } from "src/data/api-worker";
 import { IRecipe } from "src/data/api-types";
 
 import { SubHeading } from "src/SubHeading";
@@ -40,7 +40,7 @@ class RecipeDetails extends React.Component<
   public async getRecipe(id: string) {
     this.setState({ loadState: "loading" });
 
-    const recipe = await getRecipe(id);
+    const recipe = await apiWorker.getRecipe(id);
 
     this.setState({ recipe, loadState: recipe != null ? "success" : "error" });
   }
@@ -66,7 +66,7 @@ class RecipeDetails extends React.Component<
       };
     });
 
-    await toggleRecipeDone(this.state.recipe);
+    await apiWorker.toggleRecipeDone(this.state.recipe);
   };
 
   public render() {

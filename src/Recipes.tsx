@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { getRecipes } from "src/data/api";
+import { apiWorker } from "src/data/api-worker";
 import { IRecipe } from "src/data/api-types";
 import { debounce } from "lodash-es";
 import { RecipeStatus } from "src/RecipeStatus";
@@ -39,7 +39,7 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
   public getRecipes = debounce(async (query = "", skip = 0, limit = 30) => {
     this.setState({ loadState: "loading" });
 
-    const recipes = await getRecipes({ query, skip, limit });
+    const recipes = await apiWorker.getRecipes({ query, skip, limit });
 
     this.setState({ recipes, loadState: "success" });
   }, 100);
@@ -117,7 +117,7 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
 
     this.setState({ loadState: "loading" });
 
-    const result = await getRecipes({
+    const result = await apiWorker.getRecipes({
       query: this.getSearchTerm(),
       skip: options.startIndex,
       limit: options.stopIndex - options.startIndex + 1

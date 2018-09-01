@@ -71,7 +71,8 @@
     "@types/webfontloader": "^1.6.29",
     "preload-webpack-plugin": "^2.3.0",
     "typescript": "^2.9.2",
-    "worker-loader": "^2.0.0"
+    "worker-loader": "^2.0.0",
+    "workerize-loader": "^1.0.4"
   },
   "scripts": {
     "start": "node scripts/start.js",

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { getItems } from "src/data/api";
+import { apiWorker } from "src/data/api-worker";
 import { IItem, UsageStatus } from "src/data/api-types";
 import { ItemIcon } from "src/ItemTypeIcon";
 import { debounce } from "lodash-es";
@@ -53,7 +53,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     ) => {
       this.setState({ loadState: "loading" });
 
-      const items = await getItems({
+      const items = await apiWorker.getItems({
         ...searchOptions,
         skip,
         limit
@@ -218,7 +218,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
 
     this.setState({ loadState: "loading" });
 
-    const result = await getItems({
+    const result = await apiWorker.getItems({
       ...this.getSearchOptions(),
       skip: options.startIndex,
       limit: options.stopIndex - options.startIndex + 1

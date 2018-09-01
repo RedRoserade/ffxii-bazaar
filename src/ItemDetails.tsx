@@ -2,11 +2,7 @@ import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
 
-import {
-  minimumSetOfItemsForManyRecipes,
-  getItem,
-  getRelatedRecipes
-} from "src/data/api";
+import { apiWorker } from "src/data/api-worker";
 
 import { RecipeItems } from "src/RecipeItems";
 import { SubHeading } from "src/SubHeading";
@@ -53,14 +49,14 @@ class ItemDetails extends React.Component<
 
   public async getItem(id: string) {
     this.setState({ loadState: "loading" });
-    const item = await getItem(id);
+    const item = await apiWorker.getItem(id);
 
     if (item == null) {
       this.setState({ item: null, loadState: "error" });
       return;
     }
 
-    const { usedIn, obtainedFrom } = await getRelatedRecipes(item);
+    const { usedIn, obtainedFrom } = await apiWorker.getRelatedRecipes(item);
 
     this.setState({
       item,
@@ -219,7 +215,7 @@ class ItemDetails extends React.Component<
   }
 
   private async updateItemSetForSelectedRecipes(recipes: IRecipe[]) {
-    const items = await minimumSetOfItemsForManyRecipes(recipes);
+    const items = await apiWorker.minimumSetOfItemsForManyRecipes(recipes);
 
     this.setState({ itemSetForSelectedRecipes: items });
   }

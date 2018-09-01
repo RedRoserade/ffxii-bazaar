@@ -1,19 +1,22 @@
 import "src/index.css";
 import "react-virtualized/styles.css";
-import "src/config/font-awesome";
 
 import "src/config/localforage";
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+// Init the API worker ASAP.
+import "src/data/api-worker";
+import { runSync } from "src/data/sync";
+
+import "src/config/font-awesome";
+
+import React from "react";
+import ReactDOM from "react-dom";
 
 import WebFont from "webfontloader";
 
 import App from "src/App";
 
 import registerServiceWorker from "./registerServiceWorker";
-
-import { runSync } from "src/data/sync";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();

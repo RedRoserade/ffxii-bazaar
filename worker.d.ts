@@ -5,3 +5,9 @@ declare module "worker-loader!*" {
 
   export default WebpackWorker;
 }
+
+declare module "workerize-loader!*" {
+  function worker<T>(): Worker & T;
+
+  export default worker;
+}
