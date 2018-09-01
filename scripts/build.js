@@ -31,7 +31,8 @@ const measureFileSizesBeforeBuild =
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 const useYarn = fs.existsSync(paths.yarnLockFile);
 
-const addWorkerPreloadScripts = require("./addWorkerPreloadScripts");
+const addWorkerPreloadTags = require("./addWorkerPreloadTags");
+const addScriptPreloadTags = require("./addScriptPreloadTags");
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
@@ -143,7 +144,8 @@ function build(previousFileSizes) {
     });
   }).then(data => {
     console.log(chalk.green("Adding Worker preload scripts..."));
-    addWorkerPreloadScripts();
+    addWorkerPreloadTags();
+    // addScriptPreloadTags();
 
     return data;
   });

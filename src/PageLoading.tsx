@@ -8,7 +8,7 @@ export function PageLoading(props: LoadingComponentProps) {
       <header className="PageHeader">
         <div className="PageHeaderRow">
           <div className="HeaderAndBackButton">
-            {props.timedOut && <h1>Loading...</h1>}
+            <h1>{props.timedOut ? "Loading..." : <>&nbsp;</>}</h1>
           </div>
         </div>
       </header>

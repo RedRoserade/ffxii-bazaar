@@ -67,6 +67,7 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
               isRowLoaded={this.isRowLoaded}
               loadMoreRows={this.loadMoreRows}
               rowCount={Infinity}
+              minimumBatchSize={30}
             >
               {({ onRowsRendered, registerChild }) => (
                 <AutoSizer>
