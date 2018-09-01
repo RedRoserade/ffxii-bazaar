@@ -200,9 +200,9 @@ export async function toggleRecipeDone(recipe: IRecipe) {
   return existing;
 }
 
-export function minimumSetOfItemsForManyRecipes(
+export async function minimumSetOfItemsForManyRecipes(
   recipeList: IRecipe[]
-): IRecipeItem[] {
+): Promise<IRecipeItem[]> {
   const itemQuantities = new Map<string, [IItem, number]>();
 
   for (const recipe of recipeList) {

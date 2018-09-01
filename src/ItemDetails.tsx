@@ -15,7 +15,7 @@ import { GilLabel } from "src/GilLabel";
 import { RecipeStatus } from "src/RecipeStatus";
 import { LoadState } from "src/util";
 import { LoadingPlaceholder, LoadingSpinner } from "src/LoadingPlaceholder";
-import { IRecipe, IItem } from "src/data/api-types";
+import { IRecipe, IItem, IRecipeItem } from "src/data/api-types";
 
 interface IParams {
   id: string;
@@ -31,6 +31,7 @@ interface IItemDetailsState {
   usedInRecipes: IRecipe[];
   obtainedFromRecipes: IRecipe[];
   loadState: LoadState;
+  itemSetForSelectedRecipes: IRecipeItem[];
 }
 
 class ItemDetails extends React.Component<
@@ -42,7 +43,8 @@ class ItemDetails extends React.Component<
     item: null,
     usedInRecipes: [],
     obtainedFromRecipes: [],
-    loadState: "loading"
+    loadState: "loading",
+    itemSetForSelectedRecipes: []
   };
 
   public async componentDidMount() {
@@ -70,7 +72,7 @@ class ItemDetails extends React.Component<
 
   public async componentDidUpdate(prevProps: IItemDetailsProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.setState({ selectedRecipes: [] });
+      this.setState({ selectedRecipes: [], itemSetForSelectedRecipes: [] });
       await this.getItem(this.props.match.params.id);
     }
   }
@@ -98,7 +100,12 @@ class ItemDetails extends React.Component<
       );
     }
 
-    const { item, usedInRecipes, obtainedFromRecipes } = this.state;
+    const {
+      item,
+      usedInRecipes,
+      obtainedFromRecipes,
+      itemSetForSelectedRecipes
+    } = this.state;
 
     if (item == null) {
       return null;
@@ -156,11 +163,7 @@ class ItemDetails extends React.Component<
 
               {this.state.selectedRecipes.length > 0 ? (
                 <div className="FullWidth">
-                  <RecipeItems
-                    items={minimumSetOfItemsForManyRecipes(
-                      this.state.selectedRecipes
-                    )}
-                  />
+                  <RecipeItems items={itemSetForSelectedRecipes} />
                 </div>
               ) : (
                 <p>
@@ -200,19 +203,25 @@ class ItemDetails extends React.Component<
 
     const isSelected = this.state.selectedRecipes.some(x => r === x);
 
+    let selectedRecipes: IRecipe[] = [];
+
     if (!isSelected) {
-      this.setState(state => {
-        return {
-          selectedRecipes: [...state.selectedRecipes, r]
-        };
-      });
+      selectedRecipes = [...this.state.selectedRecipes, r];
     } else {
-      this.setState(state => {
-        return {
-          selectedRecipes: state.selectedRecipes.filter(i => i !== r)
-        };
-      });
+      selectedRecipes = this.state.selectedRecipes.filter(i => i !== r);
     }
+
+    this.setState({
+      selectedRecipes
+    });
+
+    this.updateItemSetForSelectedRecipes(selectedRecipes);
+  }
+
+  private async updateItemSetForSelectedRecipes(recipes: IRecipe[]) {
+    const items = await minimumSetOfItemsForManyRecipes(recipes);
+
+    this.setState({ itemSetForSelectedRecipes: items });
   }
 }
 
