@@ -184,20 +184,24 @@ export async function getRelatedRecipes(
   };
 }
 
-export async function toggleRecipeDone(recipe: IRecipe) {
-  await waitForItemData();
+export async function toggleRecipeDone(
+  ...recipe: IRecipe[]
+): Promise<IRecipe[]> {
+  await waitForRecipeData();
 
-  const existing = await getRecipe(recipe._id);
+  const findResult = await recipesDb.find({
+    selector: { _id: { $in: recipe.map(x => x._id) } }
+  });
 
-  if (existing == null) {
-    throw new Error("Recipe not found.");
+  const recipes = findResult.docs;
+
+  for (const existing of recipes) {
+    existing.done = !existing.done;
+
+    await recipesDb.put(existing);
   }
 
-  existing.done = !existing.done;
-
-  await recipesDb.put(existing);
-
-  return existing;
+  return recipes;
 }
 
 export async function minimumSetOfItemsForManyRecipes(

@@ -107,6 +107,10 @@ class ItemDetails extends React.Component<
       return null;
     }
 
+    const notDoneSelectedRecipes = this.state.selectedRecipes.filter(
+      x => !x.done
+    );
+
     return (
       <div className="Page">
         <header className="PageHeader">
@@ -155,6 +159,22 @@ class ItemDetails extends React.Component<
                   </Link>
                 ))}
               </div>
+
+              {notDoneSelectedRecipes.length > 0 && (
+                <>
+                  <div className="VerticalGroup" />
+                  <div className="Row VerticalGroup Reverse">
+                    <button
+                      type="button"
+                      className={`Button`}
+                      onClick={this.markRecipesAsDone}
+                    >
+                      Mark {notDoneSelectedRecipes.length} as 'Done'
+                    </button>
+                  </div>
+                </>
+              )}
+
               <SubHeading>Required items for the selected recipes:</SubHeading>
 
               {this.state.selectedRecipes.length > 0 ? (
@@ -192,6 +212,18 @@ class ItemDetails extends React.Component<
       </div>
     );
   }
+
+  private markRecipesAsDone = async () => {
+    const recipesWhichAreNotDone = this.state.selectedRecipes.filter(
+      x => !x.done
+    );
+
+    await apiWorker.toggleRecipeDone(...recipesWhichAreNotDone);
+
+    const { usedIn } = await apiWorker.getRelatedRecipes(this.state.item!);
+
+    this.setState({ usedInRecipes: usedIn, selectedRecipes: [] });
+  };
 
   private handleRecipeSelected(e: React.SyntheticEvent, r: IRecipe) {
     e.preventDefault();

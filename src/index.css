@@ -421,3 +421,16 @@ h6 {
   text-align: center;
   font-size: 0.85em;
 }
+
+.VerticalGroup {
+  margin-bottom: 15px;
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Row.Reverse {
+  flex-direction: row-reverse;
+}

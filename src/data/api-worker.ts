@@ -14,7 +14,7 @@ interface IApiWorker {
   getItems(options: IGetItemsOptions): Promise<IItem[]>;
   getItem(id: string): Promise<IItem | null>;
   getRelatedRecipes(item: IItem): Promise<IRelatedRecipes>;
-  toggleRecipeDone(recipe: IRecipe): Promise<IRecipe>;
+  toggleRecipeDone(...recipe: IRecipe[]): Promise<IRecipe[]>;
   minimumSetOfItemsForManyRecipes(
     recipeList: IRecipe[]
   ): Promise<IRecipeItem[]>;
