@@ -1,137 +1,61 @@
 {
-  "name": "ffxii",
+  "name": "ffxii-bazaar-2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.2",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
-    "@fortawesome/react-fontawesome": "^0.1.2",
-    "autoprefixer": "7.1.6",
-    "babel-jest": "^22.1.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-react-app": "^3.1.1",
-    "case-sensitive-paths-webpack-plugin": "2.1.1",
-    "chalk": "1.1.3",
-    "css-loader": "0.28.7",
-    "dotenv": "4.0.0",
-    "dotenv-expand": "4.2.0",
-    "extract-text-webpack-plugin": "3.0.2",
-    "file-loader": "0.11.2",
-    "fork-ts-checker-webpack-plugin": "^0.2.8",
-    "fs-extra": "3.0.1",
-    "html-webpack-plugin": "2.29.0",
-    "jest": "22.4.2",
-    "localforage": "^1.7.2",
-    "localforage-observable": "^1.4.0",
-    "lodash-es": "^4.17.10",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.2.0",
-    "postcss-loader": "2.0.8",
-    "pouchdb-browser": "^7.0.0",
-    "pouchdb-find": "^7.0.0",
-    "promise": "8.0.1",
-    "raf": "3.4.0",
-    "react": "^16.4.1",
-    "react-dev-utils": "^5.0.1",
-    "react-dom": "^16.4.1",
-    "react-loadable": "^5.5.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-virtualized": "^9.20.1",
-    "resolve": "1.6.0",
-    "rxjs": "^6.2.2",
-    "source-map-loader": "^0.2.1",
-    "style-loader": "0.19.0",
-    "sw-precache-webpack-plugin": "0.11.4",
-    "ts-jest": "22.0.1",
-    "ts-loader": "^2.3.7",
-    "tsconfig-paths-webpack-plugin": "^2.0.0",
-    "tslint": "^5.7.0",
-    "tslint-config-prettier": "^1.10.0",
-    "tslint-react": "^3.2.0",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "url-loader": "0.6.2",
-    "webfontloader": "^1.6.28",
-    "webpack": "3.8.1",
-    "webpack-dev-server": "2.9.4",
-    "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.3.1",
-    "@types/lodash-es": "^4.17.1",
-    "@types/node": "^10.5.4",
-    "@types/pouchdb-browser": "^6.1.2",
-    "@types/react": "^16.4.7",
-    "@types/react-dom": "^16.0.6",
-    "@types/react-loadable": "^5.4.1",
-    "@types/react-router": "^4.0.29",
-    "@types/react-router-dom": "^4.3.0",
-    "@types/react-virtualized": "^9.18.7",
-    "@types/webfontloader": "^1.6.29",
-    "preload-webpack-plugin": "^2.3.0",
-    "typescript": "^2.9.2",
-    "worker-loader": "^2.0.0",
-    "workerize-loader": "^1.0.4"
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.10",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.47",
+    "@types/react": "^16.9.36",
+    "@types/react-dom": "^16.9.8",
+    "localforage": "^1.7.4",
+    "localforage-observable": "^2.0.1",
+    "lodash-es": "^4.17.15",
+    "pouchdb-browser": "^7.2.1",
+    "pouchdb-find": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-virtualized": "^9.21.2",
+    "typescript": "^3.7.5",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.(j|t)s?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    },
-    "moduleFileExtensions": [
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "web.js",
-      "js",
-      "web.jsx",
-      "jsx",
-      "json",
-      "node",
-      "mjs"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "C:\\dev\\ffxii\\tsconfig.test.json"
-      }
-    }
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "engines": {
-    "node": ">=8.0.0 <9.0.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.3",
+    "@types/pouchdb-browser": "^6.1.3",
+    "@types/react-router": "^5.1.7",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-virtualized": "^9.21.10",
+    "@types/webfontloader": "^1.6.32",
+    "worker-loader": "^2.0.0",
+    "workerize-loader": "^1.2.1"
   }
 }

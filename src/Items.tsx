@@ -1,16 +1,16 @@
 import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { apiWorker } from "src/data/api-worker";
-import { IItem, UsageStatus } from "src/data/api-types";
-import { ItemIcon } from "src/ItemTypeIcon";
+import { apiWorker } from "./data/api-worker";
+import { IItem, UsageStatus } from "./data/api-types";
+import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { LoadState } from "src/util";
+import { LoadState } from "./util";
 import {
   LoadingPlaceholderSpinner,
   LoadingPlaceholderOverlaySpinner
-} from "src/LoadingPlaceholder";
+} from "./LoadingPlaceholder";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -160,35 +160,35 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
         {this.state.loadState === "loading" && this.state.items.length === 0 ? (
           <LoadingPlaceholderSpinner timeout={300} />
         ) : (
-          <div className="PageContents WithVirtualizedScrollList">
-            <InfiniteLoader
-              isRowLoaded={this.isRowLoaded}
-              loadMoreRows={this.loadMoreRows}
-              rowCount={Infinity}
-              minimumBatchSize={30}
-            >
-              {({ onRowsRendered, registerChild }) => (
-                <AutoSizer>
-                  {({ width, height }) => (
-                    <List
-                      ref={registerChild}
-                      height={height}
-                      onRowsRendered={onRowsRendered}
-                      rowCount={this.state.items.length}
-                      rowHeight={43}
-                      rowRenderer={this.renderRow}
-                      width={width}
-                    />
-                  )}
-                </AutoSizer>
-              )}
-            </InfiniteLoader>
+            <div className="PageContents WithVirtualizedScrollList">
+              <InfiniteLoader
+                isRowLoaded={this.isRowLoaded}
+                loadMoreRows={this.loadMoreRows}
+                rowCount={Infinity}
+                minimumBatchSize={30}
+              >
+                {({ onRowsRendered, registerChild }) => (
+                  <AutoSizer>
+                    {({ width, height }) => (
+                      <List
+                        ref={registerChild}
+                        height={height}
+                        onRowsRendered={onRowsRendered}
+                        rowCount={this.state.items.length}
+                        rowHeight={43}
+                        rowRenderer={this.renderRow}
+                        width={width}
+                      />
+                    )}
+                  </AutoSizer>
+                )}
+              </InfiniteLoader>
 
-            {this.state.loadState === "loading" && (
-              <LoadingPlaceholderOverlaySpinner timeout={2000} />
-            )}
-          </div>
-        )}
+              {this.state.loadState === "loading" && (
+                <LoadingPlaceholderOverlaySpinner timeout={2000} />
+              )}
+            </div>
+          )}
       </div>
     );
   }

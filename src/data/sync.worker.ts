@@ -1,6 +1,6 @@
-import { syncRecipes } from "src/data/recipes-db";
-import { syncItems } from "src/data/items-db";
-// import { syncRecipeItems } from "src/data/recipe-items-db";
+import { syncRecipes } from "./recipes-db";
+import { syncItems } from "./items-db";
+// import { syncRecipeItems } from "./data/recipe-items-db";
 
 addEventListener("message", async evt => {
   const data = evt.data || {};

@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { appUpdateSubject$, UpdateType } from "src/registerServiceWorker";
+import { appUpdateSubject$, UpdateType } from "./serviceWorker";
 import { Subscription } from "rxjs";
 import { Toast } from "./Toast";
 
 export class UpdateToastDisplay extends React.Component {
-  private updateSubscription: Subscription;
+  private updateSubscription: Subscription | null = null;
 
   public componentDidMount() {
     this.updateSubscription = appUpdateSubject$.subscribe(this.handleUpdate);
   }
 
   public componentWillUnmount() {
-    this.updateSubscription.unsubscribe();
+    this.updateSubscription?.unsubscribe();
   }
 
   private handleUpdate = (update: UpdateType) => {

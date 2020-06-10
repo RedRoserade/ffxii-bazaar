@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
-import { apiWorker } from "src/data/api-worker";
-import { IRecipe } from "src/data/api-types";
+import { apiWorker } from "./data/api-worker";
+import { IRecipe } from "./data/api-types";
 import { debounce } from "lodash-es";
-import { RecipeStatus } from "src/RecipeStatus";
+import { RecipeStatus } from "./RecipeStatus";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { LoadState } from "src/util";
-import { LoadingPlaceholderSpinner } from "src/LoadingPlaceholder";
+import { LoadState } from "./util";
+import { LoadingPlaceholderSpinner } from "./LoadingPlaceholder";
 
 interface IRecipeState {
   recipes: IRecipe[];
@@ -59,34 +59,34 @@ class Recipes extends React.Component<RouteComponentProps<{}>, IRecipeState> {
         />
 
         {this.state.loadState === "loading" &&
-        this.state.recipes.length === 0 ? (
-          <LoadingPlaceholderSpinner timeout={300} />
-        ) : (
-          <div className="PageContents WithVirtualizedScrollList">
-            <InfiniteLoader
-              isRowLoaded={this.isRowLoaded}
-              loadMoreRows={this.loadMoreRows}
-              rowCount={Infinity}
-              minimumBatchSize={30}
-            >
-              {({ onRowsRendered, registerChild }) => (
-                <AutoSizer>
-                  {({ width, height }) => (
-                    <List
-                      ref={registerChild}
-                      height={height}
-                      onRowsRendered={onRowsRendered}
-                      rowCount={this.state.recipes.length}
-                      rowHeight={43}
-                      rowRenderer={this.renderRow}
-                      width={width}
-                    />
-                  )}
-                </AutoSizer>
-              )}
-            </InfiniteLoader>
-          </div>
-        )}
+          this.state.recipes.length === 0 ? (
+            <LoadingPlaceholderSpinner timeout={300} />
+          ) : (
+            <div className="PageContents WithVirtualizedScrollList">
+              <InfiniteLoader
+                isRowLoaded={this.isRowLoaded}
+                loadMoreRows={this.loadMoreRows}
+                rowCount={Infinity}
+                minimumBatchSize={30}
+              >
+                {({ onRowsRendered, registerChild }) => (
+                  <AutoSizer>
+                    {({ width, height }) => (
+                      <List
+                        ref={registerChild}
+                        height={height}
+                        onRowsRendered={onRowsRendered}
+                        rowCount={this.state.recipes.length}
+                        rowHeight={43}
+                        rowRenderer={this.renderRow}
+                        width={width}
+                      />
+                    )}
+                  </AutoSizer>
+                )}
+              </InfiniteLoader>
+            </div>
+          )}
       </div>
     );
   }

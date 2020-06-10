@@ -2,8 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { IRecipeItem } from "src/data/api-types";
-import { ItemIcon } from "src/ItemTypeIcon";
+import { IRecipeItem } from "./data/api-types";
+import { ItemIcon } from "./ItemTypeIcon";
 
 export function RecipeItems({ items }: { items: IRecipeItem[] }) {
   return (

@@ -1,15 +1,15 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import { apiWorker } from "src/data/api-worker";
-import { IRecipe } from "src/data/api-types";
+import { apiWorker } from "./data/api-worker";
+import { IRecipe } from "./data/api-types";
 
-import { SubHeading } from "src/SubHeading";
-import { RecipeItems } from "src/RecipeItems";
-import { GilLabel } from "src/GilLabel";
-import { BackButton } from "src/BackButton";
-import { LoadState } from "src/util";
-import { LoadingPlaceholder, LoadingSpinner } from "src/LoadingPlaceholder";
+import { SubHeading } from "./SubHeading";
+import { RecipeItems } from "./RecipeItems";
+import { GilLabel } from "./GilLabel";
+import { BackButton } from "./BackButton";
+import { LoadState } from "./util";
+import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
 
 interface IParams {
   id: string;
@@ -27,7 +27,7 @@ interface IRecipeDetailsState {
 class RecipeDetails extends React.Component<
   IRecipeDetailsProps,
   IRecipeDetailsState
-> {
+  > {
   public state: IRecipeDetailsState = {
     recipe: null,
     loadState: "loading"

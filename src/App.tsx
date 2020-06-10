@@ -2,46 +2,25 @@ import * as React from "react";
 
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 
-import { UpdateToastDisplay } from "src/UpdateToastDisplay";
+import { UpdateToastDisplay } from "./UpdateToastDisplay";
 
-import Loadable from "react-loadable";
 import { PageLoading } from "./PageLoading";
 
-const RecipeDetails = Loadable({
-  loader: () => import("src/RecipeDetails").then(x => x.RecipeDetails),
-  loading: PageLoading,
-  timeout: 300
-});
+const RecipeDetails = React.lazy(() => import("./RecipeDetails").then(x => ({ default: x.RecipeDetails })));
 
-const Recipes = Loadable({
-  loader: () => import("src/Recipes").then(x => x.Recipes),
-  loading: PageLoading,
-  timeout: 300
-});
+const Recipes = React.lazy(() => import("./Recipes").then(x => ({ default: x.Recipes })));
 
-const About = Loadable({
-  loader: () => import("src/About").then(x => x.About),
-  loading: PageLoading,
-  timeout: 300
-});
+const About = React.lazy(() => import("./About").then(x => ({ default: x.About })));
 
-const ItemDetails = Loadable({
-  loader: () => import("src/ItemDetails").then(x => x.ItemDetails),
-  loading: PageLoading,
-  timeout: 300
-});
+const ItemDetails = React.lazy(() => import("./ItemDetails").then(x => ({ default: x.ItemDetails })));
 
-const Items = Loadable({
-  loader: () => import("src/Items").then(x => x.Items),
-  loading: PageLoading,
-  timeout: 300
-});
+const Items = React.lazy(() => import("./Items").then(x => ({ default: x.Items })));
 
 class App extends React.Component {
   public render() {
     return (
       <HashRouter>
-        <>
+        <React.Suspense fallback={<PageLoading />}>
           <main className="MainContents">
             <Switch>
               <Route path="/recipes/:id" component={RecipeDetails} />
@@ -67,7 +46,7 @@ class App extends React.Component {
             </NavLink>
           </nav>
           <UpdateToastDisplay />
-        </>
+        </React.Suspense>
       </HashRouter>
     );
   }

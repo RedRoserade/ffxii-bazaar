@@ -2,16 +2,16 @@ import * as React from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
 
-import { apiWorker } from "src/data/api-worker";
+import { apiWorker } from "./data/api-worker";
 
-import { RecipeItems } from "src/RecipeItems";
-import { SubHeading } from "src/SubHeading";
-import { BackButton } from "src/BackButton";
-import { GilLabel } from "src/GilLabel";
-import { RecipeStatus } from "src/RecipeStatus";
-import { LoadState } from "src/util";
-import { LoadingPlaceholder, LoadingSpinner } from "src/LoadingPlaceholder";
-import { IRecipe, IItem, IRecipeItem } from "src/data/api-types";
+import { RecipeItems } from "./RecipeItems";
+import { SubHeading } from "./SubHeading";
+import { BackButton } from "./BackButton";
+import { GilLabel } from "./GilLabel";
+import { RecipeStatus } from "./RecipeStatus";
+import { LoadState } from "./util";
+import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
+import { IRecipe, IItem, IRecipeItem } from "./data/api-types";
 
 interface IParams {
   id: string;
@@ -33,7 +33,7 @@ interface IItemDetailsState {
 class ItemDetails extends React.Component<
   IItemDetailsProps,
   IItemDetailsState
-> {
+  > {
   public state: IItemDetailsState = {
     selectedRecipes: [],
     item: null,
@@ -128,86 +128,86 @@ class ItemDetails extends React.Component<
           {usedInRecipes.length === 0 ? (
             "None"
           ) : (
-            <>
-              <div className="CustomList FullWidth">
-                {usedInRecipes.map(r => (
-                  <Link
-                    key={r._id}
-                    className="CustomListItem Multiline"
-                    to={`/recipes/${r._id}`}
-                  >
-                    <div className="CustomListItemRow">
-                      {r.name} (
+              <>
+                <div className="CustomList FullWidth">
+                  {usedInRecipes.map(r => (
+                    <Link
+                      key={r._id}
+                      className="CustomListItem Multiline"
+                      to={`/recipes/${r._id}`}
+                    >
+                      <div className="CustomListItemRow">
+                        {r.name} (
                       {r.items.find(i => i.item._id === item._id)!.quantity} x)
                       for <GilLabel gil={r.cost} />
-                      {(r.repeatable || r.done) && (
-                        <span className="CustomListItemBadge">
-                          <RecipeStatus recipe={r} />
-                        </span>
-                      )}
-                    </div>
-                    <div className="CustomListItemRow">
-                      <div className="CustomListItemActions">
-                        <RecipeSelectToggle
-                          selected={
-                            this.state.selectedRecipes.indexOf(r) !== -1
-                          }
-                          onClick={e => this.handleRecipeSelected(e, r)}
-                        />
+                        {(r.repeatable || r.done) && (
+                          <span className="CustomListItemBadge">
+                            <RecipeStatus recipe={r} />
+                          </span>
+                        )}
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-
-              {notDoneSelectedRecipes.length > 0 && (
-                <>
-                  <div className="VerticalGroup" />
-                  <div className="Row VerticalGroup Reverse">
-                    <button
-                      type="button"
-                      className={`Button`}
-                      onClick={this.markRecipesAsDone}
-                    >
-                      Mark {notDoneSelectedRecipes.length} as 'Done'
-                    </button>
-                  </div>
-                </>
-              )}
-
-              <SubHeading>Required items for the selected recipes:</SubHeading>
-
-              {this.state.selectedRecipes.length > 0 ? (
-                <div className="FullWidth">
-                  <RecipeItems items={itemSetForSelectedRecipes} />
+                      <div className="CustomListItemRow">
+                        <div className="CustomListItemActions">
+                          <RecipeSelectToggle
+                            selected={
+                              this.state.selectedRecipes.indexOf(r) !== -1
+                            }
+                            onClick={e => this.handleRecipeSelected(e, r)}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              ) : (
-                <p>
-                  Select one or more recipes above to see all the items needed.
-                </p>
-              )}
-            </>
-          )}
+
+                {notDoneSelectedRecipes.length > 0 && (
+                  <>
+                    <div className="VerticalGroup" />
+                    <div className="Row VerticalGroup Reverse">
+                      <button
+                        type="button"
+                        className={`Button`}
+                        onClick={this.markRecipesAsDone}
+                      >
+                        Mark {notDoneSelectedRecipes.length} as 'Done'
+                    </button>
+                    </div>
+                  </>
+                )}
+
+                <SubHeading>Required items for the selected recipes:</SubHeading>
+
+                {this.state.selectedRecipes.length > 0 ? (
+                  <div className="FullWidth">
+                    <RecipeItems items={itemSetForSelectedRecipes} />
+                  </div>
+                ) : (
+                    <p>
+                      Select one or more recipes above to see all the items needed.
+                    </p>
+                  )}
+              </>
+            )}
 
           <SubHeading>Obtained from:</SubHeading>
 
           {obtainedFromRecipes.length === 0 ? (
             "None"
           ) : (
-            <div className="CustomList FullWidth">
-              {obtainedFromRecipes.map(r => (
-                <Link
-                  to={`/recipes/${r._id}`}
-                  key={r._id}
-                  className="CustomListItem"
-                >
-                  {r.name} (
-                  {r.result.find(i => i.item._id === item._id)!.quantity} x) for{" "}
-                  <GilLabel gil={r.cost} />
-                </Link>
-              ))}
-            </div>
-          )}
+              <div className="CustomList FullWidth">
+                {obtainedFromRecipes.map(r => (
+                  <Link
+                    to={`/recipes/${r._id}`}
+                    key={r._id}
+                    className="CustomListItem"
+                  >
+                    {r.name} (
+                    {r.result.find(i => i.item._id === item._id)!.quantity} x) for{" "}
+                    <GilLabel gil={r.cost} />
+                  </Link>
+                ))}
+              </div>
+            )}
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
-import SyncWorker from "worker-loader!src/data/sync.worker";
-import { localForage } from "src/config/localforage";
+import SyncWorker from "worker-loader!./sync.worker"; // eslint-disable-line import/no-webpack-loader-syntax
+import { localForage } from "../config/localforage";
 
 function doSync(action: string) {
   return new Promise((resolve, reject) => {

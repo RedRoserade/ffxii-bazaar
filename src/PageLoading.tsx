@@ -1,8 +1,7 @@
 import React from "react";
-import { LoadingSpinner } from "src/LoadingPlaceholder";
-import { LoadingComponentProps } from "react-loadable";
+import { LoadingSpinner } from "./LoadingPlaceholder";
 
-export function PageLoading(props: LoadingComponentProps) {
+export function PageLoading(props: any) {
   return (
     <div className="Page">
       <header className="PageHeader">

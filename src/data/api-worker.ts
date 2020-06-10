@@ -1,4 +1,4 @@
-import worker from "workerize-loader!src/data/api";
+import worker from "workerize-loader!./api"; // eslint-disable-line import/no-webpack-loader-syntax
 import {
   IRecipe,
   IGetRecipesOptions,
@@ -6,7 +6,7 @@ import {
   IGetItemsOptions,
   IRelatedRecipes,
   IRecipeItem
-} from "src/data/api-types";
+} from "./api-types";
 
 interface IApiWorker {
   getRecipes(options: IGetRecipesOptions): Promise<IRecipe[]>;

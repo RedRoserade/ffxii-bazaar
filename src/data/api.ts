@@ -1,7 +1,7 @@
-import { recipesDb } from "src/data/recipes-db";
-import { itemsDb } from "src/data/items-db";
+import { recipesDb } from "./recipes-db";
+import { itemsDb } from "./items-db";
 
-import { waitForRecipeData, waitForItemData } from "src/data/sync";
+import { waitForRecipeData, waitForItemData } from "./sync";
 
 import {
   IGetRecipesOptions,
@@ -9,7 +9,7 @@ import {
   IGetItemsOptions,
   IItem,
   IRecipeItem
-} from "src/data/api-types";
+} from "./api-types";
 
 export async function getRecipes(options: IGetRecipesOptions = {}) {
   await waitForRecipeData();
