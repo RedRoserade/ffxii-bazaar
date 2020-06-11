@@ -1,1 +1,3 @@
 xlrd
+aiohttp
+beautifulsoup4

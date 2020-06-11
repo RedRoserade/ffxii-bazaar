@@ -7,7 +7,7 @@ import xlrd
 from xlrd.sheet import Cell
 
 _AMOUNT = re.compile(r'\sx')
-_NON_WORD = re.compile('\W')
+_NON_WORD = re.compile(r'\W')
 
 
 def _remove_xa0(text: str):
