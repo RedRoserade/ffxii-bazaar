@@ -112,7 +112,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
               placeholder="eg: 'Wolf Pelt'"
               type="text"
               value={query}
-              onInput={this.handleSearchTermChange}
+              onChange={this.handleSearchTermChange}
               onFocus={e => e.currentTarget.select()}
             />
           </div>

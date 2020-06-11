@@ -28,7 +28,7 @@ export class About extends React.Component {
               <a
                 href="https://github.com/RedRoserade/ffxii-bazaar"
                 target="blank"
-                rel="nofollow noopener"
+                rel="noopener noreferrer"
               >
                 https://github.com/RedRoserade/ffxii-bazaar
               </a>
@@ -49,7 +49,7 @@ export class About extends React.Component {
               <a
                 href="http://finalfantasy.wikia.com/wiki/Bazaar_(Final_Fantasy_XII)"
                 target="_blank"
-                rel="nofollow noopener"
+                rel="noopener noreferrer"
               >
                 "Bazaar Glitch"
               </a>{" "}
@@ -64,7 +64,7 @@ export class About extends React.Component {
                 <a
                   href="http://finalfantasy.wikia.com/wiki/Bazaar_(Final_Fantasy_XII)"
                   target="_blank"
-                  rel="nofollow noopener"
+                  rel="noopener noreferrer"
                 >
                   The Final Fantasy Wiki's article on the Bazaar
                 </a>

@@ -169,7 +169,7 @@ function SearchHeader(props: {
           placeholder="eg: 'Assorted Leathers'"
           type="search"
           value={props.searchTerm}
-          onInput={props.onSearchTermChange}
+          onChange={props.onSearchTermChange}
           onFocus={e => e.currentTarget.select()}
         />
 
