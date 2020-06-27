@@ -1,3 +1,6 @@
 xlrd
 aiohttp
 beautifulsoup4
+networkx~=2.4
+matplotlib~=3.2.1
+pygraphviz~=1.5
