@@ -10,6 +10,7 @@ import { GilLabel } from "./GilLabel";
 import { BackButton } from "./BackButton";
 import { LoadState } from "./util";
 import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
+import { RecipeSelectToggle } from "./RecipeListWithToggles";
 
 interface IParams {
   id: string;
@@ -24,13 +25,10 @@ interface IRecipeDetailsState {
   loadState: LoadState;
 }
 
-class RecipeDetails extends React.Component<
-  IRecipeDetailsProps,
-  IRecipeDetailsState
-  > {
+class RecipeDetails extends React.Component<IRecipeDetailsProps, IRecipeDetailsState> {
   public state: IRecipeDetailsState = {
     recipe: null,
-    loadState: "loading"
+    loadState: "loading",
   };
 
   public async componentDidMount() {
@@ -56,13 +54,13 @@ class RecipeDetails extends React.Component<
       return;
     }
 
-    this.setState(state => {
+    this.setState((state) => {
       if (state.recipe == null) {
         return null;
       }
 
       return {
-        recipe: { ...state.recipe, done: !state.recipe.done }
+        recipe: { ...state.recipe, done: !state.recipe.done },
       };
     });
 
@@ -127,13 +125,11 @@ class RecipeDetails extends React.Component<
         </div>
 
         <div className="FloatingPageFooter">
-          <button
-            type="button"
-            className={`Button ${recipe.done ? "Active" : ""}`}
-            onClick={this.toggleRecipeDone}
-          >
+          <button type="button" className={`Button ${recipe.done ? "Active" : ""}`} onClick={this.toggleRecipeDone}>
             {recipe.done ? "Not Done" : "Done"}
           </button>
+
+          {!recipe.done && <RecipeSelectToggle recipe={recipe} />}
         </div>
       </div>
     );
