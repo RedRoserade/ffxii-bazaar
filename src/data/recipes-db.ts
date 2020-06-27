@@ -7,7 +7,7 @@ import { localForage } from "../config/localforage";
 
 export const recipesDb = new PouchDB<IRecipe>("ffxii_bazaar_recipes", {
   adapter: "idb",
-  revs_limit: 1
+  revs_limit: 1,
 });
 
 const baseUrl = process.env.PUBLIC_URL!;
@@ -61,7 +61,7 @@ export async function syncRecipes() {
 
       await localForage.setItem("recipes_version", data.version);
     } else {
-      // TODO Handle error.
+      throw response;
     }
   } catch (e) {
     // TODO Handle error.

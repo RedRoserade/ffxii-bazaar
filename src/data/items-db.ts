@@ -14,7 +14,7 @@ interface IJsonData<T> {
 
 export const itemsDb = new PouchDB<IItem>("ffxii_bazaar_items", {
   adapter: "idb",
-  revs_limit: 1
+  revs_limit: 1,
 });
 
 export async function syncItems() {
@@ -26,9 +26,7 @@ export async function syncItems() {
 
       await localForage.ready();
 
-      if (
-        data.version === (await localForage.getItem<number>("items_version"))
-      ) {
+      if (data.version === (await localForage.getItem<number>("items_version"))) {
         console.log("[items] Data is up-to date.");
         return;
       }
@@ -61,7 +59,7 @@ export async function syncItems() {
 
       await localForage.setItem("items_version", data.version);
     } else {
-      // TODO Handle error.
+      throw response;
     }
   } catch (e) {
     // TODO Handle error.

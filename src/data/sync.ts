@@ -16,7 +16,10 @@ async function doSync(action: "syncRecipes" | "syncItems") {
         break;
       case "syncItems":
         await worker.syncItems();
+        break;
     }
+  } catch (e) {
+    console.error(`[${action}] Error`, e);
   } finally {
     worker.terminate();
     console.log(`[${action}] Worker terminated.`);
