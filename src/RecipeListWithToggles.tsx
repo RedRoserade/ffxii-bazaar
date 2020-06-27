@@ -7,7 +7,14 @@ import { RecipeStatus } from "./RecipeStatus";
 import { IRecipe, IItem } from "./data/api-types";
 import { SelectedRecipesContext } from "./SelectedRecipes";
 
-export function RecipeSelectToggle(props: { recipe: IRecipe }) {
+function AddRemove(props: { selected: boolean }) {
+  return <>{props.selected ? "Remove" : "Add"}</>;
+}
+
+export function RecipeSelectToggle(props: {
+  recipe: IRecipe;
+  children?: (props: { selected: boolean }) => React.ReactNode;
+}) {
   const [selectedRecipes, setSelectedRecipes] = React.useContext(SelectedRecipesContext);
   function toggleRecipe(e: React.SyntheticEvent) {
     // This is used inside links, we need to prevent the event propagation, otherwise
@@ -29,9 +36,11 @@ export function RecipeSelectToggle(props: { recipe: IRecipe }) {
 
   let selected = selectedRecipes.some((r) => r._id === props.recipe._id);
 
+  let { children = AddRemove } = props;
+
   return (
     <button type="button" className={`Button ${selected ? "Active" : ""}`} onClick={toggleRecipe}>
-      {selected ? "Remove" : "Add"}
+      {children({ selected })}
     </button>
   );
 }

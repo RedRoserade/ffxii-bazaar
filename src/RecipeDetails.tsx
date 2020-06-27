@@ -129,7 +129,11 @@ class RecipeDetails extends React.Component<IRecipeDetailsProps, IRecipeDetailsS
             {recipe.done ? "Not Done" : "Done"}
           </button>
 
-          {!recipe.done && <RecipeSelectToggle recipe={recipe} />}
+          {!recipe.done && (
+            <RecipeSelectToggle recipe={recipe}>
+              {({ selected }) => (selected ? "Remove from list" : "Add to list")}
+            </RecipeSelectToggle>
+          )}
         </div>
       </div>
     );
