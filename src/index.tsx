@@ -14,17 +14,20 @@ import ReactDOM from "react-dom";
 
 import WebFont from "webfontloader";
 
+import { register } from "./serviceWorker";
+
 import App from "./App";
 
-// import { register } from "./serviceWorker";
-
 ReactDOM.render(<App />, document.getElementById("root"));
-// register();
+
+if (process.env.NODE_ENV === "production") {
+  register();
+}
 
 runSync();
 
 WebFont.load({
   google: {
-    families: ["Open Sans", "Source Sans Pro"]
-  }
+    families: ["Open Sans", "Source Sans Pro"],
+  },
 });

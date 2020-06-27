@@ -1,34 +1,11 @@
-import { syncRecipes } from "./recipes-db";
-import { syncItems } from "./items-db";
+import { syncRecipes as _syncRecipes } from "./recipes-db";
+import { syncItems as _syncItems } from "./items-db";
 // import { syncRecipeItems } from "./data/recipe-items-db";
 
-addEventListener("message", async evt => {
-  const data = evt.data || {};
-
-  const worker: Worker = self as any;
-
-  if (typeof data === "object") {
-    try {
-      switch (data.action) {
-        case "syncRecipes":
-          await syncRecipes();
-          break;
-        case "syncItems":
-          await syncItems();
-          break;
-        // case "syncRecipeItems":
-        //   await syncRecipeItems();
-        //   break;
-        default:
-          console.warn("Unknown action", data.action);
-          return;
-      }
-      worker.postMessage({ syncStatus: "success" });
-    } catch (e) {
-      console.error("Failed to sync", e);
-      worker.postMessage({ syncStatus: "error" });
-    }
-  } else {
-    console.warn("Unknown payload", data);
-  }
-});
+// I need to export as explicit functions, otherwise workerize-loader will not catch them and won't add them to the worker.
+export function syncRecipes() {
+  return _syncRecipes();
+}
+export function syncItems() {
+  return _syncItems();
+}

@@ -1,27 +1,26 @@
-import SyncWorker from "worker-loader!./sync.worker"; // eslint-disable-line import/no-webpack-loader-syntax
+import syncWorker from "workerize-loader!./sync.worker"; // eslint-disable-line import/no-webpack-loader-syntax
 import { localForage } from "../config/localforage";
 
-function doSync(action: string) {
-  return new Promise((resolve, reject) => {
-    const worker = new SyncWorker();
+export interface ISyncWorker {
+  syncRecipes(): Promise<void>;
+  syncItems(): Promise<void>;
+}
 
-    function handleSyncWorkerMessage(evt: MessageEvent) {
-      if (evt.data.syncStatus === "success") {
-        console.log(`[${action}] Sync success`);
-        resolve();
-      } else {
-        console.error(`[${action}] Sync error`);
-        reject();
-      }
+async function doSync(action: "syncRecipes" | "syncItems") {
+  const worker = syncWorker<ISyncWorker>();
 
-      worker.terminate();
+  try {
+    switch (action) {
+      case "syncRecipes":
+        await worker.syncRecipes();
+        break;
+      case "syncItems":
+        await worker.syncItems();
     }
-
-    worker.onerror = err => console.error(err);
-    worker.onmessage = evt => handleSyncWorkerMessage(evt);
-
-    worker.postMessage({ action });
-  });
+  } finally {
+    worker.terminate();
+    console.log(`[${action}] Worker terminated.`);
+  }
 }
 
 function syncRecipes() {
@@ -60,5 +59,5 @@ async function waitFor(key: string) {
 }
 
 function delay(ms: number): Promise<void> {
-  return new Promise(r => setTimeout(r, ms));
+  return new Promise((r) => setTimeout(r, ms));
 }

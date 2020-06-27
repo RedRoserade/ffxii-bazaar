@@ -1,12 +1,9 @@
+// import * as apiWorker from "./api";
+
+// export { apiWorker };
+
 import worker from "workerize-loader!./api"; // eslint-disable-line import/no-webpack-loader-syntax
-import {
-  IRecipe,
-  IGetRecipesOptions,
-  IItem,
-  IGetItemsOptions,
-  IRelatedRecipes,
-  IRecipeItem
-} from "./api-types";
+import { IRecipe, IGetRecipesOptions, IItem, IGetItemsOptions, IRelatedRecipes, IRecipeItem } from "./api-types";
 
 interface IApiWorker {
   getRecipes(options: IGetRecipesOptions): Promise<IRecipe[]>;
@@ -15,9 +12,7 @@ interface IApiWorker {
   getItem(id: string): Promise<IItem | null>;
   getRelatedRecipes(item: IItem): Promise<IRelatedRecipes>;
   toggleRecipeDone(...recipe: IRecipe[]): Promise<IRecipe[]>;
-  minimumSetOfItemsForManyRecipes(
-    recipeList: IRecipe[]
-  ): Promise<IRecipeItem[]>;
+  minimumSetOfItemsForManyRecipes(recipeList: IRecipe[]): Promise<IRecipeItem[]>;
 }
 
 const apiWorker = worker<IApiWorker>();
