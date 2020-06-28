@@ -1,5 +1,6 @@
 import asyncio
 from http.client import OK
+from typing import Dict, Any
 
 import aiohttp
 import matplotlib
@@ -123,6 +124,13 @@ def add_board_to_graph(g: nx.Graph, board):
         col = int(pos[1:])
 
         # Add edges for adjacent nodes.
+        # If a licence is on node B3, then the nodes C3, B2, B4, A3 are adjacent, as follows:
+        # ----------
+        #     A3
+        # B2 (B3) B4
+        #     C3
+        # ----------
+        # Provided the nodes exist on the board.
         if row > 'A':
             pr = f'{prev_row(row)}{col}'
 
@@ -158,7 +166,7 @@ async def main():
 
     boards = group_licences_by_board(licences)
 
-    wanted_board_names = ('Bushi', 'Monk')
+    wanted_board_names = ('Bushi', 'Black Mage')
     labels = {}
     node_colors = []
 
@@ -173,7 +181,8 @@ async def main():
             labels[node_id] = node['name']
         node_colors.append(all_categories.index(node['category']))
 
-    degrees = g.degree
+    # noinspection PyTypeChecker
+    degrees: Dict[Any, int] = g.degree
 
     nodes_behind_mist = {}
 
@@ -183,28 +192,26 @@ async def main():
         if degrees[node_id] < 2:
             nodes_to_add = []
 
-            print(node_id, attrs)
-
             for adj_node_id in edges:
                 adj_node = g.nodes[adj_node_id]
 
                 if adj_node['category'] in ('Summon', 'Quickening'):
                     nodes_behind_mist[adj_node_id] = nodes_to_add
-                
-                print('\t', adj_node)
 
-    # pos = graphviz_layout(g, root=0)
-    #
-    # nx.draw(
-    #     g,
-    #     pos=pos,
-    #     with_labels=True,
-    #     labels=labels,
-    #     node_color=node_colors,
-    #     style='dotted',
-    #     label=', '.join(wanted_board_names)
-    # )
-    # plt.show()
+    minimum_graph = nx.minimum_spanning_tree(g)
+
+    pos = graphviz_layout(minimum_graph, root=0)
+
+    nx.draw(
+        minimum_graph,
+        pos=pos,
+        with_labels=True,
+        labels=labels,
+        node_color=node_colors,
+        style='dotted',
+        label=', '.join(wanted_board_names)
+    )
+    plt.show()
 
 
 if __name__ == '__main__':

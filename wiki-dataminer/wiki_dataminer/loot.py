@@ -2,11 +2,12 @@ import asyncio
 from http.client import OK
 
 import aiohttp
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
+from wiki_dataminer.settings import base
 from wiki_dataminer.text_parsing import get_price, get_list
 
-url = 'https://finalfantasy.fandom.com/wiki/Loot_(Final_Fantasy_XII)'
+url = f'{base}/wiki/Loot_(Final_Fantasy_XII)'
 
 
 async def get_loot():
@@ -60,10 +61,10 @@ async def get_loot():
                 continue
 
             price = get_price(stats_columns[0].text.strip())
-            drop = get_list(stats_columns[1].text.strip())
-            monograph = get_list(stats_columns[2].text.strip())
-            steal = get_list(stats_columns[3].text.strip())
-            poach = get_list(stats_columns[4].text.strip())
+            drop = _get_list(stats_columns[1])
+            monograph = _get_list(stats_columns[2])
+            steal = _get_list(stats_columns[3])
+            poach = _get_list(stats_columns[4])
             reward = get_list(stats_columns[5].text.strip(), sep='\n')
 
             description = description_row.find('td', attrs={'colspan': '6'}).text.strip()
@@ -80,6 +81,28 @@ async def get_loot():
             })
 
     return items
+
+
+def _get_list(root: Tag):
+    result = []
+
+    for child in root.children:
+
+        # if isinstance(child, str):
+        #     if child.strip() == 'N/A':
+        #         continue
+
+        if isinstance(child, Tag):
+
+            current = {'name': ''}
+
+            if child.name == 'a':
+                current['name'] += child.get_text(strip=True)
+                current['link'] = f'{base}{child.attrs["href"]}'
+
+            result.append(current)
+
+    return result
 
 
 async def main():
