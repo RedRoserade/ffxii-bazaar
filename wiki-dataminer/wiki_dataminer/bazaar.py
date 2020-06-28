@@ -4,16 +4,17 @@ from http.client import OK
 import aiohttp
 from bs4 import BeautifulSoup
 
+from wiki_dataminer.settings import base
 from wiki_dataminer.text_parsing import process_result, get_price
 
-url = 'https://finalfantasy.fandom.com/wiki/Bazaar_(Final_Fantasy_XII)'
+url = f'{base}/wiki/Bazaar_(Final_Fantasy_XII)'
 
 
 async def get_bazaar():
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             if response.status != OK:
-                raise RuntimeError("Could not get loot.")
+                raise RuntimeError("Could not get bazaar page.")
 
             text = await response.text()
 
