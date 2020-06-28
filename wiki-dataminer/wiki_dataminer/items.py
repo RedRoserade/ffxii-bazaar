@@ -39,13 +39,6 @@ async def get_items():
     return results
 
 
-async def main():
-    items = await get_items()
-
-    for item in items:
-        print(item)
-
-
 def _read_items_table(table: Tag):
     rows = iter(table.find_all(name='tr', recursive=False))
 
@@ -74,6 +67,13 @@ def _read_items_table(table: Tag):
 
         for _ in range(rowspan - 1):
             next(rows)
+
+
+async def main():
+    items = await get_items()
+
+    for item in items:
+        print(item)
 
 
 if __name__ == '__main__':

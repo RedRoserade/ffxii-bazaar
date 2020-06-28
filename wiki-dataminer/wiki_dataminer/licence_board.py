@@ -109,6 +109,7 @@ def get_categories(licences):
 
     categories = list(categories)
     categories.sort()
+
     return categories
 
 
@@ -155,31 +156,14 @@ def add_board_to_graph(g: nx.Graph, board):
             g.add_edge(node_id, position_node[nc]['id'], behind_mist=position_node[nc]['behind_mist'])
 
 
-async def main():
-    matplotlib.use('TkAgg')
-
-    licences = await get_licences()
-
-    all_categories = get_categories(licences)
-
+def get_graph(licences, wanted_board_names):
     g = nx.Graph()
 
     boards = group_licences_by_board(licences)
 
-    wanted_board_names = ('Bushi', 'Black Mage')
-    labels = {}
-    node_colors = []
-
     for board_name in wanted_board_names:
         board = boards[board_name]
         add_board_to_graph(g, board)
-
-    for node_id, node in g.nodes.items():
-        if node['category'] in ('Accessory', 'Gambit', 'Essentials', 'Second Board'):
-            labels[node_id] = ''  # Remove labels for shared nodes
-        else:
-            labels[node_id] = node['name']
-        node_colors.append(all_categories.index(node['category']))
 
     # noinspection PyTypeChecker
     degrees: Dict[Any, int] = g.degree
@@ -198,20 +182,47 @@ async def main():
                 if adj_node['category'] in ('Summon', 'Quickening'):
                     nodes_behind_mist[adj_node_id] = nodes_to_add
 
-    minimum_graph = nx.minimum_spanning_tree(g)
+    return g
 
-    pos = graphviz_layout(minimum_graph, root=0)
+
+def plot_graph(g: nx.Graph):
+    labels = {}
+    node_colors = []
+
+    all_categories = get_categories(g.nodes.values())
+
+    for node_id, node in g.nodes.items():
+        if node['category'] in ('Accessory', 'Gambit', 'Essentials', 'Second Board'):
+            labels[node_id] = ''  # Remove labels for shared nodes
+        else:
+            labels[node_id] = node['name']
+
+        node_colors.append(all_categories.index(node['category']))
+
+    pos = graphviz_layout(g, root=0)
 
     nx.draw(
-        minimum_graph,
+        g,
         pos=pos,
         with_labels=True,
         labels=labels,
         node_color=node_colors,
         style='dotted',
-        label=', '.join(wanted_board_names)
     )
+
     plt.show()
+
+
+async def main():
+    matplotlib.use('TkAgg')
+
+    licences = await get_licences()
+
+    wanted_board_names = ('Bushi',)
+
+    g = get_graph(licences, wanted_board_names)
+
+    plot_graph(g)
 
 
 if __name__ == '__main__':
