@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { IRecipe, IRecipeItem } from "./data/api-types";
 import { apiWorker } from "./data/api-worker";
-import { SubHeading } from "./SubHeading";
+import { SubHeading, SubSubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
 import { Link } from "react-router-dom";
 import { RecipeListWithToggles } from "./RecipeListWithToggles";
@@ -83,6 +83,16 @@ function RecipeAndItemList(props: {
       <div className="FullWidth">
         <RecipeItems items={itemSetForSelectedRecipes} />
       </div>
+
+      <SubHeading>Results:</SubHeading>
+      {selectedRecipes.map((r) => (
+        <Fragment key={r._id}>
+          <SubSubHeading>{r.name}</SubSubHeading>
+          <div className="FullWidth">
+            <RecipeItems items={r.result} />
+          </div>
+        </Fragment>
+      ))}
     </div>
   );
 }
