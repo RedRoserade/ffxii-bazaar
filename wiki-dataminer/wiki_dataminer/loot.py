@@ -73,8 +73,6 @@ async def get_loot():
 
             description = description_row.find('td', attrs={'colspan': '6'}).text.strip()
 
-            print('loot', name)
-
             items.append({
                 'id': make_id(name),
                 'name': name,

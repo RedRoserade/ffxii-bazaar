@@ -46,7 +46,7 @@ def get_list(original_str, sep=','):
 
 
 def get_price(price_str):
-    if price_str == 'N/A':
+    if price_str == 'N/A' or price_str == '—':
         return None
 
     value = int(non_numbers.sub('', price_str))

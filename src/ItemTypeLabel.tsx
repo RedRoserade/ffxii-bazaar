@@ -7,6 +7,8 @@ const typeLabels: Record<ItemType, React.ReactElement<any>> = {
   keyItem: <span>Key Item</span>,
   loot: <span>Loot</span>,
   weapon: <span>Weapon</span>,
+  accessory: <span>Accessory</span>,
+  ammunition: <span>Ammunition</span>,
 };
 
 export function ItemTypeLabel(props: { item: IItem }) {

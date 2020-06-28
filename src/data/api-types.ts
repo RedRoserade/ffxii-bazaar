@@ -4,6 +4,8 @@ export enum ItemType {
   Item = "item",
   Loot = "loot",
   KeyItem = "keyItem",
+  Accessory = "accessory",
+  Ammunition = "ammunition",
 }
 
 export interface IItem {

@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 6,
   "data": [
     {
       "_id": "memoriesOfYore",
@@ -998,7 +998,7 @@
           "item": {
             "_id": "tournesol",
             "name": "Tournesol",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1218,7 +1218,7 @@
           "item": {
             "_id": "waterBombs",
             "name": "Water Bombs",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1260,7 +1260,7 @@
           "item": {
             "_id": "caldera",
             "name": "Caldera",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         },
@@ -1268,7 +1268,7 @@
           "item": {
             "_id": "chaosBombs",
             "name": "Chaos Bombs",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1302,7 +1302,7 @@
           "item": {
             "_id": "fumarole",
             "name": "Fumarole",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         },
@@ -1310,7 +1310,7 @@
           "item": {
             "_id": "poisonBombs",
             "name": "Poison Bombs",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1352,7 +1352,7 @@
           "item": {
             "_id": "tumulus",
             "name": "Tumulus",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         },
@@ -1360,7 +1360,7 @@
           "item": {
             "_id": "oilBombs",
             "name": "Oil Bombs",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1402,7 +1402,7 @@
           "item": {
             "_id": "stoneShot",
             "name": "Stone Shot",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1444,7 +1444,7 @@
           "item": {
             "_id": "silentShot",
             "name": "Silent Shot",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1452,7 +1452,7 @@
           "item": {
             "_id": "capella",
             "name": "Capella",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1494,7 +1494,7 @@
           "item": {
             "_id": "aquaShot",
             "name": "Aqua Shot",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1502,7 +1502,7 @@
           "item": {
             "_id": "vega",
             "name": "Vega",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1544,7 +1544,7 @@
           "item": {
             "_id": "windslicerShot",
             "name": "Windslicer Shot",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1552,7 +1552,7 @@
           "item": {
             "_id": "spica",
             "name": "Spica",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1594,7 +1594,7 @@
           "item": {
             "_id": "mudShot",
             "name": "Mud Shot",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1602,7 +1602,7 @@
           "item": {
             "_id": "mithuna",
             "name": "Mithuna",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1644,7 +1644,7 @@
           "item": {
             "_id": "parallelArrows",
             "name": "Parallel Arrows",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1652,7 +1652,7 @@
           "item": {
             "_id": "shortbow",
             "name": "Shortbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1686,7 +1686,7 @@
           "item": {
             "_id": "fieryArrows",
             "name": "Fiery Arrows",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1694,7 +1694,7 @@
           "item": {
             "_id": "longbow",
             "name": "Longbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1736,7 +1736,7 @@
           "item": {
             "_id": "bambooArrows",
             "name": "Bamboo Arrows",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1744,7 +1744,7 @@
           "item": {
             "_id": "loxleyBow",
             "name": "Loxley Bow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1786,7 +1786,7 @@
           "item": {
             "_id": "artemisArrows",
             "name": "Artemis Arrows",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -1828,7 +1828,7 @@
           "item": {
             "_id": "artemisBow",
             "name": "Artemis Bow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1870,7 +1870,7 @@
           "item": {
             "_id": "icecloudArrows",
             "name": "Icecloud Arrows",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1878,7 +1878,7 @@
           "item": {
             "_id": "perseusBow",
             "name": "Perseus Bow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1920,7 +1920,7 @@
           "item": {
             "_id": "dhanusha",
             "name": "Dhanusha",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -1962,7 +1962,7 @@
           "item": {
             "_id": "longBolts",
             "name": "Long Bolts",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -1970,7 +1970,7 @@
           "item": {
             "_id": "crossbow",
             "name": "Crossbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2012,7 +2012,7 @@
           "item": {
             "_id": "stoneBolts",
             "name": "Stone Bolts",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -2020,7 +2020,7 @@
           "item": {
             "_id": "recurveCrossbow",
             "name": "Recurve Crossbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2062,7 +2062,7 @@
           "item": {
             "_id": "timeBolts",
             "name": "Time Bolts",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -2070,7 +2070,7 @@
           "item": {
             "_id": "penetratorCrossbow",
             "name": "Penetrator Crossbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2112,7 +2112,7 @@
           "item": {
             "_id": "blackBolts",
             "name": "Black Bolts",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         },
@@ -2120,7 +2120,7 @@
           "item": {
             "_id": "huntingCrossbow",
             "name": "Hunting Crossbow",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2162,7 +2162,7 @@
           "item": {
             "_id": "grandBolts",
             "name": "Grand Bolts",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -2204,7 +2204,7 @@
           "item": {
             "_id": "cypressPole",
             "name": "Cypress Pole",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2246,7 +2246,7 @@
           "item": {
             "_id": "ironPole",
             "name": "Iron Pole",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2288,7 +2288,7 @@
           "item": {
             "_id": "ivoryPole",
             "name": "Ivory Pole",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2322,7 +2322,7 @@
           "item": {
             "_id": "buckler",
             "name": "Buckler",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2364,7 +2364,7 @@
           "item": {
             "_id": "goldenHelm",
             "name": "Golden Helm",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2372,7 +2372,7 @@
           "item": {
             "_id": "goldenArmor",
             "name": "Golden Armor",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2380,7 +2380,7 @@
           "item": {
             "_id": "goldenShield",
             "name": "Golden Shield",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2422,7 +2422,7 @@
           "item": {
             "_id": "burgonet",
             "name": "Burgonet",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2430,7 +2430,7 @@
           "item": {
             "_id": "shieldedArmor",
             "name": "Shielded Armor",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2438,7 +2438,7 @@
           "item": {
             "_id": "iceShield",
             "name": "Ice Shield",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2480,7 +2480,7 @@
           "item": {
             "_id": "platinumHelm",
             "name": "Platinum Helm",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2488,7 +2488,7 @@
           "item": {
             "_id": "platinumArmor",
             "name": "Platinum Armor",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2496,7 +2496,7 @@
           "item": {
             "_id": "platinumShield",
             "name": "Platinum Shield",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2538,7 +2538,7 @@
           "item": {
             "_id": "venetianShield",
             "name": "Venetian Shield",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2580,7 +2580,7 @@
           "item": {
             "_id": "demonShield",
             "name": "Demon Shield",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2614,7 +2614,7 @@
           "item": {
             "_id": "chromedLeathers",
             "name": "Chromed Leathers",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2656,7 +2656,7 @@
           "item": {
             "_id": "leatherBreastplate",
             "name": "Leather Breastplate",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2664,7 +2664,7 @@
           "item": {
             "_id": "leatherHeadgear",
             "name": "Leather Headgear",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2706,7 +2706,7 @@
           "item": {
             "_id": "javelin",
             "name": "Javelin",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2748,7 +2748,7 @@
           "item": {
             "_id": "ironSword",
             "name": "Iron Sword",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2790,7 +2790,7 @@
           "item": {
             "_id": "featheredCap",
             "name": "Feathered Cap",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2798,7 +2798,7 @@
           "item": {
             "_id": "travelersVestment",
             "name": "Traveler's Vestment",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2840,7 +2840,7 @@
           "item": {
             "_id": "redCap",
             "name": "Red Cap",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2848,7 +2848,7 @@
           "item": {
             "_id": "brigandine",
             "name": "Brigandine",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2890,7 +2890,7 @@
           "item": {
             "_id": "flametongue",
             "name": "Flametongue",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -2932,7 +2932,7 @@
           "item": {
             "_id": "lamiasTiara",
             "name": "Lamia's Tiara",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2940,7 +2940,7 @@
           "item": {
             "_id": "enchantersHabit",
             "name": "Enchanter's Habit",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -2982,7 +2982,7 @@
           "item": {
             "_id": "headband",
             "name": "Headband",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -2990,7 +2990,7 @@
           "item": {
             "_id": "jujitsuGi",
             "name": "Jujitsu Gi",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3032,7 +3032,7 @@
           "item": {
             "_id": "adamantHat",
             "name": "Adamant Hat",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3040,7 +3040,7 @@
           "item": {
             "_id": "adamantVest",
             "name": "Adamant Vest",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3082,7 +3082,7 @@
           "item": {
             "_id": "blackCowl",
             "name": "Black Cowl",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3090,7 +3090,7 @@
           "item": {
             "_id": "blackGarb",
             "name": "Black Garb",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3132,7 +3132,7 @@
           "item": {
             "_id": "kagenui",
             "name": "Kagenui",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3174,7 +3174,7 @@
           "item": {
             "_id": "chakraBand",
             "name": "Chakra Band",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3182,7 +3182,7 @@
           "item": {
             "_id": "powerVest",
             "name": "Power Vest",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3224,7 +3224,7 @@
           "item": {
             "_id": "francisca",
             "name": "Francisca",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3266,7 +3266,7 @@
           "item": {
             "_id": "diamondSword",
             "name": "Diamond Sword",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3308,7 +3308,7 @@
           "item": {
             "_id": "trident",
             "name": "Trident",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3350,7 +3350,7 @@
           "item": {
             "_id": "gigasHat",
             "name": "Gigas Hat",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3358,7 +3358,7 @@
           "item": {
             "_id": "gigasChestplate",
             "name": "Gigas Chestplate",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3400,7 +3400,7 @@
           "item": {
             "_id": "cloudStaff",
             "name": "Cloud Staff",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3442,7 +3442,7 @@
           "item": {
             "_id": "blackMask",
             "name": "Black Mask",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3450,7 +3450,7 @@
           "item": {
             "_id": "blackRobes",
             "name": "Black Robes",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3492,7 +3492,7 @@
           "item": {
             "_id": "whiteMask",
             "name": "White Mask",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3500,7 +3500,7 @@
           "item": {
             "_id": "whiteRobes",
             "name": "White Robes",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3542,7 +3542,7 @@
           "item": {
             "_id": "crownOfLaurels",
             "name": "Crown of Laurels",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         },
@@ -3550,7 +3550,7 @@
           "item": {
             "_id": "rubberSuit",
             "name": "Rubber Suit",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3592,7 +3592,7 @@
           "item": {
             "_id": "maximillian",
             "name": "Maximillian",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3634,7 +3634,7 @@
           "item": {
             "_id": "magepowerShishak",
             "name": "Magepower Shishak",
-            "type": null
+            "type": "armour"
           },
           "quantity": 1
         }
@@ -3676,7 +3676,7 @@
           "item": {
             "_id": "amenomurakumo",
             "name": "Ame-no-Murakumo",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3718,7 +3718,7 @@
           "item": {
             "_id": "zwillCrossblade",
             "name": "Zwill Crossblade",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3760,7 +3760,7 @@
           "item": {
             "_id": "deathbringer",
             "name": "Deathbringer",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3802,7 +3802,7 @@
           "item": {
             "_id": "saveTheQueen",
             "name": "Save the Queen",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3844,7 +3844,7 @@
           "item": {
             "_id": "castellanos",
             "name": "Castellanos",
-            "type": null
+            "type": "ammunition"
           },
           "quantity": 1
         }
@@ -3886,7 +3886,7 @@
           "item": {
             "_id": "stoneblade",
             "name": "Stoneblade",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3928,7 +3928,7 @@
           "item": {
             "_id": "arcturus",
             "name": "Arcturus",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -3970,7 +3970,7 @@
           "item": {
             "_id": "ultimaBlade",
             "name": "Ultima Blade",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4012,7 +4012,7 @@
           "item": {
             "_id": "gungnir",
             "name": "Gungnir",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4054,7 +4054,7 @@
           "item": {
             "_id": "goldenAxe",
             "name": "Golden Axe",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4096,7 +4096,7 @@
           "item": {
             "_id": "karkata",
             "name": "Karkata",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4138,7 +4138,7 @@
           "item": {
             "_id": "kanya",
             "name": "Kanya",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4180,7 +4180,7 @@
           "item": {
             "_id": "wyrmheroBlade",
             "name": "Wyrmhero Blade",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4222,7 +4222,7 @@
           "item": {
             "_id": "vrscika",
             "name": "Vrscika",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4264,7 +4264,7 @@
           "item": {
             "_id": "simha",
             "name": "Simha",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4306,7 +4306,7 @@
           "item": {
             "_id": "mesa",
             "name": "Mesa",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4348,7 +4348,7 @@
           "item": {
             "_id": "kumbha",
             "name": "Kumbha",
-            "type": null
+            "type": "weapon"
           },
           "quantity": 1
         }
@@ -4374,7 +4374,7 @@
           "item": {
             "_id": "gillieBoots",
             "name": "Gillie Boots",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4400,7 +4400,7 @@
           "item": {
             "_id": "amberArmlet",
             "name": "Amber Armlet",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4442,7 +4442,7 @@
           "item": {
             "_id": "firefly",
             "name": "Firefly",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4476,7 +4476,7 @@
           "item": {
             "_id": "quasimodoBoots",
             "name": "Quasimodo Boots",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4502,7 +4502,7 @@
           "item": {
             "_id": "battleHarness",
             "name": "Battle Harness",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4528,7 +4528,7 @@
           "item": {
             "_id": "blazerGloves",
             "name": "Blazer Gloves",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4554,7 +4554,7 @@
           "item": {
             "_id": "pheasantNetsuke",
             "name": "Pheasant Netsuke",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4580,7 +4580,7 @@
           "item": {
             "_id": "goldenAmulet",
             "name": "Golden Amulet",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4606,7 +4606,7 @@
           "item": {
             "_id": "wingedBoots",
             "name": "Winged Boots",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4640,7 +4640,7 @@
           "item": {
             "_id": "turtleshellChoker",
             "name": "Turtleshell Choker",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4666,7 +4666,7 @@
           "item": {
             "_id": "opalRing",
             "name": "Opal Ring",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4700,7 +4700,7 @@
           "item": {
             "_id": "hermesSandals",
             "name": "Hermes Sandals",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4734,7 +4734,7 @@
           "item": {
             "_id": "bubbleBelt",
             "name": "Bubble Belt",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4776,7 +4776,7 @@
           "item": {
             "_id": "catearHood",
             "name": "Cat-ear Hood",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }
@@ -4818,7 +4818,7 @@
           "item": {
             "_id": "nihopalaoa",
             "name": "Nihopalaoa",
-            "type": null
+            "type": "accessory"
           },
           "quantity": 1
         }

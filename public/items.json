@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 6,
   "data": [
     {
       "_id": "adamantite",
@@ -1270,6 +1270,701 @@
       "_id": "canopicJar",
       "name": "Canopic Jar",
       "type": "keyItem"
+    },
+    {
+      "_id": "bubbleBelt",
+      "name": "Bubble Belt",
+      "type": "accessory"
+    },
+    {
+      "_id": "wingedBoots",
+      "name": "Winged Boots",
+      "type": "accessory"
+    },
+    {
+      "_id": "hermesSandals",
+      "name": "Hermes Sandals",
+      "type": "accessory"
+    },
+    {
+      "_id": "blazerGloves",
+      "name": "Blazer Gloves",
+      "type": "accessory"
+    },
+    {
+      "_id": "amberArmlet",
+      "name": "Amber Armlet",
+      "type": "accessory"
+    },
+    {
+      "_id": "opalRing",
+      "name": "Opal Ring",
+      "type": "accessory"
+    },
+    {
+      "_id": "battleHarness",
+      "name": "Battle Harness",
+      "type": "accessory"
+    },
+    {
+      "_id": "gillieBoots",
+      "name": "Gillie Boots",
+      "type": "accessory"
+    },
+    {
+      "_id": "quasimodoBoots",
+      "name": "Quasimodo Boots",
+      "type": "accessory"
+    },
+    {
+      "_id": "pheasantNetsuke",
+      "name": "Pheasant Netsuke",
+      "type": "accessory"
+    },
+    {
+      "_id": "nihopalaoa",
+      "name": "Nihopalaoa",
+      "type": "accessory"
+    },
+    {
+      "_id": "firefly",
+      "name": "Firefly",
+      "type": "accessory"
+    },
+    {
+      "_id": "goldenAmulet",
+      "name": "Golden Amulet",
+      "type": "accessory"
+    },
+    {
+      "_id": "catearHood",
+      "name": "Cat-ear Hood",
+      "type": "accessory"
+    },
+    {
+      "_id": "turtleshellChoker",
+      "name": "Turtleshell Choker",
+      "type": "accessory"
+    },
+    {
+      "_id": "buckler",
+      "name": "Buckler",
+      "type": "armour"
+    },
+    {
+      "_id": "goldenShield",
+      "name": "Golden Shield",
+      "type": "armour"
+    },
+    {
+      "_id": "iceShield",
+      "name": "Ice Shield",
+      "type": "armour"
+    },
+    {
+      "_id": "platinumShield",
+      "name": "Platinum Shield",
+      "type": "armour"
+    },
+    {
+      "_id": "demonShield",
+      "name": "Demon Shield",
+      "type": "armour"
+    },
+    {
+      "_id": "venetianShield",
+      "name": "Venetian Shield",
+      "type": "armour"
+    },
+    {
+      "_id": "leatherHeadgear",
+      "name": "Leather Headgear",
+      "type": "armour"
+    },
+    {
+      "_id": "redCap",
+      "name": "Red Cap",
+      "type": "armour"
+    },
+    {
+      "_id": "headband",
+      "name": "Headband",
+      "type": "armour"
+    },
+    {
+      "_id": "adamantHat",
+      "name": "Adamant Hat",
+      "type": "armour"
+    },
+    {
+      "_id": "chakraBand",
+      "name": "Chakra Band",
+      "type": "armour"
+    },
+    {
+      "_id": "gigasHat",
+      "name": "Gigas Hat",
+      "type": "armour"
+    },
+    {
+      "_id": "crownOfLaurels",
+      "name": "Crown of Laurels",
+      "type": "armour"
+    },
+    {
+      "_id": "chromedLeathers",
+      "name": "Chromed Leathers",
+      "type": "armour"
+    },
+    {
+      "_id": "leatherBreastplate",
+      "name": "Leather Breastplate",
+      "type": "armour"
+    },
+    {
+      "_id": "brigandine",
+      "name": "Brigandine",
+      "type": "armour"
+    },
+    {
+      "_id": "jujitsuGi",
+      "name": "Jujitsu Gi",
+      "type": "armour"
+    },
+    {
+      "_id": "adamantVest",
+      "name": "Adamant Vest",
+      "type": "armour"
+    },
+    {
+      "_id": "powerVest",
+      "name": "Power Vest",
+      "type": "armour"
+    },
+    {
+      "_id": "gigasChestplate",
+      "name": "Gigas Chestplate",
+      "type": "armour"
+    },
+    {
+      "_id": "rubberSuit",
+      "name": "Rubber Suit",
+      "type": "armour"
+    },
+    {
+      "_id": "goldenHelm",
+      "name": "Golden Helm",
+      "type": "armour"
+    },
+    {
+      "_id": "burgonet",
+      "name": "Burgonet",
+      "type": "armour"
+    },
+    {
+      "_id": "platinumHelm",
+      "name": "Platinum Helm",
+      "type": "armour"
+    },
+    {
+      "_id": "magepowerShishak",
+      "name": "Magepower Shishak",
+      "type": "armour"
+    },
+    {
+      "_id": "goldenArmor",
+      "name": "Golden Armor",
+      "type": "armour"
+    },
+    {
+      "_id": "shieldedArmor",
+      "name": "Shielded Armor",
+      "type": "armour"
+    },
+    {
+      "_id": "platinumArmor",
+      "name": "Platinum Armor",
+      "type": "armour"
+    },
+    {
+      "_id": "maximillian",
+      "name": "Maximillian",
+      "type": "armour"
+    },
+    {
+      "_id": "featheredCap",
+      "name": "Feathered Cap",
+      "type": "armour"
+    },
+    {
+      "_id": "lamiasTiara",
+      "name": "Lamia's Tiara",
+      "type": "armour"
+    },
+    {
+      "_id": "blackCowl",
+      "name": "Black Cowl",
+      "type": "armour"
+    },
+    {
+      "_id": "blackMask",
+      "name": "Black Mask",
+      "type": "armour"
+    },
+    {
+      "_id": "whiteMask",
+      "name": "White Mask",
+      "type": "armour"
+    },
+    {
+      "_id": "travelersVestment",
+      "name": "Traveler's Vestment",
+      "type": "armour"
+    },
+    {
+      "_id": "enchantersHabit",
+      "name": "Enchanter's Habit",
+      "type": "armour"
+    },
+    {
+      "_id": "blackGarb",
+      "name": "Black Garb",
+      "type": "armour"
+    },
+    {
+      "_id": "whiteRobes",
+      "name": "White Robes",
+      "type": "armour"
+    },
+    {
+      "_id": "blackRobes",
+      "name": "Black Robes",
+      "type": "armour"
+    },
+    {
+      "_id": "ironSword",
+      "name": "Iron Sword",
+      "type": "weapon"
+    },
+    {
+      "_id": "flametongue",
+      "name": "Flametongue",
+      "type": "weapon"
+    },
+    {
+      "_id": "diamondSword",
+      "name": "Diamond Sword",
+      "type": "weapon"
+    },
+    {
+      "_id": "deathbringer",
+      "name": "Deathbringer",
+      "type": "weapon"
+    },
+    {
+      "_id": "stoneblade",
+      "name": "Stoneblade",
+      "type": "weapon"
+    },
+    {
+      "_id": "karkata",
+      "name": "Karkata",
+      "type": "weapon"
+    },
+    {
+      "_id": "simha",
+      "name": "Simha",
+      "type": "weapon"
+    },
+    {
+      "_id": "zwillCrossblade",
+      "name": "Zwill Crossblade",
+      "type": "weapon"
+    },
+    {
+      "_id": "francisca",
+      "name": "Francisca",
+      "type": "weapon"
+    },
+    {
+      "_id": "goldenAxe",
+      "name": "Golden Axe",
+      "type": "weapon"
+    },
+    {
+      "_id": "vrscika",
+      "name": "Vrscika",
+      "type": "weapon"
+    },
+    {
+      "_id": "saveTheQueen",
+      "name": "Save the Queen",
+      "type": "weapon"
+    },
+    {
+      "_id": "ultimaBlade",
+      "name": "Ultima Blade",
+      "type": "weapon"
+    },
+    {
+      "_id": "tournesol",
+      "name": "Tournesol",
+      "type": "weapon"
+    },
+    {
+      "_id": "wyrmheroBlade",
+      "name": "Wyrmhero Blade",
+      "type": "weapon"
+    },
+    {
+      "_id": "kumbha",
+      "name": "Kumbha",
+      "type": "weapon"
+    },
+    {
+      "_id": "amenomurakumo",
+      "name": "Ame-no-Murakumo",
+      "type": "weapon"
+    },
+    {
+      "_id": "kagenui",
+      "name": "Kagenui",
+      "type": "weapon"
+    },
+    {
+      "_id": "mesa",
+      "name": "Mesa",
+      "type": "weapon"
+    },
+    {
+      "_id": "javelin",
+      "name": "Javelin",
+      "type": "weapon"
+    },
+    {
+      "_id": "trident",
+      "name": "Trident",
+      "type": "weapon"
+    },
+    {
+      "_id": "gungnir",
+      "name": "Gungnir",
+      "type": "weapon"
+    },
+    {
+      "_id": "cypressPole",
+      "name": "Cypress Pole",
+      "type": "weapon"
+    },
+    {
+      "_id": "ironPole",
+      "name": "Iron Pole",
+      "type": "weapon"
+    },
+    {
+      "_id": "ivoryPole",
+      "name": "Ivory Pole",
+      "type": "weapon"
+    },
+    {
+      "_id": "kanya",
+      "name": "Kanya",
+      "type": "weapon"
+    },
+    {
+      "_id": "cloudStaff",
+      "name": "Cloud Staff",
+      "type": "weapon"
+    },
+    {
+      "_id": "shortbow",
+      "name": "Shortbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "longbow",
+      "name": "Longbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "loxleyBow",
+      "name": "Loxley Bow",
+      "type": "weapon"
+    },
+    {
+      "_id": "perseusBow",
+      "name": "Perseus Bow",
+      "type": "weapon"
+    },
+    {
+      "_id": "artemisBow",
+      "name": "Artemis Bow",
+      "type": "weapon"
+    },
+    {
+      "_id": "dhanusha",
+      "name": "Dhanusha",
+      "type": "weapon"
+    },
+    {
+      "_id": "crossbow",
+      "name": "Crossbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "recurveCrossbow",
+      "name": "Recurve Crossbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "huntingCrossbow",
+      "name": "Hunting Crossbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "penetratorCrossbow",
+      "name": "Penetrator Crossbow",
+      "type": "weapon"
+    },
+    {
+      "_id": "capella",
+      "name": "Capella",
+      "type": "weapon"
+    },
+    {
+      "_id": "vega",
+      "name": "Vega",
+      "type": "weapon"
+    },
+    {
+      "_id": "spica",
+      "name": "Spica",
+      "type": "weapon"
+    },
+    {
+      "_id": "arcturus",
+      "name": "Arcturus",
+      "type": "weapon"
+    },
+    {
+      "_id": "mithuna",
+      "name": "Mithuna",
+      "type": "weapon"
+    },
+    {
+      "_id": "fumarole",
+      "name": "Fumarole",
+      "type": "weapon"
+    },
+    {
+      "_id": "tumulus",
+      "name": "Tumulus",
+      "type": "weapon"
+    },
+    {
+      "_id": "caldera",
+      "name": "Caldera",
+      "type": "weapon"
+    },
+    {
+      "_id": "parallelArrows",
+      "name": "Parallel Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "fieryArrows",
+      "name": "Fiery Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "bambooArrows",
+      "name": "Bamboo Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "icecloudArrows",
+      "name": "Icecloud Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "artemisArrows",
+      "name": "Artemis Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "longBolts",
+      "name": "Long Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "stoneBolts",
+      "name": "Stone Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "blackBolts",
+      "name": "Black Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "timeBolts",
+      "name": "Time Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "grandBolts",
+      "name": "Grand Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "silentShot",
+      "name": "Silent Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "aquaShot",
+      "name": "Aqua Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "mudShot",
+      "name": "Mud Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "windslicerShot",
+      "name": "Windslicer Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "stoneShot",
+      "name": "Stone Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "poisonBombs",
+      "name": "Poison Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "oilBombs",
+      "name": "Oil Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "chaosBombs",
+      "name": "Chaos Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "waterBombs",
+      "name": "Water Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "castellanos",
+      "name": "Castellanos",
+      "type": "ammunition"
+    },
+    {
+      "_id": "parallelArrows",
+      "name": "Parallel Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "fieryArrows",
+      "name": "Fiery Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "bambooArrows",
+      "name": "Bamboo Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "icecloudArrows",
+      "name": "Icecloud Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "artemisArrows",
+      "name": "Artemis Arrows",
+      "type": "ammunition"
+    },
+    {
+      "_id": "longBolts",
+      "name": "Long Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "stoneBolts",
+      "name": "Stone Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "blackBolts",
+      "name": "Black Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "timeBolts",
+      "name": "Time Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "grandBolts",
+      "name": "Grand Bolts",
+      "type": "ammunition"
+    },
+    {
+      "_id": "silentShot",
+      "name": "Silent Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "aquaShot",
+      "name": "Aqua Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "mudShot",
+      "name": "Mud Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "windslicerShot",
+      "name": "Windslicer Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "stoneShot",
+      "name": "Stone Shot",
+      "type": "ammunition"
+    },
+    {
+      "_id": "poisonBombs",
+      "name": "Poison Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "oilBombs",
+      "name": "Oil Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "chaosBombs",
+      "name": "Chaos Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "waterBombs",
+      "name": "Water Bombs",
+      "type": "ammunition"
+    },
+    {
+      "_id": "castellanos",
+      "name": "Castellanos",
+      "type": "ammunition"
     }
   ]
 }
