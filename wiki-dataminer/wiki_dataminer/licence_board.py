@@ -132,28 +132,33 @@ def add_board_to_graph(g: nx.Graph, board):
         #     C3
         # ----------
         # Provided the nodes exist on the board.
+
+        # Node above, if not already at the first row
         if row > 'A':
-            pr = f'{prev_row(row)}{col}'
+            above = f'{prev_row(row)}{col}'
 
-            if pr in position_node:
-                g.add_edge(node_id, position_node[pr]['id'], behind_mist=position_node[pr]['behind_mist'])
+            if above in position_node:
+                g.add_edge(node_id, position_node[above]['id'], behind_mist=position_node[above]['behind_mist'])
 
+        # Node below, if not already at the last row
         if row < 'Z':
-            nr = f'{next_row(row)}{col}'
+            below = f'{next_row(row)}{col}'
 
-            if nr in position_node:
-                g.add_edge(node_id, position_node[nr]['id'], behind_mist=position_node[nr]['behind_mist'])
+            if below in position_node:
+                g.add_edge(node_id, position_node[below]['id'], behind_mist=position_node[below]['behind_mist'])
 
+        # Node to the left, if not already at the first column
         if col > 1:
-            pc = f'{row}{col - 1}'
+            left = f'{row}{col - 1}'
 
-            if pc in position_node:
-                g.add_edge(node_id, position_node[pc]['id'], behind_mist=position_node[pc]['behind_mist'])
+            if left in position_node:
+                g.add_edge(node_id, position_node[left]['id'], behind_mist=position_node[left]['behind_mist'])
 
-        nc = f'{row}{col + 1}'
+        # Node to the right (no bounds check needed)
+        right = f'{row}{col + 1}'
 
-        if nc in position_node:
-            g.add_edge(node_id, position_node[nc]['id'], behind_mist=position_node[nc]['behind_mist'])
+        if right in position_node:
+            g.add_edge(node_id, position_node[right]['id'], behind_mist=position_node[right]['behind_mist'])
 
 
 def get_graph(licences, wanted_board_names):
