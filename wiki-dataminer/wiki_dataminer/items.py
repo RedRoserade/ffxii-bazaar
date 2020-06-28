@@ -5,7 +5,7 @@ import aiohttp
 from bs4 import BeautifulSoup, Tag
 
 from wiki_dataminer.settings import base
-from wiki_dataminer.text_parsing import get_price
+from wiki_dataminer.text_parsing import get_price, make_id
 
 url = f'{base}/wiki/Final_Fantasy_XII_items'
 
@@ -55,6 +55,7 @@ def _read_items_table(table: Tag):
         price = get_price(price_cell.text.strip())
 
         item = {
+            'id': make_id(name),
             'name': name,
             'description': description,
             'price': price,

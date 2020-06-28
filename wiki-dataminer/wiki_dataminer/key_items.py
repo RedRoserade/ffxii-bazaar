@@ -5,6 +5,7 @@ import aiohttp
 from bs4 import BeautifulSoup, Tag
 
 from wiki_dataminer.settings import base
+from wiki_dataminer.text_parsing import make_id
 
 url = f'{base}/wiki/Final_Fantasy_XII_key_items'
 
@@ -31,7 +32,7 @@ def _read_items_table(table: Tag):
     next(rows)
 
     for row in rows:
-        # Two rows:
+        # Two rows, read in pairs:
         # 1st: Columns are: Name, Action, Location
         # 2nd: In-game description
         name_cell = row.find(name='th', attrs={'class': 'b'})
@@ -44,6 +45,7 @@ def _read_items_table(table: Tag):
         description = description_cell.text.strip()
 
         item = {
+            'id': make_id(name),
             'name': name,
             'action': action,
             'location': location,

@@ -5,7 +5,7 @@ import aiohttp
 from bs4 import BeautifulSoup
 
 from wiki_dataminer.settings import base
-from wiki_dataminer.text_parsing import process_result, get_price
+from wiki_dataminer.text_parsing import process_result, get_price, make_id
 
 url = f'{base}/wiki/Bazaar_(Final_Fantasy_XII)'
 
@@ -63,22 +63,34 @@ async def get_bazaar():
 
         name = name_cell.text.strip()
         result_text = result_cell.text.strip()
-        items = [{'item': item_cell.text.strip(), 'amount': int(amount_cell.text.strip())}]
+        items = [_get_item(item_cell, amount_cell)]
         price = price_cell.text.strip()
         diff = diff_cell.text.strip()
 
         for item_row in item_rows:
             item_cell, amount_cell = item_row.find_all(name='td')
-            items.append({'item': item_cell.text.strip(), 'amount': int(amount_cell.text.strip())})
+            items.append(_get_item(item_cell, amount_cell))
 
         repeatable = name[-1] == '*'
 
         if repeatable:
             name = name.rstrip('*')
 
+        result = process_result(result_text)
+
+        # There's two 'Magick Shard' recipes. One for Holy Motes, and other for Scathe Motes.
+        # Treat them differently here.
+        if name == 'Magick Shard':
+            if any(r['item']['id'] == 'holyMote' for r in result):
+                name += ' [Holy Mote]'
+
+            if any(r['item']['id'] == 'scatheMote' for r in result):
+                name += ' [Scathe Mote]'
+
         recipe = {
+            'id': make_id(name),
             'name': name,
-            'result': process_result(result_text),
+            'result': result,
             'items': items,
             'price': get_price(price),
             'diff': get_price(diff),
@@ -88,6 +100,18 @@ async def get_bazaar():
         bazaar.append(recipe)
 
     return bazaar
+
+
+def _get_item(item_cell, amount_cell):
+    name = item_cell.text.strip()
+
+    return {
+        'item': {
+            'id': make_id(name),
+            'name': name,
+        },
+        'amount': int(amount_cell.text.strip()),
+    }
 
 
 async def main():

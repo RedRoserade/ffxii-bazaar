@@ -1,9 +1,9 @@
 export enum ItemType {
   Weapon = "weapon",
   Armour = "armour",
-  HealingItem = "healingItem",
+  Item = "item",
   Loot = "loot",
-  KeyItem = "keyItem"
+  KeyItem = "keyItem",
 }
 
 export interface IItem {
@@ -46,10 +46,7 @@ export interface IGetRecipesOptions extends IPaginationOptions {
   repeatable?: boolean;
 }
 
-export type UsageStatus =
-  | "all"
-  | "withoutPendingRecipes"
-  | "withPendingRecipes";
+export type UsageStatus = "all" | "withoutPendingRecipes" | "withPendingRecipes";
 
 export interface IGetItemsOptions extends IPaginationOptions {
   query?: string;

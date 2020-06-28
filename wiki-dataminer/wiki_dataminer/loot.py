@@ -5,7 +5,7 @@ import aiohttp
 from bs4 import BeautifulSoup, Tag
 
 from wiki_dataminer.settings import base
-from wiki_dataminer.text_parsing import get_price, get_list
+from wiki_dataminer.text_parsing import get_price, get_list, make_id
 
 url = f'{base}/wiki/Loot_(Final_Fantasy_XII)'
 
@@ -43,6 +43,10 @@ async def get_loot():
 
             current_row_group.append(row)
 
+        # Catch any last row.
+        if len(current_row_group) == 3:
+            item_row_groups.append(current_row_group)
+
         for row_group in item_row_groups:
             if len(row_group) != 3:
                 print("Cannot process", row_group)
@@ -69,7 +73,10 @@ async def get_loot():
 
             description = description_row.find('td', attrs={'colspan': '6'}).text.strip()
 
+            print('loot', name)
+
             items.append({
+                'id': make_id(name),
                 'name': name,
                 'price': price,
                 'drop': drop,

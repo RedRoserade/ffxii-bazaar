@@ -1,13 +1,14 @@
 import json
 import re
 from os import path
-from typing import List, Any, Tuple
+from typing import List, Any
 
 import xlrd
 from xlrd.sheet import Cell
 
+from wiki_dataminer.text_parsing import make_id
+
 _AMOUNT = re.compile(r'\sx')
-_NON_WORD = re.compile(r'\W')
 
 
 def _remove_xa0(text: str):
@@ -64,15 +65,6 @@ def parse_price(gil: str):
         return None
 
     return int(gil.replace('gil', '').replace(',', '').strip())
-
-
-def make_id(text: str):
-    if not text:
-        return None
-
-    pascal_case = ''.join(_NON_WORD.sub('', w).title() for w in text.split(' '))
-
-    return pascal_case[0].lower() + pascal_case[1:]
 
 
 def main(args):

@@ -3,10 +3,10 @@ import { ItemType, IItem } from "./data/api-types";
 
 const typeLabels: Record<ItemType, React.ReactElement<any>> = {
   armour: <span>Armour</span>,
-  healingItem: <span>Item</span>,
+  item: <span>Item</span>,
   keyItem: <span>Key Item</span>,
   loot: <span>Loot</span>,
-  weapon: <span>Weapon</span>
+  weapon: <span>Weapon</span>,
 };
 
 export function ItemTypeLabel(props: { item: IItem }) {

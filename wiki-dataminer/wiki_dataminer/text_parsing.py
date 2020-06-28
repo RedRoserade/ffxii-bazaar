@@ -2,6 +2,7 @@ import re
 
 non_numbers = re.compile(r'\D')
 amount_re = re.compile(r'^(?P<name>.+)\sx(?P<amount>\d+)?$')
+_NON_WORD = re.compile(r'\W')
 
 
 def process_result(t: str):
@@ -15,12 +16,24 @@ def process_result(t: str):
         match = amount_re.search(item)
 
         if match is None:
-            result.append({'item': item, 'amount': 1})
+            result.append({
+                'item': {
+                    'id': make_id(item),
+                    'name': item,
+                },
+                'amount': 1,
+            })
         else:
             name = match.group('name')
             amount = int(match.group('amount'))
 
-            result.append({'item': name, 'amount': amount})
+            result.append({
+                'item': {
+                    'id': make_id(name),
+                    'name': name,
+                },
+                'amount': amount,
+            })
 
     return result
 
@@ -42,3 +55,12 @@ def get_price(price_str):
         value *= -1
 
     return value
+
+
+def make_id(text: str):
+    if not text:
+        return None
+
+    pascal_case = ''.join(_NON_WORD.sub('', w).title() for w in text.split(' '))
+
+    return pascal_case[0].lower() + pascal_case[1:]

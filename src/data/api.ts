@@ -3,13 +3,7 @@ import { itemsDb } from "./items-db";
 
 import { waitForRecipeData, waitForItemData } from "./sync";
 
-import {
-  IGetRecipesOptions,
-  IRecipe,
-  IGetItemsOptions,
-  IItem,
-  IRecipeItem
-} from "./api-types";
+import { IGetRecipesOptions, IRecipe, IGetItemsOptions, IItem, IRecipeItem } from "./api-types";
 
 export async function getRecipes(options: IGetRecipesOptions = {}) {
   await waitForRecipeData();
@@ -17,7 +11,7 @@ export async function getRecipes(options: IGetRecipesOptions = {}) {
   const request: PouchDB.Find.FindRequest<IRecipe> = {
     selector: {},
     skip: options.skip,
-    limit: options.limit
+    limit: options.limit,
   };
 
   const args: PouchDB.Find.Selector[] = [];
@@ -32,8 +26,8 @@ export async function getRecipes(options: IGetRecipesOptions = {}) {
     args.push({
       $or: [
         { done: { $exists: false } }, // Because I was an idiot and forgot to add the field.
-        { done: { $eq: false } }
-      ]
+        { done: { $eq: false } },
+      ],
     });
   }
 
@@ -84,7 +78,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
   const request: PouchDB.Find.FindRequest<IItem> = {
     selector: { $and: [] },
     skip: options.skip,
-    limit: options.limit
+    limit: options.limit,
   };
 
   if (options.usageStatus != null && options.usageStatus !== "all") {
@@ -101,15 +95,22 @@ export async function getItems(options: IGetItemsOptions = {}) {
         // i.e., all the recipes that it's used on are not repeatable, and are done.
         const notDoneNonRepeatableRecipes = await getRecipes({
           repeatable: false,
-          done: false
+          done: false,
+        });
+
+        const repeatableRecipes = await getRecipes({
+          repeatable: true,
         });
 
         const doneNonRepeatableRecipes = await getRecipes({
           repeatable: false,
-          done: true
+          done: true,
         });
 
-        const pendingIds = getItemIdsFromRecipes(notDoneNonRepeatableRecipes);
+        const pendingIds = new Set([
+          ...getItemIdsFromRecipes(notDoneNonRepeatableRecipes),
+          ...getItemIdsFromRecipes(repeatableRecipes),
+        ]);
 
         itemIds = getItemIdsFromRecipes(doneNonRepeatableRecipes);
 
@@ -117,11 +118,24 @@ export async function getItems(options: IGetItemsOptions = {}) {
           itemIds.delete(pendingId);
         }
 
+        // Add any loot item that has no uses.
+        // Done by querying the db for all the items,
+        // and then crossing each item with the recipes above.
+
+        const allItemIdsResult = await itemsDb.find({ selector: { type: "loot" }, fields: ["_id"] });
+        const allItemIds = new Set(allItemIdsResult.docs.map((d) => d._id));
+
+        for (const itemId of allItemIds) {
+          if (!pendingIds.has(itemId)) {
+            itemIds.add(itemId);
+          }
+        }
+
         break;
       }
       case "withPendingRecipes": {
         const recipesInDesiredState = await getRecipes({
-          done: false
+          done: false,
         });
 
         itemIds = getItemIdsFromRecipes(recipesInDesiredState);
@@ -135,7 +149,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
 
   if (options.query) {
     request.selector.$and!.push({
-      name: { $regex: new RegExp(options.query, "i") }
+      name: { $regex: new RegExp(options.query, "i") },
     });
   }
 
@@ -160,37 +174,30 @@ export async function getItem(id: string): Promise<IItem | null> {
   }
 }
 
-export async function getRelatedRecipes(
-  item: IItem
-): Promise<{ usedIn: IRecipe[]; obtainedFrom: IRecipe[] }> {
+export async function getRelatedRecipes(item: IItem): Promise<{ usedIn: IRecipe[]; obtainedFrom: IRecipe[] }> {
   await Promise.all([waitForItemData(), waitForRecipeData()]);
 
   const usedInRecipesQuery = recipesDb.find({
-    selector: { items: { $elemMatch: { "item._id": { $eq: item._id } } } }
+    selector: { items: { $elemMatch: { "item._id": { $eq: item._id } } } },
   });
 
   const obtainedFromRecipesQuery = recipesDb.find({
-    selector: { result: { $elemMatch: { "item._id": { $eq: item._id } } } }
+    selector: { result: { $elemMatch: { "item._id": { $eq: item._id } } } },
   });
 
-  const [usedInRecipes, obtainedFromRecipes] = await Promise.all([
-    usedInRecipesQuery,
-    obtainedFromRecipesQuery
-  ]);
+  const [usedInRecipes, obtainedFromRecipes] = await Promise.all([usedInRecipesQuery, obtainedFromRecipesQuery]);
 
   return {
     usedIn: usedInRecipes.docs,
-    obtainedFrom: obtainedFromRecipes.docs
+    obtainedFrom: obtainedFromRecipes.docs,
   };
 }
 
-export async function toggleRecipeDone(
-  ...recipe: IRecipe[]
-): Promise<IRecipe[]> {
+export async function toggleRecipeDone(...recipe: IRecipe[]): Promise<IRecipe[]> {
   await waitForRecipeData();
 
   const findResult = await recipesDb.find({
-    selector: { _id: { $in: recipe.map(x => x._id) } }
+    selector: { _id: { $in: recipe.map((x) => x._id) } },
   });
 
   const recipes = findResult.docs;
@@ -204,9 +211,7 @@ export async function toggleRecipeDone(
   return recipes;
 }
 
-export async function minimumSetOfItemsForManyRecipes(
-  recipeList: IRecipe[]
-): Promise<IRecipeItem[]> {
+export async function minimumSetOfItemsForManyRecipes(recipeList: IRecipe[]): Promise<IRecipeItem[]> {
   const itemQuantities = new Map<string, [IItem, number]>();
 
   for (const recipe of recipeList) {
@@ -223,6 +228,6 @@ export async function minimumSetOfItemsForManyRecipes(
 
   return Array.from(itemQuantities.values()).map(([item, qty]) => ({
     item,
-    quantity: qty
+    quantity: qty,
   }));
 }
