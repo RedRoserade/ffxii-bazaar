@@ -4,10 +4,9 @@ from typing import Dict, Any
 
 import aiohttp
 import matplotlib
-import networkx as nx
 import matplotlib.pyplot as plt
+import networkx as nx
 from bs4 import BeautifulSoup
-from networkx.drawing.nx_agraph import graphviz_layout
 
 url = 'https://finalfantasy.fandom.com/wiki/License_Board'
 
@@ -204,7 +203,9 @@ def plot_graph(g: nx.Graph):
 
         node_colors.append(all_categories.index(node['category']))
 
-    pos = graphviz_layout(g, root=0)
+    # Optional prog=['neato'|'dot'|'twopi'|'circo'|'fdp'|'nop']
+    # pos = graphviz_layout(g, root=0, prog='fdp')
+    pos = nx.kamada_kawai_layout(g)
 
     nx.draw(
         g,
@@ -223,9 +224,11 @@ async def main():
 
     licences = await get_licences()
 
-    wanted_board_names = ('Bushi',)
+    wanted_board_names = ('Bushi', 'Knight')
 
     g = get_graph(licences, wanted_board_names)
+
+    g = nx.minimum_spanning_tree(g)
 
     plot_graph(g)
 

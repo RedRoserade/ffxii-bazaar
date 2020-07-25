@@ -13,9 +13,9 @@ from wiki_dataminer.weapons import get_weapons
 
 
 class AppDb:
-    version = 6
+    VERSION = 7
 
-    def __init__(self):
+    def __init__(self, indent=0):
         self.items = []
         self.key_items = []
         self.weapons = []
@@ -24,6 +24,8 @@ class AppDb:
         self.loot = []
         self.ammunition = []
         self.bazaar_recipes = []
+
+        self.indent = indent
 
     async def load_data(self):
         self.items, self.key_items, self.loot, self.weapons, self.armour, self.accessories, self.ammunition, self.bazaar_recipes = await asyncio.gather(
@@ -95,25 +97,29 @@ class AppDb:
         ]
 
         contents = {
-            'version': self.version,
+            'version': self.VERSION,
             'data': data
         }
 
-        with open(filename, 'w') as writer:
-            json.dump(contents, writer, ensure_ascii=False, indent=2)
+        self._write_file(contents, filename)
 
     def build_items_file(self, filename):
         data = []
 
-        # Unconditionally add the loot.
-        data.extend(
-            {
-                '_id': item['id'],
-                'name': item['name'],
-                'type': 'loot',
+        def read_item(i: dict) -> dict:
+            return {
+                '_id': i['id'],
+                'name': i['name'],
+                'description': i.get('description'),
+                'drop': i.get('drop', []),
+                'monograph': i.get('monograph', []),
+                'steal': i.get('steal', []),
+                'poach': i.get('poach', []),
+                'reward': i.get('reward', []),
             }
-            for item in self.loot
-        )
+
+        # Unconditionally add the loot.
+        data.extend({**read_item(item), 'type': 'loot'} for item in self.loot)
 
         # Only add the remainder of the items if they are involved in at least one recipe,
         # either as an input or an output.
@@ -137,22 +143,26 @@ class AppDb:
 
         for item_type, items in extra_items.items():
             data.extend(
-                {
-                    '_id': item['id'],
-                    'name': item['name'],
-                    'type': item_type,
-                }
+                {**read_item(item), 'type': item_type}
                 for item in items
                 if item['id'] in item_ids_in_recipes
             )
 
         contents = {
-            'version': self.version,
+            'version': self.VERSION,
             'data': data,
         }
 
+        self._write_file(contents, filename)
+
+    def _write_file(self, contents, filename):
+        opts = {}
+
+        if self.indent:
+            opts['indent'] = self.indent
+
         with open(filename, 'w') as writer:
-            json.dump(contents, writer, ensure_ascii=False, indent=2)
+            json.dump(contents, writer, ensure_ascii=False, **opts)
 
 
 async def main():
@@ -160,10 +170,11 @@ async def main():
 
     parser.add_argument('--recipes-file', required=True)
     parser.add_argument('--items-file', required=True)
+    parser.add_argument('--indent', type=int, required=False, default=0)
 
     args = parser.parse_args()
 
-    db = AppDb()
+    db = AppDb(indent=args.indent)
 
     await db.load_data()
 

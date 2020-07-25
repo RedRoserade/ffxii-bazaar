@@ -1,7 +1,3 @@
-// import * as apiWorker from "./api";
-
-// export { apiWorker };
-
 import worker from "workerize-loader!./api"; // eslint-disable-line import/no-webpack-loader-syntax
 import { IRecipe, IGetRecipesOptions, IItem, IGetItemsOptions, IRelatedRecipes, IRecipeItem } from "./api-types";
 

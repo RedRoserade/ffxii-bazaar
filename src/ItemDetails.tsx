@@ -9,7 +9,7 @@ import { BackButton } from "./BackButton";
 import { GilLabel } from "./GilLabel";
 import { LoadState } from "./util";
 import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
-import { IRecipe, IItem } from "./data/api-types";
+import { IRecipe, IItem, INameWithLink } from "./data/api-types";
 import { SelectedRecipesContext } from "./SelectedRecipes";
 import { RecipeListWithToggles } from "./RecipeListWithToggles";
 
@@ -132,6 +132,11 @@ class ItemDetails extends React.Component<IItemDetailsProps, IItemDetailsState> 
               ))}
             </div>
           )}
+
+          <MonsterList title="Dropped from:" monsters={item.drop} />
+          <MonsterList title="Monograph drop:" monsters={item.monograph} />
+          <MonsterList title="Stolen from:" monsters={item.steal} />
+          <MonsterList title="Poached from:" monsters={item.poach} />
         </div>
       </div>
     );
@@ -139,3 +144,34 @@ class ItemDetails extends React.Component<IItemDetailsProps, IItemDetailsState> 
 }
 
 export { ItemDetails };
+
+function MonsterList(props: { title: React.ReactNode; monsters: INameWithLink[] }) {
+  if (!props.monsters.length) {
+    return (
+      <>
+        <SubHeading>{props.title}</SubHeading>
+        None
+      </>
+    );
+  }
+
+  return (
+    <>
+      <SubHeading>{props.title}</SubHeading>
+
+      <div className="CustomList FullWidth">
+        {props.monsters.map((m) => (
+          <MonsterListItem key={m.name} monster={m} />
+        ))}
+      </div>
+    </>
+  );
+}
+
+function MonsterListItem(props: { monster: INameWithLink }) {
+  return (
+    <a className="CustomListItem" href={props.monster.link} target="_blank" rel="noopener noreferrer">
+      {props.monster.name}
+    </a>
+  );
+}

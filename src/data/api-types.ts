@@ -8,10 +8,25 @@ export enum ItemType {
   Ammunition = "ammunition",
 }
 
+export interface IName {
+  name: string;
+}
+
+export interface INameWithLink {
+  name: string;
+  link: string;
+}
+
 export interface IItem {
   name: string;
   _id: string;
   type: ItemType;
+  description: string | null;
+  drop: INameWithLink[];
+  monograph: INameWithLink[];
+  steal: INameWithLink[];
+  poach: INameWithLink[];
+  reward: INameWithLink[];
 }
 
 export interface IRecipeItem {
