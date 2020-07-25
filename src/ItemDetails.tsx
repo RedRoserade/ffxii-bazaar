@@ -145,7 +145,11 @@ class ItemDetails extends React.Component<IItemDetailsProps, IItemDetailsState> 
 
 export { ItemDetails };
 
-function MonsterList(props: { title: React.ReactNode; monsters: INameWithLink[] }) {
+function MonsterList(props: { title: React.ReactNode; monsters: INameWithLink[] | null }) {
+  if (props.monsters == null) {
+    return null;
+  }
+
   if (!props.monsters.length) {
     return (
       <>

@@ -4,6 +4,7 @@ import PouchDB from "pouchdb-browser";
 
 import { IItem } from "./api-types";
 import { localForage } from "../config/localforage";
+import { syncIds } from "./db";
 
 const baseUrl = process.env.PUBLIC_URL!;
 
@@ -28,10 +29,12 @@ export async function syncItems() {
 
       if (data.version === (await localForage.getItem<number>("items_version"))) {
         console.log("[items] Data is up-to date.");
-        return;
+        return { updated: false, version: data.version };
       }
 
       await itemsDb.createIndex({ index: { fields: ["name"] } });
+
+      const newIds = [];
 
       for (const item of data.data) {
         // console.debug("Processing item", item._id);
@@ -55,9 +58,15 @@ export async function syncItems() {
             throw err;
           }
         }
+
+        newIds.push(item._id);
       }
 
+      await syncIds(itemsDb, newIds);
+
       await localForage.setItem("items_version", data.version);
+
+      return { updated: true, version: data.version };
     } else {
       throw response;
     }

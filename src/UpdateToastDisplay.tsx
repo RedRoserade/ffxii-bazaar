@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { appUpdateSubject$, UpdateType } from "./serviceWorker";
+import { appUpdateSubject$, UpdateType } from "./app-update";
 import { Subscription } from "rxjs";
 import { Toast } from "./Toast";
 
@@ -40,6 +40,16 @@ export class UpdateToastDisplay extends React.Component {
             Refresh to see the latest changes.
           </Toast>
         );
+        break;
+      case "dataUpdated":
+        element = (
+          <Toast timeout={5000} onHide={() => el.remove()}>
+            The data has been updated!
+            <br />
+            Refresh to see the latest changes.
+          </Toast>
+        );
+        break;
     }
 
     if (element != null) {

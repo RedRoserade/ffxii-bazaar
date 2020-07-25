@@ -1,25 +1,31 @@
 import syncWorker from "workerize-loader!./sync.worker"; // eslint-disable-line import/no-webpack-loader-syntax
 import { localForage } from "../config/localforage";
 
-export interface ISyncWorker {
-  syncRecipes(): Promise<void>;
-  syncItems(): Promise<void>;
+export interface SyncResult {
+  updated: false;
+  version: number;
 }
 
-async function doSync(action: "syncRecipes" | "syncItems") {
+export interface ISyncWorker {
+  syncRecipes(): Promise<SyncResult>;
+  syncItems(): Promise<SyncResult>;
+}
+
+async function doSync(action: "syncRecipes" | "syncItems"): Promise<SyncResult> {
   const worker = syncWorker<ISyncWorker>();
 
   try {
     switch (action) {
       case "syncRecipes":
-        await worker.syncRecipes();
-        break;
+        return await worker.syncRecipes();
       case "syncItems":
-        await worker.syncItems();
-        break;
+        return await worker.syncItems();
+      default:
+        throw new Error(`Unknown action: '${action}', supported are 'syncItems', 'syncRecipes'`);
     }
   } catch (e) {
     console.error(`[${action}] Error`, e);
+    return { updated: false, version: 0 };
   } finally {
     worker.terminate();
     console.log(`[${action}] Worker terminated.`);

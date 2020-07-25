@@ -4,6 +4,7 @@ import PouchDB from "pouchdb-browser";
 
 import { IRecipe } from "./api-types";
 import { localForage } from "../config/localforage";
+import { syncIds } from "./db";
 
 export const recipesDb = new PouchDB<IRecipe>("ffxii_bazaar_recipes", {
   adapter: "idb",
@@ -28,12 +29,15 @@ export async function syncRecipes() {
 
       if (data.version === (await localForage.getItem("recipes_version"))) {
         console.log("[recipes] Data is up-to date.");
-        return;
+        return { updated: false, version: data.version };
       }
 
       await recipesDb.createIndex({ index: { fields: ["name"] } });
       await recipesDb.createIndex({ index: { fields: ["items"] } });
       await recipesDb.createIndex({ index: { fields: ["result"] } });
+
+      // Used later to remove recipes which are no longer in the file.
+      const newIds = [];
 
       for (const recipe of data.data) {
         // console.debug("Processing recipe", recipe._id);
@@ -57,9 +61,15 @@ export async function syncRecipes() {
             throw err;
           }
         }
+
+        newIds.push(recipe._id);
       }
 
+      await syncIds(recipesDb, newIds);
+
       await localForage.setItem("recipes_version", data.version);
+
+      return { updated: true, version: data.version };
     } else {
       throw response;
     }

@@ -13,7 +13,7 @@ from wiki_dataminer.weapons import get_weapons
 
 
 class AppDb:
-    VERSION = 7
+    VERSION = 10
 
     def __init__(self, indent=0):
         self.items = []

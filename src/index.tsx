@@ -17,6 +17,7 @@ import WebFont from "webfontloader";
 import { register } from "./serviceWorker";
 
 import App from "./App";
+import { appUpdateSubject$ } from "./app-update";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
@@ -24,7 +25,13 @@ if (process.env.NODE_ENV === "production") {
   register();
 }
 
-runSync();
+runSync().then((result) => {
+  console.log("Sync complete");
+
+  if (result.some((r) => r.updated)) {
+    appUpdateSubject$.next("dataUpdated");
+  }
+});
 
 WebFont.load({
   google: {
