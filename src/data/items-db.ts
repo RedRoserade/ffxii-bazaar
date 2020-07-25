@@ -20,7 +20,8 @@ export const itemsDb = new PouchDB<IItem>("ffxii_bazaar_items", {
 
 export async function syncItems() {
   try {
-    const response = await fetch(`${baseUrl}/items.json`);
+    // Always fetch the latest data.
+    const response = await fetch(`${baseUrl}/items.json?_=${Date.now()}`);
 
     if (response.ok) {
       const data: IJsonData<IItem[]> = await response.json();

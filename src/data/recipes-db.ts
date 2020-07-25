@@ -20,7 +20,8 @@ interface IJsonData<T> {
 
 export async function syncRecipes() {
   try {
-    const response = await fetch(`${baseUrl}/recipes.json`);
+    // Always fetch the latest data.
+    const response = await fetch(`${baseUrl}/recipes.json?_=${Date.now()}`);
 
     if (response.ok) {
       const data: IJsonData<IRecipe[]> = await response.json();
