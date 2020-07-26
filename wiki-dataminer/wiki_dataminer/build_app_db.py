@@ -98,7 +98,7 @@ class AppDb:
 
         contents = {
             'version': self.VERSION,
-            'data': data
+            '_cache': data
         }
 
         self._write_file(contents, filename)
@@ -150,7 +150,7 @@ class AppDb:
 
         contents = {
             'version': self.VERSION,
-            'data': data,
+            '_cache': data,
         }
 
         self._write_file(contents, filename)

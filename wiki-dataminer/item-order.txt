@@ -1,0 +1,97 @@
+# [Element] = [Earth, Wind, Water, Ice, Storm, Holy, Dark]
+# [Zodiac Sign] = [Aries, Taurus, Gemini, Leo, Virgo, Libra, Sagittarius, Capricorn]
+# [Halcyon] = [Salamand, Undin]
+Teleport Stone
+[Element] Stone
+[Element] Magicite
+[Element] Crystal
+[Zodiac Sign] Gem
+[Entite] Halcyon
+Arcana
+High Arcana
+Turtle Shell
+(Aged, Ancient) Turtle Shell
+Insect Husk
+Battlewyrm Carapace
+Destrier Barding
+Charger Barding
+Ichthon Scale
+Ring Wyrm Scale
+(Drab, Fine, Blood) Wool
+Snake Skin
+(Tyrant, Quality, Beastlord) Hide
+Tanned Giantskin
+Prime Tanned Hide
+(Wolf, Coeurl, Quality, Prime) Pelt
+(Small, Large, Chocobo, Giant) Feather
+Bundle of Feathers
+Windslicer Pinion
+Horn
+(Pointed, Solid) Horn
+(Bat, Crooked) Fang
+Spiral Incisor
+Wyvern Fang
+Succulent Fruit
+Malboro (Fruit, Flower, Vine)
+Bone Fragment
+Sturdy Bone
+Blood-darkened Bone
+Quality Lumber
+Quality Stone
+Iron Scraps
+Iron Ore
+(Green, Yellow, Silver) Liquid
+(Glass, Sky) Jewel
+Demon (Eyeball, Feather, Tail)
+Grimoire (Togail, Aidhed)
+Bomb (Ashes, Shell)
+Book of (Orgain, Orgain-Cent, Orgain-Mille)
+(Maggoty, Forbidden) Flesh
+Feystone
+Pebble
+Broken Sword
+Moon Ring
+Mallet
+Chimera Head
+Slaven Harness
+Destrier Mane
+Wargod's Band
+Soul of Thamasa
+Vampyr Fang
+Death's-Head
+Ancient Bone
+Wyrm Bone
+Mirror Scale
+Adamantite
+Scarletite
+Damascus Steel
+Orichalcum
+Mystletainn
+Electrum
+Dorsal Fin
+Yensa Fin
+Ring Wyrm Liver
+Serpent Eye
+Ambrosia
+(Foul, Putrid) Liquid
+Slime Oil
+Unpurified Ether
+Demon Drink
+Soul Powder
+Zombie Powder
+Bat Wing
+Throat Wolf Blood
+Frogspawn
+Behemoth Steak
+Gysahl Greens
+Antarctic Wind
+Lifewick
+Hell-Gate's Flame
+Sickle-Blade
+Moondust
+Rainbow Egg
+Empyreal Soul
+Serpentarius
+Gemsteel
+Sandalwood Chop
+Black Orb

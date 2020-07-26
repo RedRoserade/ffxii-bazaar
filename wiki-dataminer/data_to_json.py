@@ -117,7 +117,7 @@ def main(args):
 
             data = {
                 'version': 1,
-                'data': recipes
+                '_cache': recipes
             }
 
             json.dump(data, json_out, ensure_ascii=False, indent=4)
@@ -127,7 +127,7 @@ def main(args):
 
             data = {
                 'version': 1,
-                'data': list(items.values())
+                '_cache': list(items.values())
             }
 
             json.dump(data, json_out, ensure_ascii=False, indent=4)
