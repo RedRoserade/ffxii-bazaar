@@ -14,7 +14,7 @@ import numpy as np
 
 log = logging.getLogger(__name__)
 
-cache_file = Path('_cache', 'licence_board.json')
+_cache_file = Path('_cache', 'licence_board.json')
 
 url = 'https://finalfantasy.fandom.com/wiki/License_Board'
 
@@ -36,10 +36,10 @@ def prev_row(r: str) -> str:
 
 
 async def get_licences():
-    if cache_file.exists():
-        log.debug("Reading from cache file=%r", cache_file)
+    if _cache_file.exists():
+        log.debug("Reading from cache file=%r", _cache_file)
 
-        with cache_file.open('r') as cache_reader:
+        with _cache_file.open('r') as cache_reader:
             return json.load(cache_reader)
 
     log.debug("Reading from url=%r", url)
@@ -272,10 +272,10 @@ async def main():
 
     licences = await get_licences()
 
-    if not cache_file.exists():
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
+    if not _cache_file.exists():
+        _cache_file.parent.mkdir(parents=True, exist_ok=True)
 
-        with cache_file.open('w') as cache_writer:
+        with _cache_file.open('w') as cache_writer:
             json.dump(licences, cache_writer, indent=2, ensure_ascii=False)
 
     wanted_board_names = ('Knight',)

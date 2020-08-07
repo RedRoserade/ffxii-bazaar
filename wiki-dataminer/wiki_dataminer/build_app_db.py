@@ -13,7 +13,7 @@ from wiki_dataminer.weapons import get_weapons
 
 
 class AppDb:
-    VERSION = 10
+    VERSION = 12
 
     def __init__(self, indent=0):
         self.items = []
@@ -98,7 +98,7 @@ class AppDb:
 
         contents = {
             'version': self.VERSION,
-            '_cache': data
+            'data': data
         }
 
         self._write_file(contents, filename)
@@ -116,6 +116,7 @@ class AppDb:
                 'steal': i.get('steal', []),
                 'poach': i.get('poach', []),
                 'reward': i.get('reward', []),
+                'index': i.get('index', 1000),  # Deliberately bump items down that don't have an index.
             }
 
         # Unconditionally add the loot.
@@ -150,7 +151,7 @@ class AppDb:
 
         contents = {
             'version': self.VERSION,
-            '_cache': data,
+            'data': data,
         }
 
         self._write_file(contents, filename)

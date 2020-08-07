@@ -1,0 +1,236 @@
+# Item list, in order by which 'Auto Sort' puts them.
+# The order may be incorrect, as this was done as I went, and I don't have all the items.
+
+#################################################
+# LOOT
+#################################################
+
+# Utilities
+Teleport Stone
+
+# Elemental Stones
+Earth Stone
+Wind Stone
+Water Stone
+Fire Stone
+Ice Stone
+Storm Stone
+Holy Stone
+Dark Stone
+
+# Elemental Magicite
+Earth Magicite
+Wind Magicite
+Water Magicite
+Fire Magicite
+Ice Magicite
+Storm Magicite
+Holy Magicite
+Dark Magicite
+
+# Elemental Crystals
+Earth Crystal
+Wind Crystal
+Water Crystal
+Fire Crystal
+Ice Crystal
+Storm Crystal
+Holy Crystal
+Dark Crystal
+
+# Zodiac Gems
+Aries Gem
+Taurus Gem
+Gemini Gem
+Leo Gem
+Virgo Gem
+Libra Gem
+Sagittarius Gem
+Capricorn Gem
+Aquarius Gem
+
+# Halcyons
+Salamand Halcyon
+Gnoma Halcyon
+Undin Halcyon
+Sylphi Halcyon
+
+Arcana
+High Arcana
+
+Turtle Shell
+Aged Turtle Shell
+Ancient Turtle Shell
+
+Molting
+Iron Carapace
+Insect Husk
+Battlewyrm Carapace
+
+Destrier Barding
+Charger Barding
+Fish Scale
+Ichthon Scale
+Ring Wyrm Scale
+Drab Wool
+Braid Wool
+Fine Wool
+Blood Wool
+Snake Skin
+
+Tyrant Hide
+Quality Hide
+Beastlord Hide
+Tanned Hide
+
+Tanned Giantskin
+Prime Tanned Hide
+
+Wolf Pelt
+Coeurl Pelt
+Quality Pelt
+Prime Pelt
+
+Small Feather
+Large Feather
+Chocobo Feather
+Giant Feather
+
+Bundle of Feathers
+Windslicer Pinion
+Horn
+Pointed Horn
+Solid Horn
+Bat Fang
+Crooked Fang
+Spiral Incisor
+Wyvern Fang
+Cactus Fruit
+Succulent Fruit
+
+Malboro Vine
+Malboro Fruit
+Malboro Flower
+
+Bone Fragment
+Sturdy Bone
+Blood-darkened Bone
+
+# Lumber?
+Quality Lumber
+
+Solid Stone
+Quality Stone
+
+Iron Scraps
+Iron Ore
+
+Green Liquid
+Yellow Liquid
+Silver Liquid
+
+Glass Jewel
+Sky Jewel
+
+Demon Eyeball
+Demon Feather
+Demon Tail
+
+Grimoire Togail
+Grimoire Aidhed
+
+Bomb Ashes
+Bomb Shell
+
+Book of Orgain
+Book of Orgain-Cent
+Book of Orgain-Mille
+
+Foul Flesh
+Festering Flesh
+Maggoty Flesh
+Forbidden Flesh
+
+Feystone
+Pebble
+
+Broken Sword
+Broken Spear
+
+Bent Staff
+Moon Ring
+Mallet
+Tattered Garment
+Chimera Head
+Slaven Harness
+Blood-stained Necklace
+Destrier Mane
+Wargod's Band
+Soul of Thamasa
+Vampyr Fang
+Great Serpent's Fang
+Death's-Head
+Ancient Bone
+Wyrm Bone
+Mirror Scale
+Mythril
+Adamantite
+Scarletite
+Damascus Steel
+Orichalcum
+Mystletainn
+Einherjarium
+Electrum
+
+Dorsal Fin
+Yensa Fin
+
+Ring Wyrm Liver
+Eye of the Hawk
+Serpent Eye
+Ambrosia
+Foul Liquid
+Putrid Liquid
+Slime Oil
+Unpurified Ether
+Demon Drink
+Soul Powder
+Zombie Powder
+Bat Wing
+Bomb Fragment
+Throat Wolf Blood
+Frogspawn
+Frog Oil
+Behemoth Steak
+Gysahl Greens
+Antarctic Wind
+Lifewick
+Hell-Gate's Flame
+Sickle-Blade
+Moondust
+Rainbow Egg
+Demon's Sigh
+
+# Components for the Tournesol and Kumbha
+Empyreal Soul
+Serpentarius
+Gemsteel
+
+# Rewards
+Omega Badge
+Godslayer's Badge
+Lu Shang's Badge
+Centurio Hero's Badge
+
+# Fishing Rewards
+Empty Bottle
+Common Fish
+Delicious Fish
+Nebra Succulent
+
+# Archades
+Pinewood Chop
+Sandalwood Chop
+
+# Pharos
+Black Orb

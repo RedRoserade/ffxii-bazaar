@@ -22,7 +22,7 @@ async def get_weapons():
 
     soup = BeautifulSoup(text, features="html.parser")
 
-    tables = iter(soup.find_all('table', attrs={'class': 'FFXII article-table full-width'}))
+    tables = iter(soup.select('table.FFXII.article-table.full-width'))
 
     # Skip the 'Unarmed' section, which is first.
     next(tables)
@@ -34,7 +34,7 @@ async def get_weapons():
 
 
 def _read_weapons_table(table: Tag):
-    rows = iter(table.find_all(name='tr', recursive=False))
+    rows = iter(table.select('tbody > tr'))
 
     # Skip header
     next(rows)
@@ -52,7 +52,7 @@ def _read_weapons_table(table: Tag):
         else:
             name = first_name_part.text.strip()
 
-        price = get_price(price_cell.find(name='span', attrs={'class': 'advanced-tooltip'}).find(name='span').text.strip())
+        price = get_price(price_cell.text.strip())
 
         # TODO I need to add the rest of the stats.
         item = {

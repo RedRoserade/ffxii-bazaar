@@ -22,7 +22,7 @@ async def get_ammunition():
 
     soup = BeautifulSoup(text, features="html.parser")
 
-    tables = iter(soup.find_all('table', attrs={'class': 'full-width FFXII article-table'}))
+    tables = iter(soup.select('table.full-width.FFXII.article-table'))
 
     for table in tables:
         results.extend(_read_ammunition_table(table))
@@ -31,7 +31,7 @@ async def get_ammunition():
 
 
 def _read_ammunition_table(table: Tag):
-    rows = iter(table.find_all(name='tr', recursive=False))
+    rows = iter(table.select('tbody > tr'))
 
     # Skip header
     next(rows)

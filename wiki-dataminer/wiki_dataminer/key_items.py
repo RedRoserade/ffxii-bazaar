@@ -26,7 +26,7 @@ async def get_key_items():
 
 
 def _read_items_table(table: Tag):
-    rows = iter(table.find_all(name='tr', recursive=False))
+    rows = iter(table.select('tbody > tr'))
 
     # Skip header
     next(rows)

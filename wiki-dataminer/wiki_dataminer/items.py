@@ -31,7 +31,7 @@ async def get_items():
 
     for heading_id in heading_ids:
         section = soup.find('span', id=heading_id)
-        heading = section.find_next(name='dt', text='Zodiac\n')
+        heading = section.find_next(name='dt', text='Zodiac')
         table = heading.find_next('table', attrs={'class': 'full-width FFXII article-table'})
 
         results.extend(_read_items_table(table))
@@ -40,7 +40,7 @@ async def get_items():
 
 
 def _read_items_table(table: Tag):
-    rows = iter(table.find_all(name='tr', recursive=False))
+    rows = iter(table.select('tbody > tr'))
 
     # Skip header
     next(rows)

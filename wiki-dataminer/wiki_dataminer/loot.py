@@ -1,5 +1,8 @@
 import asyncio
+import json
+import logging
 from http.client import OK
+from pathlib import Path
 
 import aiohttp
 from bs4 import BeautifulSoup, Tag
@@ -7,10 +10,25 @@ from bs4 import BeautifulSoup, Tag
 from wiki_dataminer.settings import base
 from wiki_dataminer.text_parsing import get_price, get_list, make_id
 
+log = logging.getLogger(__name__)
+
+_cache_file = Path('_cache', 'loot.json')
+
 url = f'{base}/wiki/Loot_(Final_Fantasy_XII)'
 
 
 async def get_loot():
+
+    if _cache_file.exists():
+        log.debug("Reading from cache file=%r", _cache_file)
+
+        with _cache_file.open('r') as cache_reader:
+            return json.load(cache_reader)
+
+    item_order = _get_item_order()
+
+    log.debug("Reading from url=%r", url)
+
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             if response.status != OK:
@@ -20,13 +38,13 @@ async def get_loot():
 
     soup = BeautifulSoup(text, features="html.parser")
 
-    tables = soup.find_all(name='table', attrs={'class': 'full-width article-table FFXII'})
+    tables = soup.select('table.full-width.article-table.FFXII')
 
     items = []
 
     for table in tables:
 
-        rows = table.find_all(name='tr', recursive=False)
+        rows = table.select('tbody > tr')
 
         # Skip header row.
         rows = iter(rows)
@@ -70,10 +88,16 @@ async def get_loot():
             steal = _get_list(stats_columns[3])
             poach = _get_list(stats_columns[4])
             reward = get_list(stats_columns[5].text.strip(), sep='\n')
+            index = None
 
             description = description_row.find('td', attrs={'colspan': '6'}).text.strip()
 
-            items.append({
+            if name not in item_order:
+                log.debug("%r has no order set", name)
+            else:
+                index = item_order.pop(name)
+
+            item = {
                 'id': make_id(name),
                 'name': name,
                 'price': price,
@@ -83,7 +107,16 @@ async def get_loot():
                 'poach': poach,
                 'reward': reward,
                 'description': description,
-            })
+
+            }
+
+            if index is not None:
+                item['index'] = index
+
+            items.append(item)
+
+    for missing_name in item_order:
+        log.warning("%r was not in the input list", missing_name)
 
     return items
 
@@ -110,11 +143,36 @@ def _get_list(root: Tag):
     return result
 
 
+def _get_item_order():
+    item_order_file = Path(Path(__file__).parent, 'item-order.txt')
+
+    order_by_name = {}
+
+    with item_order_file.open('r') as item_order_reader:
+        idx = 0
+
+        for line in item_order_reader:
+            line = line.strip()
+
+            if not line or line[0] == '#':
+                continue
+
+            order_by_name[line] = idx
+            idx += 1
+
+    return order_by_name
+
+
 async def main():
+    logging.basicConfig(level=logging.INFO)
+
     items = await get_loot()
 
-    for item in items:
-        print(item)
+    if not _cache_file.exists():
+        _cache_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with _cache_file.open('w') as cache_writer:
+            json.dump(items, cache_writer, indent=2, ensure_ascii=False)
 
 
 if __name__ == '__main__':

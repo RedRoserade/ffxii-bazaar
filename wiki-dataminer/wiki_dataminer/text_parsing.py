@@ -46,10 +46,12 @@ def get_list(original_str, sep=','):
 
 
 def get_price(price_str):
-    if price_str == 'N/A' or price_str == '—':
+    if price_str == 'N/A' or price_str == '—' or price_str == 'None':
         return None
 
-    value = int(non_numbers.sub('', price_str))
+    price_str = non_numbers.sub('', price_str)
+
+    value = int(price_str)
 
     if price_str[0] == '-':
         value *= -1

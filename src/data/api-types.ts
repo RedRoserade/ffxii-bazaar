@@ -27,6 +27,7 @@ export interface IItem {
   steal: INameWithLink[];
   poach: INameWithLink[];
   reward: INameWithLink[];
+  index: number;
 }
 
 export interface IRecipeItem {

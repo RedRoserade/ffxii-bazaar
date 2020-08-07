@@ -28,7 +28,7 @@ async def get_bazaar():
 
     bazaar = []
 
-    rows = iter(table.find_all(name='tr', recursive=False))
+    rows = iter(table.select('tbody > tr'))
 
     # Skip header
     next(rows)

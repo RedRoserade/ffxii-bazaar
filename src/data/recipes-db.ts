@@ -29,7 +29,7 @@ export async function syncRecipes() {
       await localForage.ready();
 
       if (data.version === (await localForage.getItem("recipes_version"))) {
-        console.log("[recipes] Data is up-to date.");
+        console.log("[recipes] Data is up-to date. Version", data.version);
         return { updated: false, version: data.version };
       }
 

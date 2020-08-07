@@ -21,7 +21,7 @@ export const itemsDb = new PouchDB<IItem>("ffxii_bazaar_items", {
 export async function syncItems() {
   try {
     // Always fetch the latest data.
-    const response = await fetch(`${baseUrl}/items.json?_=${Date.now()}`);
+    const response = await fetch(`${baseUrl}/items.json?_v=${Date.now()}`);
 
     if (response.ok) {
       const data: IJsonData<IItem[]> = await response.json();
@@ -29,11 +29,12 @@ export async function syncItems() {
       await localForage.ready();
 
       if (data.version === (await localForage.getItem<number>("items_version"))) {
-        console.log("[items] Data is up-to date.");
+        console.log("[items] Data is up-to date. Version", data.version);
         return { updated: false, version: data.version };
       }
 
       await itemsDb.createIndex({ index: { fields: ["name"] } });
+      await itemsDb.createIndex({ index: { fields: ["index"] } });
 
       const newIds = [];
 
