@@ -20,23 +20,35 @@ interface IJsonData<T> {
 
 export async function syncRecipes() {
   try {
+    const structureVersion = 2;
+
     // Always fetch the latest data.
     const response = await fetch(`${baseUrl}/recipes.json?_=${Date.now()}`);
 
-    if (response.ok) {
-      const data: IJsonData<IRecipe[]> = await response.json();
+    if (!response.ok) {
+      throw response;
+    }
+    const data: IJsonData<IRecipe[]> = await response.json();
 
-      await localForage.ready();
+    await localForage.ready();
 
-      if (data.version === (await localForage.getItem("recipes_version"))) {
-        console.log("[recipes] Data is up-to date. Version", data.version);
-        return { updated: false, version: data.version };
-      }
+    const isDataUpToDate = data.version === (await localForage.getItem("recipes_version"));
+    const isStructureUpToDate = structureVersion === (await localForage.getItem<number>("recipes_version_structure"));
 
+    if (isDataUpToDate && isStructureUpToDate) {
+      console.log("[recipes] Data is up-to date. Version", data.version);
+      return { updated: false, version: data.version };
+    }
+
+    if (!isStructureUpToDate) {
       await recipesDb.createIndex({ index: { fields: ["name"] } });
       await recipesDb.createIndex({ index: { fields: ["items"] } });
       await recipesDb.createIndex({ index: { fields: ["result"] } });
 
+      await localForage.setItem("recipes_version_structure", structureVersion);
+    }
+
+    if (!isDataUpToDate) {
       // Used later to remove recipes which are no longer in the file.
       const newIds = [];
 
@@ -69,11 +81,9 @@ export async function syncRecipes() {
       await syncIds(recipesDb, newIds);
 
       await localForage.setItem("recipes_version", data.version);
-
-      return { updated: true, version: data.version };
-    } else {
-      throw response;
     }
+
+    return { updated: true, version: data.version };
   } catch (e) {
     // TODO Handle error.
     console.error(e);
