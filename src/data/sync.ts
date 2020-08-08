@@ -47,12 +47,25 @@ export function runSync() {
 // The following is a HACK, I need to figure out a better way to get the sync
 // and the API workers working together.
 
-export function waitForRecipeData() {
-  return waitFor("recipes_version");
+let recipesReady = false;
+let itemsReady = false;
+
+export async function waitForRecipeData() {
+  if (recipesReady) {
+    return;
+  }
+
+  await waitFor("recipes_version");
+
+  recipesReady = true;
 }
 
-export function waitForItemData() {
-  return waitFor("items_version");
+export async function waitForItemData() {
+  if (itemsReady) {
+    return;
+  }
+  await waitFor("items_version");
+  itemsReady = true;
 }
 
 async function waitFor(key: string) {

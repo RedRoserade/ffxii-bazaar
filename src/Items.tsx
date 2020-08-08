@@ -7,10 +7,7 @@ import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
 import { LoadState } from "./util";
-import {
-  LoadingPlaceholderSpinner,
-  LoadingPlaceholderOverlaySpinner
-} from "./LoadingPlaceholder";
+import { LoadingPlaceholderSpinner, LoadingPlaceholderOverlaySpinner } from "./LoadingPlaceholder";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -29,7 +26,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   public state: IItemsState = {
     items: [],
     loadState: "loading",
-    showOptions: false
+    showOptions: false,
   };
 
   private getSearchOptions(): { query: string; usageStatus: UsageStatus } {
@@ -45,24 +42,17 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     await this.getItems(this.getSearchOptions());
   }
 
-  public getItems = debounce(
-    async (
-      searchOptions: Partial<ISearchOptions> = {},
-      skip = 0,
-      limit = 30
-    ) => {
-      this.setState({ loadState: "loading" });
+  public getItems = debounce(async (searchOptions: Partial<ISearchOptions> = {}, skip = 0, limit = 30) => {
+    this.setState({ loadState: "loading" });
 
-      const items = await apiWorker.getItems({
-        ...searchOptions,
-        skip,
-        limit
-      });
+    const items = await apiWorker.getItems({
+      ...searchOptions,
+      skip,
+      limit,
+    });
 
-      this.setState({ items, loadState: "success" });
-    },
-    100
-  );
+    this.setState({ items, loadState: "success" });
+  }, 100);
 
   public async componentDidUpdate(prevProps: RouteComponentProps<{}>) {
     if (prevProps.location.search !== this.props.location.search) {
@@ -70,8 +60,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     }
   }
 
-  public toggleShowOptions = () =>
-    this.setState(state => ({ showOptions: !state.showOptions }));
+  public toggleShowOptions = () => this.setState((state) => ({ showOptions: !state.showOptions }));
 
   public makeQuery(options: ISearchOptions): URLSearchParams {
     const params = new URLSearchParams();
@@ -88,9 +77,13 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
   }
 
   public setUsageStatus = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const usageStatus = e.currentTarget.value as UsageStatus;
+
+    console.log("Setting usageStatus to", usageStatus);
+
     const search = this.makeQuery({
       ...this.getSearchOptions(),
-      usageStatus: e.currentTarget.value as UsageStatus
+      usageStatus: usageStatus,
     });
 
     this.props.history.replace(`${this.props.match.path}?${search}`);
@@ -113,7 +106,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
               type="text"
               value={query}
               onChange={this.handleSearchTermChange}
-              onFocus={e => e.currentTarget.select()}
+              onFocus={(e) => e.currentTarget.select()}
             />
           </div>
           {/* <span className="HeadingSearchFeedback">
@@ -160,59 +153,53 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
         {this.state.loadState === "loading" && this.state.items.length === 0 ? (
           <LoadingPlaceholderSpinner timeout={300} />
         ) : (
-            <div className="PageContents WithVirtualizedScrollList">
-              <InfiniteLoader
-                isRowLoaded={this.isRowLoaded}
-                loadMoreRows={this.loadMoreRows}
-                rowCount={Infinity}
-                minimumBatchSize={30}
-              >
-                {({ onRowsRendered, registerChild }) => (
-                  <AutoSizer>
-                    {({ width, height }) => (
-                      <List
-                        ref={registerChild}
-                        height={height}
-                        onRowsRendered={onRowsRendered}
-                        rowCount={this.state.items.length}
-                        rowHeight={43}
-                        rowRenderer={this.renderRow}
-                        width={width}
-                      />
-                    )}
-                  </AutoSizer>
-                )}
-              </InfiniteLoader>
-
-              {this.state.loadState === "loading" && (
-                <LoadingPlaceholderOverlaySpinner timeout={2000} />
+          <div className="PageContents WithVirtualizedScrollList">
+            <InfiniteLoader
+              isRowLoaded={this.isRowLoaded}
+              loadMoreRows={this.loadMoreRows}
+              rowCount={Infinity}
+              minimumBatchSize={30}
+            >
+              {({ onRowsRendered, registerChild }) => (
+                <AutoSizer>
+                  {({ width, height }) => (
+                    <List
+                      ref={registerChild}
+                      height={height}
+                      onRowsRendered={onRowsRendered}
+                      rowCount={this.state.items.length}
+                      rowHeight={43}
+                      rowRenderer={this.renderRow}
+                      width={width}
+                      // Prop that forces a re-render via shallow compare when the data source changes.
+                      _={this.state.items}
+                    />
+                  )}
+                </AutoSizer>
               )}
-            </div>
-          )}
+            </InfiniteLoader>
+
+            {this.state.loadState === "loading" && <LoadingPlaceholderOverlaySpinner timeout={2000} />}
+          </div>
+        )}
       </div>
     );
   }
 
-  private handleSearchTermChange = (
-    e: React.SyntheticEvent<HTMLInputElement>
-  ) => {
+  private handleSearchTermChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const query = e.currentTarget.value;
 
     const search = this.makeQuery({
       ...this.getSearchOptions(),
-      query
+      query,
     });
 
     this.props.history.replace(`${this.props.match.path}?${search}`);
   };
 
-  private isRowLoaded = (options: { index: number }) =>
-    this.state.items.length > options.index;
+  private isRowLoaded = (options: { index: number }) => this.state.items.length > options.index;
 
-  private loadMoreRows = async (options: {
-    startIndex: number;
-    stopIndex: number;
-  }) => {
+  private loadMoreRows = async (options: { startIndex: number; stopIndex: number }) => {
     if (this.state.loadState === "loading") {
       return;
     }
@@ -222,12 +209,12 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     const result = await apiWorker.getItems({
       ...this.getSearchOptions(),
       skip: options.startIndex,
-      limit: options.stopIndex - options.startIndex + 1
+      limit: options.stopIndex - options.startIndex + 1,
     });
 
-    this.setState(state => ({
+    this.setState((state) => ({
       items: state.items.concat(result),
-      loadState: "success"
+      loadState: "success",
     }));
   };
 
@@ -239,12 +226,7 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
     const i = this.state.items[options.index];
 
     return (
-      <Link
-        to={`/items/${i._id}`}
-        key={options.key}
-        className="CustomListItem"
-        style={options.style}
-      >
+      <Link to={`/items/${i._id}`} key={options.key} className="CustomListItem" style={options.style}>
         <ItemIcon item={i} />
         &nbsp;
         {i.name}

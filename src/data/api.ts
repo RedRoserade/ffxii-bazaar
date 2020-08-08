@@ -6,6 +6,8 @@ import { waitForRecipeData, waitForItemData } from "./sync";
 import { IGetRecipesOptions, IRecipe, IGetItemsOptions, IItem, IRecipeItem } from "./api-types";
 
 export async function getRecipes(options: IGetRecipesOptions = {}) {
+  console.log("getRecipes", options);
+
   await waitForRecipeData();
 
   const request: PouchDB.Find.FindRequest<IRecipe> = {
@@ -73,6 +75,8 @@ function getItemIdsFromRecipes(recipeList: IRecipe[]) {
 }
 
 export async function getItems(options: IGetItemsOptions = {}) {
+  console.log("getItems", options);
+
   await waitForItemData();
 
   const request: PouchDB.Find.FindRequest<IItem> = {
