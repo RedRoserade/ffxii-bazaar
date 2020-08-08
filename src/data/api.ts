@@ -153,7 +153,8 @@ export async function getItems(options: IGetItemsOptions = {}) {
     });
   }
 
-  request.sort = [{ index: "asc" }];
+  // request.sort = [{ index: "asc" }];
+  // request.use_index = "name-index-id";
 
   const all = await itemsDb.find(request);
 

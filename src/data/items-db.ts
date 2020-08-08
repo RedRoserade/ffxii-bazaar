@@ -20,7 +20,7 @@ export const itemsDb = new PouchDB<IItem>("ffxii_bazaar_items", {
 
 export async function syncItems() {
   try {
-    const structureVersion = 2;
+    const targetStructureVersion = 2;
 
     // Always fetch the latest data.
     const response = await fetch(`${baseUrl}/items.json?_v=${Date.now()}`);
@@ -28,12 +28,15 @@ export async function syncItems() {
     if (!response.ok) {
       throw response;
     }
+
     const data: IJsonData<IItem[]> = await response.json();
 
     await localForage.ready();
 
     const isDataUpToDate = data.version === (await localForage.getItem<number>("items_version"));
-    const isStructureUpToDate = structureVersion === (await localForage.getItem<number>("items_version_structure"));
+
+    const currentStructureVersion = await localForage.getItem<number>("items_version_structure");
+    const isStructureUpToDate = targetStructureVersion === currentStructureVersion;
 
     if (isDataUpToDate && isStructureUpToDate) {
       console.log("[items] Data is up-to date. Version", data.version);
@@ -44,7 +47,13 @@ export async function syncItems() {
       await itemsDb.createIndex({ index: { fields: ["name"] } });
       await itemsDb.createIndex({ index: { fields: ["index"] } });
 
-      await localForage.setItem("items_version_structure", structureVersion);
+      // if (currentStructureVersion < 6) {
+      //   console.log("Adding index for sorted searches");
+      //   // Create an index to ensure that searches for items still work with more complex queries.
+      //   await itemsDb.createIndex({ index: { fields: ["name", "index", "_id"], ddoc: "name-index-id" } });
+      // }
+
+      await localForage.setItem("items_version_structure", targetStructureVersion);
     }
 
     if (!isDataUpToDate) {
