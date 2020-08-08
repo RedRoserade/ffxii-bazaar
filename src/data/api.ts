@@ -155,6 +155,11 @@ export async function getItems(options: IGetItemsOptions = {}) {
     }
 
     request.selector.$and!.push({ _id: { $in: Array.from(itemIds) } });
+  } else {
+    // Fallback to prevent index errors. Same issue as above.
+    request.selector.$and!.push({
+      _id: { $ne: null },
+    });
   }
 
   if (options.query) {
