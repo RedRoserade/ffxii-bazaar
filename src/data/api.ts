@@ -76,7 +76,13 @@ export async function getItems(options: IGetItemsOptions = {}) {
   await waitForItemData();
 
   const request: PouchDB.Find.FindRequest<IItem> = {
-    selector: { $and: [] },
+    selector: {
+      $and: [
+        // Always include index in the query, otherwise queries will fail.
+        // See https://stackoverflow.com/a/33174645
+        { index: { $gte: 0 } },
+      ],
+    },
     skip: options.skip,
     limit: options.limit,
   };
@@ -153,8 +159,8 @@ export async function getItems(options: IGetItemsOptions = {}) {
     });
   }
 
-  // request.sort = [{ index: "asc" }];
-  // request.use_index = "name-index-id";
+  request.sort = [{ index: "asc" }];
+  request.use_index = "name-index-id";
 
   const all = await itemsDb.find(request);
 
