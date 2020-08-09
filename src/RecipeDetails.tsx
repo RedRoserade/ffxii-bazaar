@@ -8,7 +8,7 @@ import { SubHeading } from "./SubHeading";
 import { RecipeItems } from "./RecipeItems";
 import { GilLabel } from "./GilLabel";
 import { BackButton } from "./BackButton";
-import { LoadState } from "./util";
+import { LoadState } from "./typings";
 import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
 import { RecipeSelectToggle } from "./RecipeListWithToggles";
 

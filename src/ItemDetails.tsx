@@ -7,7 +7,7 @@ import { apiWorker } from "./data/api-worker";
 import { SubHeading } from "./SubHeading";
 import { BackButton } from "./BackButton";
 import { GilLabel } from "./GilLabel";
-import { LoadState } from "./util";
+import { LoadState } from "./typings";
 import { LoadingPlaceholder, LoadingSpinner } from "./LoadingPlaceholder";
 import { IRecipe, IItem, INameWithLink } from "./data/api-types";
 import { SelectedRecipesContext } from "./SelectedRecipes";
@@ -109,6 +109,13 @@ class ItemDetails extends React.Component<IItemDetailsProps, IItemDetailsState> 
         </header>
 
         <div className="PageContents">
+          {item.quest_item === true && (
+            <p className="Warning FullWidth">
+              Careful, this item may be necessary to complete one or more quests. Avoid selling this item unless you are
+              sure you no longer need it.
+            </p>
+          )}
+
           <SubHeading>Used in:</SubHeading>
 
           {usedInRecipes.length === 0 ? (

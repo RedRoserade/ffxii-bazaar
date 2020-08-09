@@ -6,7 +6,7 @@ import { IItem, UsageStatus } from "./data/api-types";
 import { ItemIcon } from "./ItemTypeIcon";
 import { debounce } from "lodash-es";
 import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
-import { LoadState } from "./util";
+import { LoadState } from "./typings";
 import { LoadingPlaceholderSpinner, LoadingPlaceholderOverlaySpinner } from "./LoadingPlaceholder";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -227,9 +227,16 @@ class Items extends React.Component<RouteComponentProps<{}>, IItemsState> {
 
     return (
       <Link to={`/items/${i._id}`} key={options.key} className="CustomListItem" style={options.style}>
-        <ItemIcon item={i} />
-        &nbsp;
-        {i.name}
+        <span className="CustomListItemLabel">
+          <ItemIcon item={i} />
+          &nbsp;
+          {i.name}
+        </span>
+        {i.quest_item === true && (
+          <span className="CustomListItemBadge">
+            <FontAwesomeIcon fixedWidth={true} icon="exclamation-triangle" />
+          </span>
+        )}
       </Link>
     );
   };

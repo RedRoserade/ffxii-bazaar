@@ -26,6 +26,7 @@ async def get_loot():
             return json.load(cache_reader)
 
     item_order = _get_item_order()
+    quest_items = _get_quest_items()
 
     log.debug("Reading from url=%r", url)
 
@@ -107,7 +108,7 @@ async def get_loot():
                 'poach': poach,
                 'reward': reward,
                 'description': description,
-
+                'quest_item': name in quest_items,
             }
 
             if index is not None:
@@ -161,6 +162,15 @@ def _get_item_order():
             idx += 1
 
     return order_by_name
+
+
+def _get_quest_items() -> dict:
+    file_path = Path(Path(__file__).parent, 'quest_items.json')
+
+    with file_path.open('r') as file_reader:
+        quest_item_list = json.load(file_reader)
+
+    return {item['name']: item for item in quest_item_list}
 
 
 async def main():

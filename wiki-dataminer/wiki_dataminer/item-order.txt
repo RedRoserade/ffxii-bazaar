@@ -116,7 +116,7 @@ Bone Fragment
 Sturdy Bone
 Blood-darkened Bone
 
-# Lumber?
+Lumber
 Quality Lumber
 
 Solid Stone

@@ -28,6 +28,7 @@ export interface IItem {
   poach: INameWithLink[];
   reward: INameWithLink[];
   index: number;
+  quest_item: boolean;
 }
 
 export interface IRecipeItem {

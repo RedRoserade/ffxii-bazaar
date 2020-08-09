@@ -28,7 +28,8 @@
       }
     ],
     "description": "The strongest material known to exist in nature. Mention of this metal in the oldest records of Ivalice attests to its long-established uses.",
-    "index": 133
+    "quest_item": false,
+    "index": 134
   },
   {
     "id": "agedTurtleShell",
@@ -87,6 +88,7 @@
     ],
     "reward": [],
     "description": "A slightly worn shell. Considered antiques, the value of these pieces varies with the pattern of the cracks and pit-marks on the surface.",
+    "quest_item": false,
     "index": 41
   },
   {
@@ -114,7 +116,8 @@
     ],
     "reward": [],
     "description": "A blessed nectar limned in numinous light. A drop on the tongue causes such exhilaration that all pain and suffering is forgotten.",
-    "index": 145
+    "quest_item": false,
+    "index": 146
   },
   {
     "id": "ancientBone",
@@ -136,7 +139,8 @@
     "poach": [],
     "reward": [],
     "description": "These battle-scarred bones belonged to a race of humanoids who warred in ancient times, though no one knows who they fought, or why.",
-    "index": 129
+    "quest_item": false,
+    "index": 130
   },
   {
     "id": "ancientTurtleShell",
@@ -167,6 +171,7 @@
     ],
     "reward": [],
     "description": "This shell is faded in color, but of remarkable durability and quality. These are prized by artificers for use in all manner of crafts.",
+    "quest_item": false,
     "index": 42
   },
   {
@@ -194,7 +199,8 @@
     ],
     "reward": [],
     "description": "A cold wind swirls in endless circles inside this perfect sphere. Merely touching it with your bare hands sends a penetrating chill through your bones.",
-    "index": 160
+    "quest_item": false,
+    "index": 161
   },
   {
     "id": "aquariusGem",
@@ -249,6 +255,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Aquarius\". Represents the forces of regeneration and regrowth.",
+    "quest_item": false,
     "index": 33
   },
   {
@@ -274,6 +281,7 @@
       }
     ],
     "description": "A jewel containing a creature's soul. Only when its soul is released will the creature find true peace.",
+    "quest_item": false,
     "index": 38
   },
   {
@@ -299,7 +307,8 @@
         "name": "Catoblepas Hunt"
       }
     ],
-    "description": "A slender cylinder with hollow ends, made of raging arctic winds. Gives off a constant chilling aura of magickal potency."
+    "description": "A slender cylinder with hollow ends, made of raging arctic winds. Gives off a constant chilling aura of magickal potency.",
+    "quest_item": false
   },
   {
     "id": "ariesGem",
@@ -453,6 +462,7 @@
     "poach": [],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Aries\". Represents the ideals that live in Man's heart.",
+    "quest_item": false,
     "index": 25
   },
   {
@@ -492,6 +502,7 @@
     ],
     "reward": [],
     "description": "This fang's sharp tip is perfect for rending flesh and sucking blood. Small serrations down the side of the tooth complete the carnage.",
+    "quest_item": false,
     "index": 76
   },
   {
@@ -514,7 +525,8 @@
     ],
     "reward": [],
     "description": "A bat wing covered in gorgeous white fur. Prized for collectors for its outstanding beauty.",
-    "index": 153
+    "quest_item": false,
+    "index": 154
   },
   {
     "id": "battlewyrmCarapace",
@@ -556,6 +568,7 @@
     ],
     "reward": [],
     "description": "A carapace hewn from an aggressive, spiteful wyrm. Somewhat softer than a typical wyrm carapace, but exceedingly light. These areeyeten used by armorers.",
+    "quest_item": false,
     "index": 46
   },
   {
@@ -607,6 +620,7 @@
     ],
     "reward": [],
     "description": "A supple, majestic hide. As they are easily marred, only small sections are suitable for use, making them all the more valuable.",
+    "quest_item": false,
     "index": 59
   },
   {
@@ -632,7 +646,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "Sign by which one knows the true king of the beasts. Towering toward the heavens, the horn seems to challenge the gods themselves."
+    "description": "Sign by which one knows the true king of the beasts. Towering toward the heavens, the horn seems to challenge the gods themselves.",
+    "quest_item": false
   },
   {
     "id": "behemothSteak",
@@ -671,7 +686,8 @@
     ],
     "reward": [],
     "description": "A chewy, invigorating cut of steak, t-bone and all. Best eaten by holding the bone with two hands and gnawing at the meat with great, primitive enthusiasm.",
-    "index": 158
+    "quest_item": false,
+    "index": 159
   },
   {
     "id": "bentStaff",
@@ -693,7 +709,8 @@
     ],
     "reward": [],
     "description": "A staff bent beyond all usefulness. It is like its former bearer's life ended in violence that left him as bent and useless as favorite weapon.",
-    "index": 116
+    "quest_item": false,
+    "index": 117
   },
   {
     "id": "bhujerbanMadhu",
@@ -704,7 +721,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "A local spirit made in the Skycity of Bhujerba. So strong, a single sip is enough to warm a man on even the coldest nights in the clouds."
+    "description": "A local spirit made in the Skycity of Bhujerba. So strong, a single sip is enough to warm a man on even the coldest nights in the clouds.",
+    "quest_item": true
   },
   {
     "id": "blackOrb",
@@ -716,7 +734,8 @@
     "poach": [],
     "reward": [],
     "description": "Very rarely, when a certain creature is slain, the lost life force coalesces into a tiny black orb. Some magickal devices are said to draw on this energy.",
-    "index": 180
+    "quest_item": true,
+    "index": 181
   },
   {
     "id": "bloodWool",
@@ -762,6 +781,7 @@
     "poach": [],
     "reward": [],
     "description": "This wool is of exceedingly high quality, and, as such, is the privilege only of nobles and landed gentry.",
+    "quest_item": false,
     "index": 55
   },
   {
@@ -792,6 +812,7 @@
     ],
     "reward": [],
     "description": "Belonging to one who lived a life stepped in others' blood, this bone is stained black with magicks and beyond purification. Used in magicks and alchemy.",
+    "quest_item": false,
     "index": 87
   },
   {
@@ -814,7 +835,8 @@
     "poach": [],
     "reward": [],
     "description": "A necklace stained black with spattered blood. The dull light it exudes suggests that it was once a piece of surpassing beauty.",
-    "index": 122
+    "quest_item": false,
+    "index": 123
   },
   {
     "id": "bombAshes",
@@ -856,7 +878,8 @@
     "poach": [],
     "reward": [],
     "description": "The remains of a blasted-out bomb. They are still quite volatile and must be handled with care. Some lands require a license for their handling.",
-    "index": 103
+    "quest_item": false,
+    "index": 104
   },
   {
     "id": "bombFragment",
@@ -900,7 +923,8 @@
     ],
     "reward": [],
     "description": "The remains of a detonated bomb. Even now, the pieces smolder and glow.",
-    "index": 154
+    "quest_item": false,
+    "index": 155
   },
   {
     "id": "bombShell",
@@ -967,7 +991,8 @@
     ],
     "reward": [],
     "description": "The remains of a detonated bomb. Still contains fragments of unexploded material. Wiser folks leave these well alone.",
-    "index": 104
+    "quest_item": false,
+    "index": 105
   },
   {
     "id": "boneFragment",
@@ -1030,6 +1055,7 @@
     ],
     "reward": [],
     "description": "This fragment is too small to identify the type of bone it once formed a part of. Some lands prohibit their use outright, others require prior ablution with holy water.",
+    "quest_item": false,
     "index": 85
   },
   {
@@ -1060,7 +1086,8 @@
     "poach": [],
     "reward": [],
     "description": "A time-worn book of tales. The book is popular for the tragic fates that befall all of its characters.",
-    "index": 105
+    "quest_item": false,
+    "index": 106
   },
   {
     "id": "bookOfOrgaincent",
@@ -1082,7 +1109,8 @@
     "poach": [],
     "reward": [],
     "description": "A time-worn book of tales. This book tells the story of a commoner who became a knight. Every child loves the part where the hero single-handedly defeats a great army.",
-    "index": 106
+    "quest_item": false,
+    "index": 107
   },
   {
     "id": "bookOfOrgainmille",
@@ -1133,7 +1161,8 @@
     ],
     "reward": [],
     "description": "A time-worn book of tales. This book charts the course of history, following the births and deaths of hundreds, and the ripples their lives cause throughout the world.",
-    "index": 107
+    "quest_item": false,
+    "index": 108
   },
   {
     "id": "braidWool",
@@ -1192,6 +1221,7 @@
     ],
     "reward": [],
     "description": "Highly absorptive wool, widely used for fashioning garments for everyday wear.",
+    "quest_item": false,
     "index": 53
   },
   {
@@ -1213,7 +1243,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "The haft of this greataxe is broken, and the blade notched. The quantity of dried gore on the shaft suggests that its bearer met with a most unfortunate end."
+    "description": "The haft of this greataxe is broken, and the blade notched. The quantity of dried gore on the shaft suggests that its bearer met with a most unfortunate end.",
+    "quest_item": false
   },
   {
     "id": "brokenSpear",
@@ -1239,7 +1270,8 @@
     ],
     "reward": [],
     "description": "A broken-shafted spear, thrust deep into the ground. Perhaps it marked the grave of its former wielder.",
-    "index": 115
+    "quest_item": false,
+    "index": 116
   },
   {
     "id": "brokenSword",
@@ -1265,7 +1297,8 @@
     ],
     "reward": [],
     "description": "A sword with a jagged break halfway down the blade. One can only imagine what grisly fate its former owner must have met.",
-    "index": 114
+    "quest_item": false,
+    "index": 115
   },
   {
     "id": "bundleOfFeathers",
@@ -1340,6 +1373,7 @@
     ],
     "reward": [],
     "description": "Several feathers tied into a single bunch. These are used for clothing, though the technique for fixing them to fabric requires patience and no little skill.",
+    "quest_item": false,
     "index": 71
   },
   {
@@ -1373,7 +1407,8 @@
         "name": "Patient in the Desert quest (give Dantro's wife the cactus flower)."
       }
     ],
-    "description": "A bundle of 1000 needles. Frustrated merchants and impatient buyers arguing over the precise count of needles in a given bundle is a common market sight."
+    "description": "A bundle of 1000 needles. Frustrated merchants and impatient buyers arguing over the precise count of needles in a given bundle is a common market sight.",
+    "quest_item": false
   },
   {
     "id": "cactusFruit",
@@ -1416,6 +1451,7 @@
     ],
     "reward": [],
     "description": "These dense desert fruits are slightly sweet and surprisingly juicy. Valued as a treat for children.",
+    "quest_item": false,
     "index": 80
   },
   {
@@ -1478,7 +1514,8 @@
       }
     ],
     "reward": [],
-    "description": "A yellow gemstone bearing the name \"Cancer\". Represents the forces of restoration and renewal."
+    "description": "A yellow gemstone bearing the name \"Cancer\". Represents the forces of restoration and renewal.",
+    "quest_item": false
   },
   {
     "id": "capricornGem",
@@ -1605,6 +1642,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Capricorn\". Represents the forces of order and rule.",
+    "quest_item": false,
     "index": 32
   },
   {
@@ -1629,7 +1667,8 @@
         "name": "Lv.80 Balfonheim footrace"
       }
     ],
-    "description": "A viscous sauce sweet enough to cause dizziness. Dilute with water before cooking."
+    "description": "A viscous sauce sweet enough to cause dizziness. Dilute with water before cooking.",
+    "quest_item": false
   },
   {
     "id": "centurioHerosBadge",
@@ -1645,7 +1684,8 @@
       }
     ],
     "description": "Montblanc made this badge to award those whose actions brought glory to the clan. A fine example of skilled moogle handiwork.",
-    "index": 173
+    "quest_item": true,
+    "index": 174
   },
   {
     "id": "chargedGizzard",
@@ -1666,7 +1706,8 @@
       }
     ],
     "reward": [],
-    "description": "A long, stringy object made of a special kind of metal. Holds an electrical charge that can be released at will."
+    "description": "A long, stringy object made of a special kind of metal. Holds an electrical charge that can be released at will.",
+    "quest_item": false
   },
   {
     "id": "chargerBarding",
@@ -1769,6 +1810,7 @@
     ],
     "reward": [],
     "description": "This barding is the perfect balance of lightweight construction and protection. Its iron alloy composition makes it prone to rust if not properly maintained.",
+    "quest_item": false,
     "index": 48
   },
   {
@@ -1791,7 +1833,8 @@
     ],
     "reward": [],
     "description": "This head was chopped off a chimera. Chimera heads are prized as an ingredient in alchemy, and only rarely appear on the open market.",
-    "index": 120
+    "quest_item": false,
+    "index": 121
   },
   {
     "id": "chocoboFeather",
@@ -1862,6 +1905,7 @@
     ],
     "reward": [],
     "description": "A feather the size of a butcher's knife. These are sturdier than they might appear, and suitable for use in armor, though they smell a mite foul.",
+    "quest_item": false,
     "index": 69
   },
   {
@@ -1897,6 +1941,7 @@
     ],
     "reward": [],
     "description": "A fine pelt with fur rising in a distinctive wave-like pattern. Its insulating qualities make it an excellent choice for cold-weather gear.",
+    "quest_item": false,
     "index": 64
   },
   {
@@ -1923,7 +1968,8 @@
       }
     ],
     "reward": [],
-    "description": "Something about this whip-like whisker speaks of intelligence beyond animal cunning. Used in magicks, and also a popular collector's item."
+    "description": "Something about this whip-like whisker speaks of intelligence beyond animal cunning. Used in magicks, and also a popular collector's item.",
+    "quest_item": false
   },
   {
     "id": "commonFish",
@@ -1935,7 +1981,8 @@
     "poach": [],
     "reward": [],
     "description": "A small fish found in the River Nebra. Edible, but not very tasty.",
-    "index": 175
+    "quest_item": true,
+    "index": 176
   },
   {
     "id": "corpseFly",
@@ -1960,7 +2007,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "A livid-hued fly that feeds on the corpses of men. They appear as if by magick wherever there is death, and leave nothing but bleached bones behind."
+    "description": "A livid-hued fly that feeds on the corpses of men. They appear as if by magick wherever there is death, and leave nothing but bleached bones behind.",
+    "quest_item": false
   },
   {
     "id": "crookedFang",
@@ -2019,6 +2067,7 @@
     ],
     "reward": [],
     "description": "This claw-like fang is designed for biting and ripping, though it lacks penetrating force.",
+    "quest_item": false,
     "index": 77
   },
   {
@@ -2058,7 +2107,8 @@
     ],
     "reward": [],
     "description": "This steel bears a unique pattern like the rings of a tree. It is sometimes said that victory in battle is determined by how many soldiers wear this matchless metal.",
-    "index": 135
+    "quest_item": false,
+    "index": 136
   },
   {
     "id": "darkCrystal",
@@ -2321,6 +2371,7 @@
       }
     ],
     "description": "A crystallization of potent dark magicks, said to contain the divine power of the full moon. The source of a leamonde entite's energy.",
+    "quest_item": false,
     "index": 24
   },
   {
@@ -2447,6 +2498,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with dark magicks. Placed in the proper locations, these protect a home from evil spirits.",
+    "quest_item": false,
     "index": 16
   },
   {
@@ -2545,6 +2597,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with a dark power. It looks like an ordinary stone, yet casts and eerily twisted shadow.",
+    "quest_item": false,
     "index": 8
   },
   {
@@ -2575,7 +2628,8 @@
       }
     ],
     "reward": [],
-    "description": "A powder so black it seems to suck in all light and life. Artists have been known to use it in compositions to effect deep, rich shadows."
+    "description": "A powder so black it seems to suck in all light and life. Artists have been known to use it in compositions to effect deep, rich shadows.",
+    "quest_item": false
   },
   {
     "id": "deathshead",
@@ -2602,7 +2656,8 @@
     ],
     "reward": [],
     "description": "The perfectly preserved head of a skeleton, blessed and burned to give the owner's spirit rest. The teeth are known to chatter in the deep watches of the night.",
-    "index": 128
+    "quest_item": false,
+    "index": 129
   },
   {
     "id": "deimosClay",
@@ -2617,7 +2672,8 @@
         "name": "Trickster Hunt"
       }
     ],
-    "description": "Clay used for building gaols, said to imprison not only the flesh and blood, but the soul as well."
+    "description": "Clay used for building gaols, said to imprison not only the flesh and blood, but the soul as well.",
+    "quest_item": false
   },
   {
     "id": "deliciousFish",
@@ -2629,7 +2685,8 @@
     "poach": [],
     "reward": [],
     "description": "A small fish found in the River Nebra. Tastes best fried.",
-    "index": 176
+    "quest_item": true,
+    "index": 177
   },
   {
     "id": "demonDrink",
@@ -2651,7 +2708,8 @@
     ],
     "reward": [],
     "description": "Only demons know the recipe for concocting this heady brew. Many are the lords who have fallen victim to its lure, selling all they have for one more drop.",
-    "index": 150
+    "quest_item": false,
+    "index": 151
   },
   {
     "id": "demonEyeball",
@@ -2706,7 +2764,8 @@
     ],
     "reward": [],
     "description": "A foul, fiendish being's eyeball, reeking of dark magicks. It seems to be watching, searching you for a weakness born of some small misdeed.",
-    "index": 98
+    "quest_item": false,
+    "index": 99
   },
   {
     "id": "demonFeather",
@@ -2745,7 +2804,8 @@
     ],
     "reward": [],
     "description": "A deeply magicked feather, torn from the wing of something genuinely horrible. The feather's magicks aid the finding of air currents for flight.",
-    "index": 99
+    "quest_item": false,
+    "index": 100
   },
   {
     "id": "demonTail",
@@ -2788,7 +2848,8 @@
     ],
     "reward": [],
     "description": "The magicked tail of a demon. It is said that the only true gauge of a demon's temper is its tail, so practiced are they at hiding their evil natures.",
-    "index": 100
+    "quest_item": false,
+    "index": 101
   },
   {
     "id": "demonsSigh",
@@ -2815,7 +2876,8 @@
     ],
     "reward": [],
     "description": "A brooch so exquisite, even demons are said to sigh at its beauty and come to steal it, after which another sigh can be heard: that of the brooch's former owner.",
-    "index": 166
+    "quest_item": false,
+    "index": 167
   },
   {
     "id": "destrierBarding",
@@ -2832,6 +2894,7 @@
     "poach": [],
     "reward": [],
     "description": "A set of equestrian armor meant only to be worn by a knight's steed. Valued more for its style than its substance.",
+    "quest_item": false,
     "index": 47
   },
   {
@@ -2859,7 +2922,8 @@
     ],
     "reward": [],
     "description": "This steel mane covering tapers to a sharp point, designed to impale unwary foes with a fatal lunge. Even those who shun war use these in the casting of magicks.",
-    "index": 123
+    "quest_item": false,
+    "index": 124
   },
   {
     "id": "dewdropPebble",
@@ -2870,7 +2934,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "A small stone in the shape of a drop of dew, formed when water touches the sal-tree of Eruyt Village. The stones come in a variety of colors."
+    "description": "A small stone in the shape of a drop of dew, formed when water touches the sal-tree of Eruyt Village. The stones come in a variety of colors.",
+    "quest_item": true
   },
   {
     "id": "diakonHalcyon",
@@ -2891,7 +2956,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "Brilliant light shines from this alabast jewel engraved with an exquisite depiction of a diakon entite."
+    "description": "Brilliant light shines from this alabast jewel engraved with an exquisite depiction of a diakon entite.",
+    "quest_item": false
   },
   {
     "id": "dorsalFin",
@@ -2921,7 +2987,8 @@
     ],
     "reward": [],
     "description": "These fins graced the back of one of the largest fish in the sea. Considered a delicacy in lands where seafood is an important part of the diet.",
-    "index": 140
+    "quest_item": false,
+    "index": 141
   },
   {
     "id": "drabWool",
@@ -2960,6 +3027,7 @@
     ],
     "reward": [],
     "description": "Unattractive, inexpensive wool, suitable only for stitching in places not like to be seen, lest it cheapen the garment's appearance.",
+    "quest_item": false,
     "index": 52
   },
   {
@@ -3058,6 +3126,7 @@
       }
     ],
     "description": "A crystallization of potent earth magicks, said to contain the divine power of pure logic. The source of a gnoma entite's energy.",
+    "quest_item": false,
     "index": 17
   },
   {
@@ -3208,6 +3277,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with earth magicks. Many plant these in the soil to encourage a rich harvest.",
+    "quest_item": false,
     "index": 9
   },
   {
@@ -3318,6 +3388,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with the power of earth. It looks like an ordinary stone, but is surprisingly heavy.",
+    "quest_item": false,
     "index": 1
   },
   {
@@ -3348,7 +3419,8 @@
       }
     ],
     "description": "This metal contains veins of pure cloudstone, giving it an almost weightless feel. Made into armor, it promises passage into paradise, be it in this life or the next.",
-    "index": 138
+    "quest_item": false,
+    "index": 139
   },
   {
     "id": "electrum",
@@ -3405,7 +3477,8 @@
       }
     ],
     "description": "This whitish, natural allow of silver and gold is sometimes called \"aurargentium\" by alchemists.",
-    "index": 139
+    "quest_item": false,
+    "index": 140
   },
   {
     "id": "emperorScale",
@@ -3438,7 +3511,8 @@
       }
     ],
     "reward": [],
-    "description": "Scale from a primordial wyrm that has lived for centuries. The mere sight of one of these scales strikes fear into the hearts of those upon whom the wyrms prey."
+    "description": "Scale from a primordial wyrm that has lived for centuries. The mere sight of one of these scales strikes fear into the hearts of those upon whom the wyrms prey.",
+    "quest_item": false
   },
   {
     "id": "emptyBottle",
@@ -3450,7 +3524,8 @@
     "poach": [],
     "reward": [],
     "description": "An empty bottle found on the banks of the Nebra. The discarded refuse of a town further upstream.",
-    "index": 174
+    "quest_item": false,
+    "index": 175
   },
   {
     "id": "empyrealSoul",
@@ -3471,7 +3546,8 @@
       }
     ],
     "description": "All the souls of the world are contained in this single sphere. Small enough to fit in a hand, but its power extends beyond the limits of knowledge.",
-    "index": 167
+    "quest_item": false,
+    "index": 168
   },
   {
     "id": "eyeOfTheHawk",
@@ -3498,7 +3574,8 @@
     ],
     "reward": [],
     "description": "Hawks' eyes are specially developed to spot prey from high in the air. Used as an aid to vision in folk medicine, though the effects are questionable.",
-    "index": 143
+    "quest_item": false,
+    "index": 144
   },
   {
     "id": "festeringFlesh",
@@ -3593,7 +3670,8 @@
     ],
     "reward": [],
     "description": "It is difficult to tell what part of what animal is represented by this oozing lump of meat. Used in dark magicks and alchemy.",
-    "index": 109
+    "quest_item": false,
+    "index": 110
   },
   {
     "id": "feystone",
@@ -3791,7 +3869,8 @@
     "poach": [],
     "reward": [],
     "description": "This chunk of stone, filled with the power of nature, gives off a wan light. These stones lend form to elementals and entites.",
-    "index": 112
+    "quest_item": false,
+    "index": 113
   },
   {
     "id": "fineWool",
@@ -3833,6 +3912,7 @@
     ],
     "reward": [],
     "description": "This highly absorptive wool is quite soft, and well-suited to use in bedding. Try a fine wool quilt once and the thought of anything else will give you nightmares.",
+    "quest_item": false,
     "index": 54
   },
   {
@@ -3971,6 +4051,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent fire magicks, said to contain the divine power of creation. The source of a salamand entite's energy.",
+    "quest_item": false,
     "index": 20
   },
   {
@@ -4089,6 +4170,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with fire magicks. Thrown into a flame, its power is said to multiply in the blink of an eye.",
+    "quest_item": false,
     "index": 12
   },
   {
@@ -4211,6 +4293,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with the power of fire. It looks like an ordinary stone, but is faintly warm to the touch.",
+    "quest_item": false,
     "index": 4
   },
   {
@@ -4278,6 +4361,7 @@
       }
     ],
     "description": "The oily surface of this scale gives off a peculiar sheen. Both the scale and its oil are known to find buyers at market.",
+    "quest_item": false,
     "index": 49
   },
   {
@@ -4361,7 +4445,8 @@
     ],
     "reward": [],
     "description": "Any creature of this world foolish enough to consume this flesh is assured an eternity of agonizing pain. Used mainly in high sorcery.",
-    "index": 111
+    "quest_item": false,
+    "index": 112
   },
   {
     "id": "foulFlesh",
@@ -4448,7 +4533,8 @@
       }
     ],
     "description": "Carrion flesh of the kind often eaten by hyenas and their ilk. Used in magicks and alchemy.",
-    "index": 108
+    "quest_item": false,
+    "index": 109
   },
   {
     "id": "foulLiquid",
@@ -4479,7 +4565,8 @@
     ],
     "reward": [],
     "description": "A nasty-smelling froth culled from the maw of a malboro. Dipped in this, the freshest fruit goes rotten in moments. The cause of the malboro's bad breath.",
-    "index": 146
+    "quest_item": false,
+    "index": 147
   },
   {
     "id": "fourleafClover",
@@ -4504,7 +4591,8 @@
       }
     ],
     "reward": [],
-    "description": "A rare sprig of clover with four symmetrical leaves. They say that finding one of these brings good luck."
+    "description": "A rare sprig of clover with four symmetrical leaves. They say that finding one of these brings good luck.",
+    "quest_item": false
   },
   {
     "id": "frogspawn",
@@ -4534,7 +4622,8 @@
       }
     ],
     "description": "A gelatinous sac-like clump of countless tiny frog eggs. Watch closely and, every now and then, you can spy their contents moving.",
-    "index": 156
+    "quest_item": false,
+    "index": 157
   },
   {
     "id": "frogOil",
@@ -4560,7 +4649,8 @@
     ],
     "reward": [],
     "description": "Great amphibians exude this oil from their warty skin. Widely used as an ingredient in salves and ointments.",
-    "index": 157
+    "quest_item": false,
+    "index": 158
   },
   {
     "id": "geminiGem",
@@ -4679,6 +4769,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Gemini\". Said to portend assassination.",
+    "quest_item": false,
     "index": 27
   },
   {
@@ -4700,7 +4791,8 @@
       }
     ],
     "description": "A metal alloy impervious to breakage or blemish. Knowledge of its working was passed down the ages by a guild of jewelers, and it remains their secret.",
-    "index": 169
+    "quest_item": false,
+    "index": 170
   },
   {
     "id": "giantFeather",
@@ -4739,6 +4831,7 @@
     ],
     "reward": [],
     "description": "A feather large enough to conceal a moogle. Quite sturdy, these are used to reinforce all manner of tools and garments. Surprisingly heavy.",
+    "quest_item": false,
     "index": 70
   },
   {
@@ -4765,7 +4858,8 @@
       }
     ],
     "reward": [],
-    "description": "A conical protuberance that gyres and gimbles. Used for making holes in extremely hard objects and wares. A favorite of children everywhere."
+    "description": "A conical protuberance that gyres and gimbles. Used for making holes in extremely hard objects and wares. A favorite of children everywhere.",
+    "quest_item": false
   },
   {
     "id": "glassJewel",
@@ -4832,7 +4926,8 @@
     ],
     "reward": [],
     "description": "A foggy, dull glass bead. It is said that when a soul leaves its mortal frame, its former burdens remain in this world as the crystallized tears of clouds.",
-    "index": 96
+    "quest_item": false,
+    "index": 97
   },
   {
     "id": "gnomaHalcyon",
@@ -4854,6 +4949,7 @@
     "poach": [],
     "reward": [],
     "description": "Renderings of cracked, broken earth adorn this umber jewel engraved with an exquisite depiction of a gnoma entite.",
+    "quest_item": false,
     "index": 35
   },
   {
@@ -4870,7 +4966,8 @@
       }
     ],
     "description": "Badge awarded for slaying the most powerful creature of all time, the great Wyrmgod, Yiazmat. The mark of a true knight of Ivalice.",
-    "index": 171
+    "quest_item": false,
+    "index": 172
   },
   {
     "id": "greatSerpentsFang",
@@ -4897,7 +4994,8 @@
     ],
     "reward": [],
     "description": "These fangs are thought to ward off evil spirits. Some hang them in doorways to keep misfortune from visiting a household.",
-    "index": 127
+    "quest_item": false,
+    "index": 128
   },
   {
     "id": "greatSerpentskin",
@@ -4912,7 +5010,8 @@
         "name": "Nidhogg hunt"
       }
     ],
-    "description": "The molted skin of the great serpent, the nidhogg. A single glance at its gargantuan span is enough to discourage most would-be hunters."
+    "description": "The molted skin of the great serpent, the nidhogg. A single glance at its gargantuan span is enough to discourage most would-be hunters.",
+    "quest_item": true
   },
   {
     "id": "greenLiquid",
@@ -4967,7 +5066,8 @@
     ],
     "reward": [],
     "description": "A thick, virescent, sludgy goop that exudes a truly bile odor.",
-    "index": 93
+    "quest_item": false,
+    "index": 94
   },
   {
     "id": "grimoireAidhed",
@@ -5018,7 +5118,8 @@
     ],
     "reward": [],
     "description": "A musty tome containing the words of a long-forgotten incantation in a language long dead. The diagrams suggest a magick capable of ending life.",
-    "index": 102
+    "quest_item": false,
+    "index": 103
   },
   {
     "id": "grimoireTogail",
@@ -5077,7 +5178,8 @@
     ],
     "reward": [],
     "description": "A musty tome containing the words of a long-forgotten incantation in a language long dead. The diagrams suggest a magick capable of destroying Ivalice.",
-    "index": 101
+    "quest_item": false,
+    "index": 102
   },
   {
     "id": "gysahlGreens",
@@ -5136,7 +5238,8 @@
     ],
     "reward": [],
     "description": "A leafy vegetable favored by chocobos. The taste is slightly bitter, but quite palatable, even for humes. Thought to give chocobos a slight buzz.",
-    "index": 159
+    "quest_item": false,
+    "index": 160
   },
   {
     "id": "hellgatesFlame",
@@ -5167,7 +5270,8 @@
     ],
     "reward": [],
     "description": "A flame painful to look upon. Said to be a looking-glass into the inferno, where tortured souls can be seen writhing in ceaseless agony.",
-    "index": 162
+    "quest_item": false,
+    "index": 163
   },
   {
     "id": "highArcana",
@@ -5259,6 +5363,7 @@
       }
     ],
     "description": "A jewel containing the souls of many creatures. Within can be seen the true forms of creatures rent from their natural fates and bound within.",
+    "quest_item": false,
     "index": 39
   },
   {
@@ -5304,6 +5409,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent holy magicks, said to contain the divine power of the sun. The source of a diakon entite's energy.",
+    "quest_item": false,
     "index": 23
   },
   {
@@ -5338,6 +5444,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with holy magicks. Placed inside burial caskets to grant the dead peaceful repose, and the living peace of mind.",
+    "quest_item": false,
     "index": 15
   },
   {
@@ -5372,6 +5479,7 @@
       }
     ],
     "description": "A stone infused with power most holy. It looks like an ordinary stone, but merely placing it in your hand gives you a feeling of tremendous peace.",
+    "quest_item": false,
     "index": 7
   },
   {
@@ -5387,7 +5495,8 @@
         "name": "Orthros Hunt"
       }
     ],
-    "description": "An ever-burning tongue of flame that consumes all it is fed. At night it grows dark and cold as ice."
+    "description": "An ever-burning tongue of flame that consumes all it is fed. At night it grows dark and cold as ice.",
+    "quest_item": false
   },
   {
     "id": "horn",
@@ -5458,6 +5567,7 @@
     ],
     "reward": [],
     "description": "A spiral horn. While the material of the horn is hard, its hollowness makes it prone to shattering. As such, these horns have lost favor among artificers of late.",
+    "quest_item": false,
     "index": 73
   },
   {
@@ -5516,6 +5626,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent ice magicks, said to contain the divine power of sorcery. The source of a leshach entite's energy.",
+    "quest_item": false,
     "index": 21
   },
   {
@@ -5587,6 +5698,7 @@
     ],
     "reward": [],
     "description": "A stone infused with ice magicks. One of these placed in an icebox is enough to keep foodstuffs frozen for weeks.",
+    "quest_item": false,
     "index": 13
   },
   {
@@ -5625,6 +5737,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with the power of ice. It looks like an ordinary stone, but is oddly cool to the touch.",
+    "quest_item": false,
     "index": 5
   },
   {
@@ -5668,6 +5781,7 @@
     ],
     "reward": [],
     "description": "A scale from a fish as curious as it is fell. These are popular among those who favor their unusual patterning for use in crafts.",
+    "quest_item": false,
     "index": 50
   },
   {
@@ -5719,6 +5833,7 @@
     ],
     "reward": [],
     "description": "A thick insect carapace, hard as gemsteel. Only those from the largest insects have any value, and the price varies with the piece's luster.",
+    "quest_item": false,
     "index": 45
   },
   {
@@ -5774,6 +5889,7 @@
     ],
     "reward": [],
     "description": "Artificers have perfected a technique of extracting and rarefying the mineral content of these hard, iron-rich husks.",
+    "quest_item": false,
     "index": 44
   },
   {
@@ -5849,7 +5965,8 @@
     ],
     "reward": [],
     "description": "A chunk of iron-rich ore. The iron is extracted and purified, though some lands forbid its use in the making of arms and ammunition for warfare.",
-    "index": 92
+    "quest_item": false,
+    "index": 93
   },
   {
     "id": "ironScraps",
@@ -5924,7 +6041,8 @@
     ],
     "reward": [],
     "description": "Discarded scraps of varying shapes and sizes. Great quantities are melted for reuse, but a large amount of impurities makes for low-quality metal.",
-    "index": 91
+    "quest_item": false,
+    "index": 92
   },
   {
     "id": "jackolantern",
@@ -5950,7 +6068,8 @@
       }
     ],
     "reward": [],
-    "description": "This pumpkin has been hollowed out and fashioned into a lantern. Said to be a symbol of sagacity and erudition, and is thus favored by young scholars."
+    "description": "This pumpkin has been hollowed out and fashioned into a lantern. Said to be a symbol of sagacity and erudition, and is thus favored by young scholars.",
+    "quest_item": false
   },
   {
     "id": "jayaStick",
@@ -5961,7 +6080,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "A fragrant stick of jaya wood, said to protect the bearer from evil spirits."
+    "description": "A fragrant stick of jaya wood, said to protect the bearer from evil spirits.",
+    "quest_item": true
   },
   {
     "id": "ketuBoard",
@@ -5987,7 +6107,8 @@
       }
     ],
     "reward": [],
-    "description": "A prayer board bearing the name of an ancient star written in strange glyphs. A divination tool and protective ward from the eastern kingdoms."
+    "description": "A prayer board bearing the name of an ancient star written in strange glyphs. A divination tool and protective ward from the eastern kingdoms.",
+    "quest_item": false
   },
   {
     "id": "largeFeather",
@@ -6074,6 +6195,7 @@
     ],
     "reward": [],
     "description": "A large feather. Its value is judged not only by the beauty of its pattern, but also by its fullness and suitability as a decorative material.",
+    "quest_item": false,
     "index": 68
   },
   {
@@ -6095,7 +6217,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "Eddies of jet black darkness adorn this smoky jewel engraved with an exquisite depiction of a leamonde entite."
+    "description": "Eddies of jet black darkness adorn this smoky jewel engraved with an exquisite depiction of a leamonde entite.",
+    "quest_item": false
   },
   {
     "id": "leoGem",
@@ -6202,6 +6325,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Leo\". Represents wild dreams and unspoken ambitions.",
+    "quest_item": false,
     "index": 28
   },
   {
@@ -6223,7 +6347,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "Dancing chill winds cold enough to freeze time itself adorn this niveous jewel carved with an exquisite engraving of a leshach entite."
+    "description": "Dancing chill winds cold enough to freeze time itself adorn this niveous jewel carved with an exquisite engraving of a leshach entite.",
+    "quest_item": false
   },
   {
     "id": "libraGem",
@@ -6302,6 +6427,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Libra\". Represents success in negotiations.",
+    "quest_item": false,
     "index": 30
   },
   {
@@ -6328,7 +6454,8 @@
     "poach": [],
     "reward": [],
     "description": "The height of this candle's flame varies with the bearer. As long as someone holds it, the flame will never go out, the bearer's life force made manifest.",
-    "index": 161
+    "quest_item": false,
+    "index": 162
   },
   {
     "id": "lumber",
@@ -6358,7 +6485,9 @@
       }
     ],
     "reward": [],
-    "description": "Wood popular with shipwrights, carpenters and builders."
+    "description": "Wood popular with shipwrights, carpenters and builders.",
+    "quest_item": false,
+    "index": 88
   },
   {
     "id": "luShangsBadge",
@@ -6374,7 +6503,8 @@
       }
     ],
     "description": "A badge said to be handed down from the great angler of legend, Lu Shang himself. The mark of a true fisherman of Ivalice.",
-    "index": 172
+    "quest_item": false,
+    "index": 173
   },
   {
     "id": "maggotyFlesh",
@@ -6433,7 +6563,8 @@
     ],
     "reward": [],
     "description": "This lurid, decaying lump is assumed to be maggoty. No one has been able to look at it long enough to know for sure. Used in dark magicks and alchemy.",
-    "index": 110
+    "quest_item": false,
+    "index": 111
   },
   {
     "id": "magickLamp",
@@ -6463,7 +6594,8 @@
       }
     ],
     "reward": [],
-    "description": "A thin wisp of smoke rises from the mouth of this golden lamp. Once used to entrap the souls of demons, bound into service upon their release."
+    "description": "A thin wisp of smoke rises from the mouth of this golden lamp. Once used to entrap the souls of demons, bound into service upon their release.",
+    "quest_item": false
   },
   {
     "id": "malboroFlower",
@@ -6510,6 +6642,7 @@
     ],
     "reward": [],
     "description": "This beautiful yellow flower takes weeks to bloom, lasts a mere day, and wilts before the next dawn. Its cloying scent is chokingly sweet.",
+    "quest_item": false,
     "index": 84
   },
   {
@@ -6557,6 +6690,7 @@
     ],
     "reward": [],
     "description": "This poisonous, rotten-smelling fruit is valued as a source of virulent toxin. If cooked for a very long time, they can be rendered harmless enough to eat, but why bother?",
+    "quest_item": false,
     "index": 83
   },
   {
@@ -6596,6 +6730,7 @@
     ],
     "reward": [],
     "description": "A thin, highly elastic vine. Easily cut, these are excellent for various crafts. Bundles of such vines are a common sight at market.",
+    "quest_item": false,
     "index": 82
   },
   {
@@ -6627,7 +6762,8 @@
       }
     ],
     "description": "This handy tool, called a gavel by some artificers, is said to have once been used to restore order in courtrooms in ancient times.",
-    "index": 118
+    "quest_item": false,
+    "index": 119
   },
   {
     "id": "marduHalcyon",
@@ -6648,7 +6784,8 @@
     ],
     "poach": [],
     "reward": [],
-    "description": "Swirling thunderclouds adorn this cerulean jewel engraved with an exquisite depiction of a mardu entite."
+    "description": "Swirling thunderclouds adorn this cerulean jewel engraved with an exquisite depiction of a mardu entite.",
+    "quest_item": false
   },
   {
     "id": "mirrorScale",
@@ -6675,7 +6812,8 @@
     ],
     "reward": [],
     "description": "Though it resembles thin glass, this scale is anything but fragile. It shines in the dimmest light, glowing brightly even on nights of the new moon.",
-    "index": 131
+    "quest_item": false,
+    "index": 132
   },
   {
     "id": "molting",
@@ -6706,6 +6844,7 @@
     ],
     "reward": [],
     "description": "A brittle skin molted as its former occupant outgrew its compass. Abundant and cheap, there are often ground into powders for various uses.",
+    "quest_item": false,
     "index": 43
   },
   {
@@ -6733,7 +6872,8 @@
     ],
     "reward": [],
     "description": "Each grain of this dust looks like a tiny moon. Legend says that if you shape the dust into a large crescent, it will form a boat to carry you to the moon.",
-    "index": 164
+    "quest_item": false,
+    "index": 165
   },
   {
     "id": "moonRing",
@@ -6754,7 +6894,8 @@
       }
     ],
     "description": "A large metal disc, out of which the shape of a full moon has been carved. Rumored to be a device for the entrapment of spirits, or perhaps a protective charm.",
-    "index": 117
+    "quest_item": false,
+    "index": 118
   },
   {
     "id": "mystletainn",
@@ -6781,7 +6922,8 @@
     ],
     "reward": [],
     "description": "This oddly organic metal seems to grow and change shape, though it hardens when tempered in the purest of holy waters.",
-    "index": 137
+    "quest_item": false,
+    "index": 138
   },
   {
     "id": "mythril",
@@ -6811,7 +6953,8 @@
       }
     ],
     "description": "This type of silver is laced with strong magicks, making it resistant to fire and the ill will of foes. A common material in quality arms and armor.",
-    "index": 132
+    "quest_item": false,
+    "index": 133
   },
   {
     "id": "nebralim",
@@ -6822,7 +6965,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "A traditional salve used by the peoples living in the valley of the River Nebra. Effective on cuts, burns, and even bruises."
+    "description": "A traditional salve used by the peoples living in the valley of the River Nebra. Effective on cuts, burns, and even bruises.",
+    "quest_item": true
   },
   {
     "id": "nebraSucculent",
@@ -6834,7 +6978,8 @@
     "poach": [],
     "reward": [],
     "description": "A small fish found in the River Nebra. Best eaten fresh and raw, right after catching. A delicacy popular in Rabanastre markets.",
-    "index": 177
+    "quest_item": true,
+    "index": 178
   },
   {
     "id": "omegaBadge",
@@ -6851,7 +6996,8 @@
     "poach": [],
     "reward": [],
     "description": "Badge awarded for felling the legendary weapon, the Omega Mark XII, the sign of a true hero of Ivalice.",
-    "index": 170
+    "quest_item": false,
+    "index": 171
   },
   {
     "id": "onion",
@@ -6877,7 +7023,8 @@
       }
     ],
     "reward": [],
-    "description": "The onion: a humble bulb that, with the proper spices and seasonings, can change the world."
+    "description": "The onion: a humble bulb that, with the proper spices and seasonings, can change the world.",
+    "quest_item": false
   },
   {
     "id": "orichalcum",
@@ -6904,7 +7051,8 @@
     ],
     "reward": [],
     "description": "This mysterious metal seems to waver and shine like a flame. Some believe it does not even truly exist, that it is the mere idea of the metal which lends protection.",
-    "index": 136
+    "quest_item": false,
+    "index": 137
   },
   {
     "id": "pebble",
@@ -7191,7 +7339,8 @@
     ],
     "reward": [],
     "description": "A common, featureless stone with a pleasing color and shape; the kind treasured by small children.",
-    "index": 113
+    "quest_item": false,
+    "index": 114
   },
   {
     "id": "phobosGlaze",
@@ -7206,7 +7355,8 @@
         "name": "Gil Snapper Hunt"
       }
     ],
-    "description": "A legendary pottery glaze, known only in the eastern kingdoms. Said to instantly and eternally fix the form of any creation to which is applied."
+    "description": "A legendary pottery glaze, known only in the eastern kingdoms. Said to instantly and eternally fix the form of any creation to which is applied.",
+    "quest_item": false
   },
   {
     "id": "pinewoodChop",
@@ -7218,7 +7368,8 @@
     "poach": [],
     "reward": [],
     "description": "A simple, carved tablet inlaid with silver. It is a mark of status held by ardents in the Imperial City of Archades.",
-    "index": 178
+    "quest_item": true,
+    "index": 179
   },
   {
     "id": "piscesGem",
@@ -7268,7 +7419,8 @@
       }
     ],
     "reward": [],
-    "description": "A yellow gemstone bearing the name \"Pisces\". Represents the tangled weave of fate."
+    "description": "A yellow gemstone bearing the name \"Pisces\". Represents the tangled weave of fate.",
+    "quest_item": false
   },
   {
     "id": "pointedHorn",
@@ -7319,6 +7471,7 @@
     ],
     "reward": [],
     "description": "A sharply pointed horn which is completely hollow, save for its tip. Often only the top few fingers are used for crafting.",
+    "quest_item": false,
     "index": 74
   },
   {
@@ -7378,6 +7531,7 @@
     ],
     "reward": [],
     "description": "A thick pelt, luxuriant in its softness and warmth. The sheen of its fur screams quality. One look is all it takes to steal the heart of any seamstress.",
+    "quest_item": false,
     "index": 66
   },
   {
@@ -7433,6 +7587,7 @@
     ],
     "reward": [],
     "description": "A high-quality tanned hide, used in making clothing, bags, and all manner of useful goods.",
+    "quest_item": false,
     "index": 62
   },
   {
@@ -7472,7 +7627,8 @@
       }
     ],
     "description": "A liquid so rank, few dare handle it. A single whiff has been known to render men unconscious, and wake the dead from their sleep.",
-    "index": 147
+    "quest_item": false,
+    "index": 148
   },
   {
     "id": "qualityHide",
@@ -7527,6 +7683,7 @@
     ],
     "reward": [],
     "description": "A hide with just the right combination of pliability and strength. Its pleasing hue only improves with use, making it suitable for crafting quality articles.",
+    "quest_item": false,
     "index": 58
   },
   {
@@ -7558,7 +7715,8 @@
     ],
     "reward": [],
     "description": "Long years in the primordial forests have infused the fibers of this lumber with Mist. Perfect for use in the crafting of fine furnishings and magick staves.",
-    "index": 88
+    "quest_item": false,
+    "index": 89
   },
   {
     "id": "qualityPelt",
@@ -7645,6 +7803,7 @@
     ],
     "reward": [],
     "description": "Soft fur covers the surface of this fine pelt. Clothing made from one of these is a luxury item coveted by nobles and adventurers alike.",
+    "quest_item": false,
     "index": 65
   },
   {
@@ -7692,7 +7851,8 @@
     ],
     "reward": [],
     "description": "These stones are chosen for their coloration as well as their usefulness as building materials. Used in construction of prominent buildings and temples.",
-    "index": 90
+    "quest_item": false,
+    "index": 91
   },
   {
     "id": "ratPelt",
@@ -7730,7 +7890,8 @@
       }
     ],
     "reward": [],
-    "description": "An easily torn, yet very pliable small pelt. These suited to a variety of uses, but fetch a low price due to their availability."
+    "description": "An easily torn, yet very pliable small pelt. These suited to a variety of uses, but fetch a low price due to their availability.",
+    "quest_item": false
   },
   {
     "id": "ratTail",
@@ -7755,7 +7916,8 @@
       }
     ],
     "reward": [],
-    "description": "A common alchemical ingredient. Rumored to be quite tasty when properly prepared."
+    "description": "A common alchemical ingredient. Rumored to be quite tasty when properly prepared.",
+    "quest_item": false
   },
   {
     "id": "rainbowEgg",
@@ -7786,7 +7948,8 @@
       }
     ],
     "description": "A large egg that scintillates with the colors of the rainbow as you walk around it. Used for decoration, cooking and as a reagent in medicine-making.",
-    "index": 165
+    "quest_item": false,
+    "index": 166
   },
   {
     "id": "ringWyrmLiver",
@@ -7813,7 +7976,8 @@
     ],
     "reward": [],
     "description": "A steaming ring wyrm liver. A recipe exists to turn one of these into a potent cure-all.",
-    "index": 142
+    "quest_item": false,
+    "index": 143
   },
   {
     "id": "ringWyrmScale",
@@ -7860,6 +8024,7 @@
     ],
     "reward": [],
     "description": "This impervious scale stands as proof of the mighty ring wyrm's existence. Few blades exists that can mark it, though many are the smiths, who have tried to make one that can.",
+    "quest_item": false,
     "index": 51
   },
   {
@@ -7898,6 +8063,7 @@
     "poach": [],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Sagittarius\". Represents the iron law of truth.",
+    "quest_item": false,
     "index": 31
   },
   {
@@ -7920,6 +8086,7 @@
     "poach": [],
     "reward": [],
     "description": "Searing flames adorn this fiery jewel engraved with an exquisite depiction of a salamand entite.",
+    "quest_item": false,
     "index": 34
   },
   {
@@ -7932,7 +8099,8 @@
     "poach": [],
     "reward": [],
     "description": "An elegantly carved tablet inlaid with gold. It is a mark of status held by gentry in the Imperial City of Archades.",
-    "index": 179
+    "quest_item": true,
+    "index": 180
   },
   {
     "id": "scarletite",
@@ -7967,7 +8135,8 @@
       }
     ],
     "description": "A legendary metal said to bestow divine protection. The product of a lost age, none now live who know the manner of its manufacting.",
-    "index": 134
+    "quest_item": false,
+    "index": 135
   },
   {
     "id": "scorpioGem",
@@ -8069,7 +8238,8 @@
       }
     ],
     "reward": [],
-    "description": "A yellow gemstone bearing the name \"Scorpio\". Foretells the fruition of long-held plans."
+    "description": "A yellow gemstone bearing the name \"Scorpio\". Foretells the fruition of long-held plans.",
+    "quest_item": false
   },
   {
     "id": "screamroot",
@@ -8155,7 +8325,8 @@
       }
     ],
     "reward": [],
-    "description": "As their name suggests, these roots give off a horrible ear-piercing scream when yanked from their earthly beds, giving unwary foragers the fright of their lives."
+    "description": "As their name suggests, these roots give off a horrible ear-piercing scream when yanked from their earthly beds, giving unwary foragers the fright of their lives.",
+    "quest_item": false
   },
   {
     "id": "semclamShell",
@@ -8166,7 +8337,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "Shell from a mollusk found in the River Nebra. Pulverized into a powder and taken as an alleviator of distress."
+    "description": "Shell from a mollusk found in the River Nebra. Pulverized into a powder and taken as an alleviator of distress.",
+    "quest_item": true
   },
   {
     "id": "serpentEye",
@@ -8201,7 +8373,8 @@
       }
     ],
     "description": "An eye with the power to freeze prey in its tracks with fear. In antiquity it was said they could even turn flesh to stone, though that ability has since been lost.",
-    "index": 144
+    "quest_item": false,
+    "index": 145
   },
   {
     "id": "serpentarius",
@@ -8222,7 +8395,8 @@
       }
     ],
     "description": "A gemstone bearing the name \"Serpentarius\". Said to portend great destruction and undoing.",
-    "index": 168
+    "quest_item": false,
+    "index": 169
   },
   {
     "id": "sickleblade",
@@ -8253,7 +8427,8 @@
       }
     ],
     "description": "An incredibly thin blade, translucent as a moonbeam. So sharp, a man might be beheaded without knowing it until a gust of wind came to finish the task.",
-    "index": 163
+    "quest_item": false,
+    "index": 164
   },
   {
     "id": "silverLiquid",
@@ -8288,7 +8463,8 @@
     ],
     "reward": [],
     "description": "An ever-frothing, sulfurous liquid corrosive enough to melt metal into a plume of oily smoke. Exposure to air causes its distinctive coloration to fade.",
-    "index": 95
+    "quest_item": false,
+    "index": 96
   },
   {
     "id": "skyJewel",
@@ -8359,7 +8535,8 @@
     ],
     "reward": [],
     "description": "A translucent bead, thought to be the product of heavenly power. When a soul reaches heaven, it is said that the body left behind is transformed into one of these jewels.",
-    "index": 97
+    "quest_item": false,
+    "index": 98
   },
   {
     "id": "slavenHarness",
@@ -8390,7 +8567,8 @@
     ],
     "reward": [],
     "description": "A leather harness used on slaven. Blood and tufts of fur stuck to the harness attest to the heavy loads the slaven must bear.",
-    "index": 121
+    "quest_item": false,
+    "index": 122
   },
   {
     "id": "slimeOil",
@@ -8426,7 +8604,8 @@
       }
     ],
     "description": "A translucent, odorless oil. Becomes viscous and soupy when mixed with water. Valued as an ingredient in several medicines.",
-    "index": 148
+    "quest_item": false,
+    "index": 149
   },
   {
     "id": "smallFeather",
@@ -8485,6 +8664,7 @@
     ],
     "reward": [],
     "description": "A feather small enough to fit in one's palm. The perfect accent to a hat, accessory or other garment.",
+    "quest_item": false,
     "index": 67
   },
   {
@@ -8496,7 +8676,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "Package received from a bangaa merchant who wants it deliver to an associate at Eastgate."
+    "description": "Package received from a bangaa merchant who wants it deliver to an associate at Eastgate.",
+    "quest_item": true
   },
   {
     "id": "snakeSkin",
@@ -8531,6 +8712,7 @@
     ],
     "reward": [],
     "description": "A pliable skin that wears well. Garments made of snake skin last longer than those fashioned from inferior materials, though some dislike its eerie luster.",
+    "quest_item": false,
     "index": 56
   },
   {
@@ -8556,7 +8738,8 @@
       }
     ],
     "reward": [],
-    "description": "A small, buzzing fly. Those who listen to the sound of their wings overlong are said to suffer bouts of disorientation and confusion."
+    "description": "A small, buzzing fly. Those who listen to the sound of their wings overlong are said to suffer bouts of disorientation and confusion.",
+    "quest_item": false
   },
   {
     "id": "solidHorn",
@@ -8607,6 +8790,7 @@
     ],
     "reward": [],
     "description": "A solid core makes this highly prized for crafting. The larger the horn, the greater the price it fetches, though the heaviest can be hard to carry home.",
+    "quest_item": false,
     "index": 75
   },
   {
@@ -8662,7 +8846,8 @@
     ],
     "reward": [],
     "description": "A rough-hewn block of ore-veined stone. A ready supply of these stones has led to recent advancements in masonry... and some sturdy buildings.",
-    "index": 89
+    "quest_item": false,
+    "index": 90
   },
   {
     "id": "soulOfThamasa",
@@ -8688,7 +8873,8 @@
       }
     ],
     "description": "A coalescence of goodwill found buried deep inside a corrupt and evil heart. It glistens like an uncut gemstone.",
-    "index": 125
+    "quest_item": false,
+    "index": 126
   },
   {
     "id": "soulPowder",
@@ -8718,7 +8904,8 @@
       }
     ],
     "description": "The physical manifestation of a soul's lingering scent. Some bathe in this powder, believing the traces of soul within will draw off their ill fortunes.",
-    "index": 151
+    "quest_item": false,
+    "index": 152
   },
   {
     "id": "spiralIncisor",
@@ -8773,6 +8960,7 @@
     ],
     "reward": [],
     "description": "A large, spiral fang, possessing considerable penetrating force - enough to pierce rock and even the hardest ore.",
+    "quest_item": false,
     "index": 78
   },
   {
@@ -8799,7 +8987,8 @@
       }
     ],
     "reward": [],
-    "description": "This armor was sundered and broken in combat. Whoever wore it was surely brave, and is now just as surely dead."
+    "description": "This armor was sundered and broken in combat. Whoever wore it was surely brave, and is now just as surely dead.",
+    "quest_item": false
   },
   {
     "id": "stardust",
@@ -8825,7 +9014,8 @@
       }
     ],
     "reward": [],
-    "description": "A fine dust that glitters like stars in the night sky. Some natural philosophers believe the dust to have actually blown down to us from the stars themselves."
+    "description": "A fine dust that glitters like stars in the night sky. Some natural philosophers believe the dust to have actually blown down to us from the stars themselves.",
+    "quest_item": false
   },
   {
     "id": "stormCrystal",
@@ -8934,6 +9124,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent lightning magicks, said to contain the divine power of destruction. The source of a mardu entite's energy.",
+    "quest_item": false,
     "index": 22
   },
   {
@@ -9064,6 +9255,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with lightning magicks. When shaken, these stones release an electrical charge sufficient to power a small airship.",
+    "quest_item": false,
     "index": 14
   },
   {
@@ -9123,6 +9315,7 @@
     ],
     "reward": [],
     "description": "A stone infused with the power of lightning. It looks like an ordinary stone, but tingles to the touch.",
+    "quest_item": false,
     "index": 6
   },
   {
@@ -9174,6 +9367,7 @@
     ],
     "reward": [],
     "description": "A solid, well-preserved bone. Its natural strength makes it perfect for numerous applications, though a purification ceremony is often required.",
+    "quest_item": false,
     "index": 86
   },
   {
@@ -9249,6 +9443,7 @@
     ],
     "reward": [],
     "description": "These fruits are rather bitter when raw, but, when properly cooked, they become a delectable, mouth-wateringly sweet treat.",
+    "quest_item": false,
     "index": 81
   },
   {
@@ -9271,6 +9466,7 @@
     "poach": [],
     "reward": [],
     "description": "A wind of terrible destructive power adorns this azure jewel engraved with an exquisite depiction of a sylphi entite.",
+    "quest_item": false,
     "index": 37
   },
   {
@@ -9338,6 +9534,7 @@
     ],
     "reward": [],
     "description": "The tanned skin of a member of the race of giants. While of low quality, the feel of a giantskin garment cannot be matched. Neither, however can the stench.",
+    "quest_item": false,
     "index": 61
   },
   {
@@ -9425,6 +9622,7 @@
     ],
     "reward": [],
     "description": "A basic material in the fashioning of leather goods. The tanning process makes these hides softer and far more useful than raw hides.",
+    "quest_item": false,
     "index": 60
   },
   {
@@ -9455,7 +9653,8 @@
       }
     ],
     "reward": [],
-    "description": "The tanned hide of a tyrant lizard. Highly elastic, but easily damaged by moisture."
+    "description": "The tanned hide of a tyrant lizard. Highly elastic, but easily damaged by moisture.",
+    "quest_item": false
   },
   {
     "id": "tatteredGarment",
@@ -9482,7 +9681,8 @@
     ],
     "reward": [],
     "description": "This tattered and torn garment bears a chilling number of bloody puncture marks. Prayers for its former owner's well-being would doubtless be wasted.",
-    "index": 119
+    "quest_item": false,
+    "index": 120
   },
   {
     "id": "taurusGem",
@@ -9605,6 +9805,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Taurus\". Portends conspiracy and dark rumor.",
+    "quest_item": false,
     "index": 26
   },
   {
@@ -9695,6 +9896,7 @@
       }
     ],
     "description": "A stone allowing instantaneous transport between two gate crystals.",
+    "quest_item": false,
     "index": 0
   },
   {
@@ -9734,7 +9936,8 @@
     ],
     "reward": [],
     "description": "The fresh blood of a wolf that died from starvation, called a throat wolf after the horrible gurgling noise it is said to make when it expires. A rare find.",
-    "index": 155
+    "quest_item": false,
+    "index": 156
   },
   {
     "id": "tomatoStalk",
@@ -9760,7 +9963,8 @@
       }
     ],
     "reward": [],
-    "description": "Tomato stalks, when chewed, are said to produce drowsiness and listlessness. Adventurers and knife throwers be warned!"
+    "description": "Tomato stalks, when chewed, are said to produce drowsiness and listlessness. Adventurers and knife throwers be warned!",
+    "quest_item": false
   },
   {
     "id": "turtleShell",
@@ -9803,6 +10007,7 @@
       }
     ],
     "description": "A tough shell. These are often used to craft crockery, armor, and other items of daily convenience.",
+    "quest_item": false,
     "index": 40
   },
   {
@@ -9833,7 +10038,8 @@
       }
     ],
     "reward": [],
-    "description": "This bone is as hard as iron. Struck against a metal object, it produces a pleasing tone."
+    "description": "This bone is as hard as iron. Struck against a metal object, it produces a pleasing tone.",
+    "quest_item": false
   },
   {
     "id": "tyrantHide",
@@ -9876,6 +10082,7 @@
     ],
     "reward": [],
     "description": "A tough hide, difficult to work with common tools. Sturdy armor can be made from strips of this material, though such armor is grindingly cumbersome.",
+    "quest_item": false,
     "index": 57
   },
   {
@@ -9898,6 +10105,7 @@
     "poach": [],
     "reward": [],
     "description": "A great torrent, threatening to consume all, adorns this watery jewel engraved with an exquisite depiction of an undin entite.",
+    "quest_item": false,
     "index": 36
   },
   {
@@ -9928,7 +10136,8 @@
       }
     ],
     "description": "This liquid is lighter than air itself. Look at it from different angles and it changes hue from a scintillating crimson to a glowing azure.",
-    "index": 149
+    "quest_item": false,
+    "index": 150
   },
   {
     "id": "valeblossomDew",
@@ -9939,7 +10148,8 @@
     "steal": [],
     "poach": [],
     "reward": [],
-    "description": "Dew harvested from a rare flower found only in the vales and defiles of the Dalmasca Estersand. Has the property of drawing out venom from poisoned wounds."
+    "description": "Dew harvested from a rare flower found only in the vales and defiles of the Dalmasca Estersand. Has the property of drawing out venom from poisoned wounds.",
+    "quest_item": true
   },
   {
     "id": "vampyrFang",
@@ -9974,7 +10184,8 @@
       }
     ],
     "description": "This fang is riddled with holes so small they cannot be seen by the naked eye, connecting to vein-like tubes running up the fang that pulse red when drawing blood.",
-    "index": 126
+    "quest_item": false,
+    "index": 127
   },
   {
     "id": "virgoGem",
@@ -10081,6 +10292,7 @@
     ],
     "reward": [],
     "description": "A yellow gemstone bearing the name \"Virgo\". Said to portend reincarnation.",
+    "quest_item": false,
     "index": 29
   },
   {
@@ -10108,7 +10320,8 @@
     ],
     "reward": [],
     "description": "A strikingly simple but skillfully crafted accessory. Several of these bands may be linked together to form a chain.",
-    "index": 124
+    "quest_item": false,
+    "index": 125
   },
   {
     "id": "waterCrystal",
@@ -10174,6 +10387,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent water magicks, said to contain the divine power of regeneration. The source of an undin entite's energy.",
+    "quest_item": false,
     "index": 19
   },
   {
@@ -10260,6 +10474,7 @@
       }
     ],
     "description": "A stone infused with water magicks. It is said one of these thrown into a brackish or foul pond will make it sweet as spring water.",
+    "quest_item": false,
     "index": 11
   },
   {
@@ -10354,6 +10569,7 @@
       }
     ],
     "description": "A stone infused with the power of water. It looks like an ordinary stone, but gushes water when sundered.",
+    "quest_item": false,
     "index": 3
   },
   {
@@ -10379,7 +10595,8 @@
       }
     ],
     "reward": [],
-    "description": "Shining powder gleaned from brilliantly glowing wings. Gives off a sublime, uplifting scent when burned, which is said to keep evil at bay."
+    "description": "Shining powder gleaned from brilliantly glowing wings. Gives off a sublime, uplifting scent when burned, which is said to keep evil at bay.",
+    "quest_item": false
   },
   {
     "id": "windCrystal",
@@ -10461,6 +10678,7 @@
     "poach": [],
     "reward": [],
     "description": "A crystallization of potent wind magicks, said to contain the divine power of protection. The source of an sylphi entite's energy.",
+    "quest_item": false,
     "index": 18
   },
   {
@@ -10576,6 +10794,7 @@
     ],
     "reward": [],
     "description": "A stone infused with wind magicks. Travelers carry these as charms to ensure safe passage with the wind at their backs.",
+    "quest_item": false,
     "index": 10
   },
   {
@@ -10658,6 +10877,7 @@
     "poach": [],
     "reward": [],
     "description": "A stone infused with the power of wind. It looks like an ordinary stone, but put it to your ear and you may hear the wind blowing.",
+    "quest_item": false,
     "index": 2
   },
   {
@@ -10709,6 +10929,7 @@
     ],
     "reward": [],
     "description": "This feather, resembling a finely honed blade, makes a slicing sound when swung through the air. Grown seeq have been known to weep at its suppleness.",
+    "quest_item": false,
     "index": 72
   },
   {
@@ -10784,6 +11005,7 @@
     ],
     "reward": [],
     "description": "This pelt is notable for its short, delicate hair that sheds heat and wears well in the sun. A popular clothing material in warmer climes.",
+    "quest_item": false,
     "index": 63
   },
   {
@@ -10810,7 +11032,8 @@
       }
     ],
     "reward": [],
-    "description": "A strange object containing a sphere wrapped in thin metallic wire. Capable of holding an electrical charge indefinitely."
+    "description": "A strange object containing a sphere wrapped in thin metallic wire. Capable of holding an electrical charge indefinitely.",
+    "quest_item": false
   },
   {
     "id": "wyrmBone",
@@ -10836,7 +11059,8 @@
     "poach": [],
     "reward": [],
     "description": "Bone from a slain wyrm. The powerful magicks encircling the bone are visible to the naked eye. Used in alchemy.",
-    "index": 130
+    "quest_item": false,
+    "index": 131
   },
   {
     "id": "wyrmCarapace",
@@ -10890,7 +11114,8 @@
       }
     ],
     "reward": [],
-    "description": "A thick dragon-hide, like a sheath of iron. Countless are the blades that failed to pass its test and now lie sundered beneath the bleached bones of their owners."
+    "description": "A thick dragon-hide, like a sheath of iron. Countless are the blades that failed to pass its test and now lie sundered beneath the bleached bones of their owners.",
+    "quest_item": false
   },
   {
     "id": "wyvernFang",
@@ -10921,6 +11146,7 @@
     ],
     "reward": [],
     "description": "A cruel fang, worthy of the mighty maw within which it once stood. These evolved not only to deliver crushing bites but also to withstand the wyvern's deadly breath.",
+    "quest_item": false,
     "index": 79
   },
   {
@@ -10951,7 +11177,8 @@
       }
     ],
     "reward": [],
-    "description": "A giant wing from a great wyrm. Shaped like a bow to catch the wind and support the wyrm's massive bulk–a design copied by the first airship wrights."
+    "description": "A giant wing from a great wyrm. Shaped like a bow to catch the wind and support the wyrm's massive bulk–a design copied by the first airship wrights.",
+    "quest_item": false
   },
   {
     "id": "yellowLiquid",
@@ -11005,7 +11232,8 @@
     ],
     "reward": [],
     "description": "An ever-frothing, sulfurous liquid corrosive enough to melt metal into a plume of oily smoke. Exposure to air causes its distinctive coloration to fade.",
-    "index": 94
+    "quest_item": false,
+    "index": 95
   },
   {
     "id": "yensaFin",
@@ -11044,7 +11272,8 @@
     ],
     "reward": [],
     "description": "A fin designed to cut through seas of sand. Extremely tough, and must be finely chopped for cooking. Used as a \"secret ingredient\" in any number of dishes.",
-    "index": 141
+    "quest_item": false,
+    "index": 142
   },
   {
     "id": "yensaScale",
@@ -11090,7 +11319,8 @@
       }
     ],
     "reward": [],
-    "description": "Tiny pores in these scales allow them to breathe, preventing excessive moisture loss while still offering excellent protection against desert heat."
+    "description": "Tiny pores in these scales allow them to breathe, preventing excessive moisture loss while still offering excellent protection against desert heat.",
+    "quest_item": false
   },
   {
     "id": "zombiePowder",
@@ -11112,6 +11342,7 @@
     "poach": [],
     "reward": [],
     "description": "Vital ingredient for making the secret elixir that causes zombification. Use on humes and their ilk is a crime due to its mentally debilitating effects.",
-    "index": 152
+    "quest_item": false,
+    "index": 153
   }
 ]

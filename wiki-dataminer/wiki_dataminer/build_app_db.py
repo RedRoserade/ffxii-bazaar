@@ -13,7 +13,7 @@ from wiki_dataminer.weapons import get_weapons
 
 
 class AppDb:
-    VERSION = 12
+    VERSION = 15
 
     def __init__(self, indent=0):
         self.items = []
@@ -117,6 +117,7 @@ class AppDb:
                 'poach': i.get('poach', []),
                 'reward': i.get('reward', []),
                 'index': i.get('index', 1000),  # Deliberately bump items down that don't have an index.
+                'quest_item': i.get('quest_item', False),
             }
 
         # Unconditionally add the loot.

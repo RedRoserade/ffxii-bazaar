@@ -6,6 +6,7 @@ import {
   faCheck,
   faSpinner,
   faSlidersH,
+  faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronLeft, faDatabase, faRecycle, faCheck, faSpinner, faSlidersH);
+library.add(faChevronLeft, faDatabase, faRecycle, faCheck, faSpinner, faSlidersH, faExclamationTriangle);

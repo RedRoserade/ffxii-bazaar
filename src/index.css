@@ -63,6 +63,14 @@ h6 {
   margin-top: 10px;
 }
 
+.Warning {
+  padding: 15px;
+  background-color: rgb(241, 230, 167);
+  border: 1px solid rgb(231, 200, 22);
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
 .FullWidth {
   margin-left: -15px;
   margin-right: -15px;

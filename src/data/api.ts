@@ -132,7 +132,7 @@ export async function getItems(options: IGetItemsOptions = {}) {
         // Done by querying the db for all the items,
         // and then crossing each item with the recipes above.
 
-        const allItemIdsResult = await itemsDb.find({ selector: { type: "loot" }, fields: ["_id"] });
+        const allItemIdsResult = await itemsDb.find({ selector: { type: "loot", quest_item: false }, fields: ["_id"] });
         const allItemIds = new Set(allItemIdsResult.docs.map((d) => d._id));
 
         for (const itemId of allItemIds) {
