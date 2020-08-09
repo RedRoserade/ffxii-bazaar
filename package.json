@@ -1,6 +1,6 @@
 {
   "name": "ffxii-bazaar",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
